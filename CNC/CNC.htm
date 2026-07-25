@@ -1,0 +1,160 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta http-equiv="Content-Type"
+content="text/html; charset=iso-8859-1">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<meta name="Free CNC programming editor"
+content="Free download CNC programming editor">
+<meta name="keywords"
+content="CNC, GM code, programming, computer numerical control, profiling, model building ">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<title>WWF: CNC Editor</title>
+<link rel="stylesheet" type="text/css" href="/css/standard.css">
+</head>
+
+<body>
+<script language="javascript" type="text/javascript"
+src="/jsmenu/sniffer.js">
+//Top Navigational Bar III v3.4.1.1b (By BrotherCake @ cake@brothercake.net)
+//Permission granted to include script by http://www.dynamicdrive.com/
+//This notice MUST stay intact for legal use
+</script><script
+language="javascript1.2" type="text/javascript"
+src="/jsmenu/custom2.js"></script><script
+language="javascript1.2" type="text/javascript"
+src="/jsmenu/style.js"></script><script language="javascript1.2"
+type="text/javascript" src="/jsmenu/menu.js"></script>
+
+<h1>CNC Composer</h1>
+
+<p class="author">Copyright Tim Lovett Feb 2006 | <a
+href="../../default.htm">Home</a> | <a
+href="../../jsmenu/full_menu.htm">Menu</a></p>
+
+<h2>Design it yourself...</h2>
+
+<blockquote>
+    <p>Here's a CNC editor I wrote in VisualBasic. I developed it as a teaching
+    tool for GM coding, but it has turned out to be rather handy for profiling
+    jobs using geometrical shapes.&nbsp; (MS Windows).&nbsp;</p>
+</blockquote>
+
+<hr>
+
+<p>Download latest version here. <a href="CNCComposer.exe">CNCComposer.exe</a>&nbsp;
+(or&nbsp; <a href="CNCComposer.zip">CNCComposer.zip</a>&nbsp;if your computer
+blocks exe files) </p>
+
+<p><img border="0" src="Composer01.jpg"> </p>
+
+<p><b>Lines:</b> Lines are defined by entering the endpoint. You can use Polar, Incremental or
+Absolute mode (usually Incremental is easiest).&nbsp;Then press G00 (go full
+speed) if you are moving through the air, or G01 (go at the machining speed) if
+you are cutting material. The graphics and code will be updated instantly.&nbsp; </p>
+
+<p><b>Undo:</b> You can undo and redo using the buttons at the top of the code window. If you
+undo and then add a new line, the code is lost. (Sorry about that - but there
+are other ways to edit an earlier line. More later) </p>
+
+<p><b>Save:</b> The *.tim file stores native files for this editor. (It stands for &quot;Take
+It Mobile&quot;, says Tim. Yeah right.) The advantage of this format is that the numbers
+are stored in double precision, which means that while the code only shows
+20.265, the actual number is 20.2645121288147. This helps to reduce accumulated
+error in a large program, and rounding caused by scaling etc.&nbsp; </p>
+
+<p><b>Circles:</b> Circles are treated as a bent line. First draw it as a straight line (G01) from
+start point to end point. The circle menu appears and CNC Composer will guess a
+radius for you, or you can type your own. Then choose the appropriate circle
+direction - there are 4 choices so just click until you find the one you
+want.&nbsp;&nbsp; </p>
+
+<p><b>Scale:</b> Bottom left under the graphics window. It scales the whole code. </p>
+
+<p><b>Mirror:</b> Bottom right under the graphics window. It mirrors code by reversing a
+certain number of lines from the current line. You can reflect X axis
+(horizontal flip), Y axis (vertical flip), or BOTH. </p>
+
+<p><b>Copy Code:</b> Middle under the graphics window. This copies a bunch of previous code,
+starting at the current position. (Like Copy&gt;Paste). It will always duplicate
+to the current position, whether you are in absolute or incremental.&nbsp; </p>
+
+<p><b>More Stuff:</b> The other things you can play with are Absolute/Incremental, Feed, Tool
+Diameter, Tool Visible. </p>
+
+<p><b>Display Commands:</b> Button are above graphics window on right side. Zoom, Pan, Reset (back to
+start). Centre tool keep the current zoom level but pans to have the tool at
+center of the screen. You can Pan faster by dragging on the graphics window.
+(Non-dynamic) </p>
+
+<p><b>EDIT G/M: </b>This saves your code and switches to an edit mode, allowing you to edit the code in a &quot;Notepad&quot; style screen. If you are
+wanting to modify an earlier code line you will nearly always want to edit in
+incremental mode. (E.g. You want to shift half the program by 0.25 inches). You
+can also use this mode to copy a GM program INTO composer. (i.e. Import a GM
+program text by copy and paste out of Notepad into the yellow Edit screen).
+Note: If you get a fault opening the EDIT screen you need to download the required
+VisualBasic runtime files. XP should tell you. Actually XP should have it!&nbsp;&nbsp; </p>
+
+<hr>
+
+<h4>Tutorial: Maltese Cross</h4> (Assume units are inches, but they could be anything)
+<ul>
+  <li>The default start point is (0,0,1), which means we are in the air. Stay in
+incremental mode, enter x=10 and y = 8 to define the desired end point. now
+press G00.</li>
+  <li>Click Renew button to clear coordinates. Enter z=-2, then G01 (will be
+cutting material during the plunge). We should now be a depth of 1 into the job.</li>
+  <li>Cut first line; x=5 then G01.</li>
+  <li>Cut an arc: x=-3, y=8, then G01, then radius=30, then select an arc something
+like the picture above. (Keep trying the 4 buttons until you find the one you
+want)</li>
+  <li>Cut an arc: x=8, y=3, then G01, then radius=30, then select suitable arc
+    from the 4 choices.</li>
+  <li>Cut the fourth line; y=5 then G01.</li>
+  <li>Now mirror in y direction, the last 4 lines. Click Mirror.</li>
+  <li>I think you can work the rest out. (Mirror x)</li>
+  <li>Always remember to bring the tool out again. G00 z=2.</li>
+  <li>Save as a Tim file.</li>
+</ul>
+
+<hr>
+
+<h4>A Real Job </h4>
+<p> Here's a wooden grid made up of repetitive geometric
+patterns - an ideal job for CNCComposer!&nbsp;</p>
+
+<p><img border="0" src="grid.jpg"></p>
+
+<p><b>Step 1:</b> Draw the profile. Offset the outline by half the tool width
+(0.25in). This offset line represents the centreline of the tool and is called
+the toolpath.</p>
+
+<p><img border="0" src="grid_hole.gif"></p>
+
+<p><b>Step 2.</b> Code the hole. We will set (0,0,0) as the bottom left corner
+of the board. The job is rotated to fit onto a 8x4ft sheet.&nbsp;</p>
+
+<p>Start at the left corner of the hole profile. Down Z-0.4 then first arc&nbsp;
+(x=5.89 y=6.103 then G01 then radius 18.312). Then 2nd arc (x=5.89 y=-6.103 then
+G01 then radius 21.688, select appropriate arc). Now mirror (y axis). Up Z to
+clear the job. Done.</p>
+
+<p><b>Step 3.</b> Repeat this profile using Copy Code. The spacings are 16.75
+inches, with 8.75 inches step in y axis.&nbsp;</p>
+
+<p><b>Step 4.</b> Do the little triangles etc...</p>
+
+<p>In this case the beveled (chamfered) edges were cut using a router bit on
+exactly the same toolpath. That's a nice cheat.</p>
+
+<p><img border="0" src="bookshop.jpg" width="595" height="592"></p>
+
+<p>From image <a href="http://info.answersingenesis.org/museum/pictures/24f2.jpg">http://info.answersingenesis.org/museum/pictures/24f2.jpg</a>
+from webpage <a href="http://info.answersingenesis.org/museum/?p=71">http://info.answersingenesis.org/museum/?p=71</a></p>
+
+<hr>
+
+<p class="tiny"><a href="/default.htm">www.worldwideflood.com</a></p>
+</body>
+</html>

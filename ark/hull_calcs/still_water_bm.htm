@@ -1,0 +1,663 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>WWF: Still Water Bending Moment</TITLE>
+<META http-equiv=Content-Language content=en-us>
+<META http-equiv=Content-Type content="text/html; charset=windows-1252">
+<META content="Microsoft FrontPage 4.0" name=GENERATOR>
+<META content=FrontPage.Editor.Document name=ProgId>
+<STYLE>BODY {
+	FONT-SIZE: 10pt; FONT-FAMILY: Arial
+}
+.contents {
+	MARGIN-TOP: 0px; FONT-SIZE: 10pt; MARGIN-BOTTOM: 0px; FONT-FAMILY: Arial
+}
+</STYLE>
+
+<script type="text/javascript" language="javascript" src="/jsmenu/sniffer.js">
+//Top Navigational Bar III v3.4.1.1b (By BrotherCake @ cake@brothercake.net)
+//Permission granted/modified by Dynamicdrive.com to include script in archive
+//For this and 100's more DHTML scripts, visit http://www.dynamicdrive.com/
+//This notice MUST stay intact for legal use
+</script>
+<script type="text/javascript" language="javascript1.2" src="/jsmenu/custom.js"></script>
+<script type="text/javascript" language="javascript1.2" src="/jsmenu/style.js"></script>
+
+</head>
+
+<body bgcolor="#FFFFFF">
+
+<script type="text/javascript" language="javascript1.2" src="/jsmenu/menu.js"></script>
+
+<H3 style="margin-top: 0; margin-bottom: 0"><B><FONT 
+face="Arial, Helvetica, sans-serif" size=5>STILL WATER BENDING MOMENT</FONT><FONT face="Arial, Helvetica, sans-serif" size=+1>&nbsp;&nbsp; 
+</FONT></B><FONT size=2><a href="../../default.htm">Home</a>&nbsp;&nbsp;&nbsp;<font face="Arial" size="2"><b>&nbsp;
+<a href="../../jsmenu/full_menu.htm">Menu</a></b></font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</FONT></H3>
+<P style="margin-top: 0; margin-bottom: 0"><font face="Arial" size="1">Tim
+Lovett April 2004. Original
+Excel calculation by Jim King 2004</font><font size="1"><font face="Arial">.&nbsp;</font></font>
+<P style="margin-top: 0; margin-bottom: 0"><font size="1" color="#FFFFFF">.</font>
+<P style="margin-top: 0; margin-bottom: 0"><font size="1" color="#FFFFFF">.</font>
+<p>&nbsp;</p>
+<p><b><font size="3">STILL WATER BENDING MOMENT</font></b></p>
+<p style="MARGIN-TOP: 6px; MARGIN-BOTTOM: 6px"><font face="Arial" size="2"><b>Uneven
+Loading</b></font></p>
+<p style="MARGIN-TOP: 6px; MARGIN-BOTTOM: 6px"><font face="Arial" size="2">If
+all the cargo was stored in the middle of the ship, the hull would experience
+bending (sagging) even without waves (still water). For this reason, the loading and unloading of a
+cargo ship must
+be carefully monitored to ensure the loads are within safe limits.
+In the case of Noah's Ark, the cargo is not very dense, (e.g. iron ore), so
+uneven loading is not much of a problem. The water and food storage would be the
+heaviest loads on the ark, and it would be prudent to distribute this cargo in
+sealed storage areas throughout each level. This saves handling and makes it
+easier to control vermin, with the added benefit of a controlled static loading
+as food is consumed during the voyage.&nbsp;</font></p>
+<p style="MARGIN-TOP: 6px; MARGIN-BOTTOM: 6px">&nbsp;</p>
+<p style="MARGIN-TOP: 6px; MARGIN-BOTTOM: 6px"><font face="Arial" size="2"><b>Uneven
+Buoyancy</b></font></p>
+<p style="MARGIN-TOP: 6px; MARGIN-BOTTOM: 6px"><font face="Arial" size="2">The
+ideal loading situation is when the cargo matches the buoyancy forces of the
+hull along its entire length. This can be difficult when the hull is a
+streamlined shape. Noah's Ark was probably not like this, so buoyancy is
+expected to be fairly constant throughout the length of the vessel.&nbsp;&nbsp; </font></p>
+<p style="MARGIN-TOP: 6px; MARGIN-BOTTOM: 6px">&nbsp;</p>
+<p style="MARGIN-TOP: 6px; MARGIN-BOTTOM: 6px"><font color="#000000"><b>Still
+Water Bending Moment Conclusions</b></font></p>
+<p style="MARGIN-TOP: 6px; MARGIN-BOTTOM: 6px"><font color="#000000">The
+following calculations (Jim King) indicate static loading is negligible compared
+to the <a href="wave_bm1.htm">wave bending moment</a>. The highest static moment (2250
+tf.m) does not occur near the center where the wave bending moment is maximum,
+but lower values of 1800 to 1900 tf.m. These are&nbsp; calculated at station 9 should be added to the
+wave bending moment.&nbsp;</font></p>
+<p style="MARGIN-TOP: 6px; MARGIN-BOTTOM: 6px"><font color="#000000">Static
+Bending Moment = 1873 / 66750 = 2.8% of wave bending moment.</font></p>
+<p style="MARGIN-TOP: 6px; MARGIN-BOTTOM: 6px"><font color="#000000">Hence the
+static bending moment adds only 3% to the wave bending moment in the worst case.
+However, since sagging dominates wave bending (ABS), the hogging effect of the
+static loading actually reduces the total bending moment slightly. The static
+loading acts to equalize the ABS wave loading.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font></p>
+<p style="MARGIN-TOP: 6px; MARGIN-BOTTOM: 6px">&nbsp;</p>
+<p style="MARGIN-TOP: 6px; MARGIN-BOTTOM: 6px"><font color="#000000"><b>Summary</b></font></p>
+<p style="MARGIN-TOP: 6px; MARGIN-BOTTOM: 6px"><font color="#000000">Maximum
+Bending Moments.</font></p>
+<table bordercolor="#008000" border="1" cellspacing="0" cellpadding="0" bordercolorlight="#000000" bordercolordark="#FFFFFF" width="350">
+  <tr height="17" style="height:12.75pt">
+    <td height="17" style="height: 12.75pt; background-color: #FFFFE8" width="125">
+      <p align="center"><font size="2">Type</font></p>
+    </td>
+    <td class="xl22" align="center" x:num width="120" style="background-color: #FFFFE8"><font size="2">Hogging
+      (tf.m)</font></td>
+    <td align="center" width="114" style="background-color: #FFFFE8"><font size="2">Sagging
+      (tf.m)</font></td>
+  </tr>
+  <tr height="17" style="height:12.75pt">
+    <td height="17" style="height: 12.75pt; background-color: #FFFFE8" width="125" align="center"><font size="2">ABS
+      Wave BM</font></td>
+    <td class="xl22" align="center" x:num width="120" style="background-color: #FFFFE8"><font size="2">67
+      009</font></td>
+    <td align="center" width="114" style="background-color: #FFFFE8"><font size="2">-
+      65 071</font></td>
+  </tr>
+  <tr height="17" style="height:12.75pt">
+    <td height="17" style="height: 12.75pt; background-color: #FFFFE8" width="125" align="center"><font size="2">Static
+      BM</font></td>
+    <td class="xl22" align="center" x:num width="120" style="background-color: #FFFFE8"><font size="2">1
+      907</font></td>
+    <td align="center" width="114" style="background-color: #FFFFE8"><font size="2">1
+      770</font></td>
+  </tr>
+  <tr height="17" style="height:12.75pt">
+    <td height="17" style="height: 12.75pt; background-color: #FFFFE8" width="125" align="center"><font size="2">Net
+      BM</font></td>
+    <td class="xl22" align="center" x:num width="120" style="background-color: #FFFFE8"><font size="2">66
+      979</font></td>
+    <td align="center" width="114" style="background-color: #FFFFE8"><font size="2">-65
+      238</font></td>
+  </tr>
+</table>
+<p style="MARGIN-TOP: 6px; MARGIN-BOTTOM: 6px"><font color="#000000">So in this
+arrangement, static bending moment is negligible.</font></p>
+<p style="MARGIN-TOP: 6px; MARGIN-BOTTOM: 6px">&nbsp;</p>
+<hr>
+<p><b><font size="3">CALCULATIONS</font></b></p>
+<p><b><font color="#000000" size="2">Estimated Ark Loading</font><font size="3" color="#000000">.
+</font></b><font color="#000000" size="2">For more details see <a href="../cargo/cargo.htm">Cargo</a></font></p>
+<table bordercolor="#008000" border="1" cellspacing="0" cellpadding="0" bordercolorlight="#000000" bordercolordark="#FFFFFF" width="270">
+  <col width="145" style="mso-width-source:userset;mso-width-alt:5302;width:109pt">
+  <col width="64" span="2" style="width:48pt">
+  <tr height="17" style="height:12.75pt">
+    <td height="17" style="height: 12.75pt; background-color: #FFFFE8" width="125" align="center"><font size="2">Hull</font></td>
+    <td class="xl22" align="center" x:num width="84" style="background-color: #FFFFE8"><font size="2">5333</font></td>
+    <td align="center" width="70" style="background-color: #FFFFE8"><font size="2">tf</font></td>
+  </tr>
+  <tr height="17" style="height:12.75pt">
+    <td height="17" style="height: 12.75pt; background-color: #FFFFE8" width="125" align="center"><font size="2">Water</font></td>
+    <td class="xl22" align="center" x:num width="84" style="background-color: #FFFFE8"><font size="2">2000</font></td>
+    <td align="center" width="70" style="background-color: #FFFFE8"><font size="2">tf</font></td>
+  </tr>
+  <tr height="17" style="height:12.75pt">
+    <td height="17" style="height: 12.75pt; background-color: #FFFFE8" width="125" align="center"><font size="2">Dry
+      Food (grain)</font></td>
+    <td class="xl22" align="center" x:num width="84" style="background-color: #FFFFE8"><font size="2">2400</font></td>
+    <td align="center" width="70" style="background-color: #FFFFE8"><font size="2">tf</font></td>
+  </tr>
+  <tr height="17" style="height:12.75pt">
+    <td height="17" style="height: 12.75pt; background-color: #FFFFE8" width="125" align="center"><font size="2">Dry
+      Food (Hay)</font></td>
+    <td class="xl22" align="center" x:num width="84" style="background-color: #FFFFE8"><font size="2">600</font></td>
+    <td align="center" width="70" style="background-color: #FFFFE8"><font size="2">tf</font></td>
+  </tr>
+  <tr height="17" style="height:12.75pt">
+    <td height="17" style="height: 12.75pt; background-color: #FFFFE8" width="125" align="center"><font size="2">Enclosures</font></td>
+    <td class="xl22" align="center" x:num width="84" style="background-color: #FFFFE8"><font size="2">4000</font></td>
+    <td align="center" width="70" style="background-color: #FFFFE8"><font size="2">tf</font></td>
+  </tr>
+  <tr height="17" style="height:12.75pt">
+    <td height="17" style="height: 12.75pt; background-color: #FFFFE8" width="125" align="center"><font size="2">Ramps</font></td>
+    <td class="xl22" align="center" x:num width="84" style="background-color: #FFFFE8"><font size="2">200</font></td>
+    <td align="center" width="70" style="background-color: #FFFFE8"><font size="2">tf</font></td>
+  </tr>
+  <tr height="17" style="height:12.75pt">
+    <td height="17" style="height: 12.75pt; background-color: #FFFFE8" width="125" align="center"><font size="2">Passages</font></td>
+    <td class="xl22" align="center" x:num width="84" style="background-color: #FFFFE8"><font size="2">200</font></td>
+    <td align="center" width="70" style="background-color: #FFFFE8"><font size="2">tf</font></td>
+  </tr>
+  <tr height="17" style="height:12.75pt">
+    <td height="17" style="height: 12.75pt; background-color: #FFFFE8" width="125" align="center"><font size="2">Animals</font></td>
+    <td class="xl22" align="center" x:num width="84" style="background-color: #FFFFE8"><font size="2">400</font></td>
+    <td align="center" width="70" style="background-color: #FFFFE8"><font size="2">tf</font></td>
+  </tr>
+  <tr height="17" style="height:12.75pt">
+    <td height="17" style="height: 12.75pt; background-color: #FFFFE8" width="125" align="center"><font size="2">Weight</font></td>
+    <td align="center" x:num x:fmla="=SUM(B4:B11)" width="84" style="background-color: #FFFFE8"><font size="2">15133</font></td>
+    <td align="center" width="70" style="background-color: #FFFFE8"><font size="2">tf</font></td>
+  </tr>
+</table>
+<p>Loads were estimated for 20 stations along the length of the Ark. This approximation
+assumes a more open area at bow and stern, where the structure is less critical.
+At this early design stage, this is assumed to be the best place to put access
+ramps, ventilation shafts, pumps, winches etc. Another advantage is that the
+ride is more comfortable amidships, so this is where the animals would be best
+located.&nbsp;</p>
+<p><img border="0" src="ark_sections.gif"></p>
+<table cellspacing="0" border="1" bordercolor="#FFFFE8" bordercolorlight="#000000" bordercolordark="#FFFFE8" width="900">
+  <col width="145" style="mso-width-source:userset;mso-width-alt:5302;width:109pt">
+  <col width="64" style="width:48pt">
+  <col width="67" style="mso-width-source:userset;mso-width-alt:2450;width:50pt">
+  <col width="64" span="15" style="width:48pt">
+  <tr>
+    <td class="xl25" align="center" x:num bgcolor="#F8D5B1" style="margin-left: 0; margin-right: 0" colspan="18"><font size="3"><b>Shear
+      and Net Bending Moments&nbsp;</b></font></td>
+  </tr>
+  <tr>
+    <td class="xl25" align="center" x:num bgcolor="#FFFFE8" style="margin-left: 0; margin-right: 0"><img border="0" src="s01.gif"></td>
+    <td align="center" x:num bgcolor="#FFFFE8"><img border="0" src="s02.gif"></td>
+    <td align="center" x:num bgcolor="#FFFFE8"><img border="0" src="s03.gif"></td>
+    <td align="center" x:num bgcolor="#FFFFE8"><img border="0" src="s04.gif"></td>
+    <td align="center" x:num bgcolor="#FFFFE8"><img border="0" src="s05.gif"></td>
+    <td align="center" x:num bgcolor="#FFFFE8"><img border="0" src="s06.gif"></td>
+    <td align="center" x:num bgcolor="#FFFFE8"><img border="0" src="s07.gif"></td>
+    <td align="center" x:num bgcolor="#FFFFE8"><img border="0" src="s08.gif"></td>
+    <td align="center" x:num bgcolor="#FFFFE8"><img border="0" src="s09.gif"></td>
+    <td align="center" x:num bgcolor="#FFFFE8"><img border="0" src="s10.gif"></td>
+    <td align="center" x:num bgcolor="#FFFFE8"><img border="0" src="s12.gif"></td>
+    <td align="center" x:num x:fmla="=SUM(C1:K1)" bgcolor="#FFFFE8"><img border="0" src="s13.gif"></td>
+    <td align="center" x:num x:fmla="=C1-L1" bgcolor="#FFFFE8"><img border="0" src="s14.gif"></td>
+    <td align="center" x:num bgcolor="#FFFFE8"><img border="0" src="s15.gif"></td>
+    <td align="center" x:num bgcolor="#FFFFE8"><img border="0" src="s16.gif"></td>
+    <td align="center" bgcolor="#FFFFE8"><img border="0" src="s17.gif"></td>
+    <td align="center" bgcolor="#FFFFE8"><img border="0" src="s18.gif"></td>
+    <td align="center" bgcolor="#FFFFE8"><img border="0" src="s19.gif"></td>
+  </tr>
+  <tr height="17" style="height:12.75pt">
+    <td class="xl25" align="center" x:num style="margin-left: 0; margin-right: 0" bgcolor="#FFFFE8"><font size="1">0</font></td>
+    <td align="center" x:num bgcolor="#FFFFE8"><font size="1">0</font></td>
+    <td align="center" x:num bgcolor="#FFFFE8"><font size="1">0</font></td>
+    <td align="center" x:num bgcolor="#FFFFE8"><font size="1">0</font></td>
+    <td align="center" x:num bgcolor="#FFFFE8"><font size="1">0</font></td>
+    <td align="center" x:num bgcolor="#FFFFE8"><font size="1">0</font></td>
+    <td align="center" x:num bgcolor="#FFFFE8"><font size="1">0</font></td>
+    <td align="center" x:num bgcolor="#FFFFE8"><font size="1">0</font></td>
+    <td align="center" x:num bgcolor="#FFFFE8"><font size="1">0</font></td>
+    <td align="center" x:num bgcolor="#FFFFE8"><font size="1">0</font></td>
+    <td align="center" x:num bgcolor="#FFFFE8"><font size="1">0</font></td>
+    <td align="center" x:num x:fmla="=SUM(C1:K1)" bgcolor="#FFFFE8"><font size="1">0</font></td>
+    <td align="center" x:num x:fmla="=C1-L1" bgcolor="#FFFFE8"><font size="1">0</font></td>
+    <td align="center" x:num bgcolor="#FFFFE8"><font size="1">0</font></td>
+    <td align="center" x:num bgcolor="#FFFFE8"><font size="1">0</font></td>
+    <td align="center" bgcolor="#FFFFE8"><font size="1">0</font></td>
+    <td align="center" bgcolor="#FFFFE8"><font size="1">0</font></td>
+    <td align="center" bgcolor="#FFFFE8"><font size="1">0</font></td>
+  </tr>
+  <tr height="17" style="height:12.75pt">
+    <td class="xl25" align="center" x:num style="margin-left: 0; margin-right: 0" bgcolor="#FFFFE8"><font size="1">1</font></td>
+    <td class="xl24" align="center" x:num="6.8597560975609753" bgcolor="#FFFFE8"><font size="1">6.86</font></td>
+    <td align="center" x:num="680.98500000000001" bgcolor="#FFFFE8"><font size="1">680.985</font></td>
+    <td align="center" x:num bgcolor="#FFFFE8"><font size="1">266.65</font></td>
+    <td align="center" bgcolor="#FFFFE8">&nbsp;</td>
+    <td align="center" x:num bgcolor="#FFFFE8"><font size="1">240</font></td>
+    <td align="center" x:num bgcolor="#FFFFE8"><font size="1">60</font></td>
+    <td align="center" bgcolor="#FFFFE8">&nbsp;</td>
+    <td align="center" x:num bgcolor="#FFFFE8"><font size="1">50</font></td>
+    <td align="center" x:num bgcolor="#FFFFE8"><font size="1">10</font></td>
+    <td align="center" bgcolor="#FFFFE8">&nbsp;</td>
+    <td align="center" x:num x:fmla="=SUM(D2:K2)" bgcolor="#FFFFE8"><font size="1">626.65</font></td>
+    <td align="center" x:num="-54.335000000000001" x:fmla="=-(C2-L2)" bgcolor="#FFFFE8"><font size="1">-54.335</font></td>
+    <td align="center" x:num="-372.73810000000026" x:fmla="=N1+(M2)*6.86" bgcolor="#FFFFE8"><font size="1">-372.738</font></td>
+    <td align="center" x:num="8133.9363943263697" bgcolor="#FFFFE8"><font size="1">8133.936</font></td>
+    <td align="center" x:num="-8376.0928211407681" bgcolor="#FFFFE8"><font size="1">-8376.09</font></td>
+    <td align="center" x:num="7761.1982943263693" x:fmla="=O2+N2" bgcolor="#FFFFE8"><font size="1">7761.198</font></td>
+    <td align="center" x:num="-8748.8309211407686" x:fmla="=P2+N2" bgcolor="#FFFFE8"><font size="1">-8748.83</font></td>
+  </tr>
+  <tr height="17" style="height:12.75pt">
+    <td class="xl25" align="center" x:num style="margin-left: 0; margin-right: 0" bgcolor="#FFFFE8"><font size="1">2</font></td>
+    <td class="xl24" align="center" x:num="13.719512195121951" bgcolor="#FFFFE8"><font size="1">13.72</font></td>
+    <td align="center" x:num="765.05722222222221" bgcolor="#FFFFE8"><font size="1">765.0572</font></td>
+    <td align="center" x:num bgcolor="#FFFFE8"><font size="1">266.65</font></td>
+    <td align="center" bgcolor="#FFFFE8">&nbsp;</td>
+    <td align="center" x:num bgcolor="#FFFFE8"><font size="1">240</font></td>
+    <td align="center" x:num bgcolor="#FFFFE8"><font size="1">60</font></td>
+    <td align="center" bgcolor="#FFFFE8">&nbsp;</td>
+    <td align="center" x:num bgcolor="#FFFFE8"><font size="1">50</font></td>
+    <td align="center" x:num bgcolor="#FFFFE8"><font size="1">10</font></td>
+    <td align="center" bgcolor="#FFFFE8">&nbsp;</td>
+    <td align="center" x:num x:fmla="=SUM(D3:K3)" bgcolor="#FFFFE8"><font size="1">626.65</font></td>
+    <td align="center" x:num="-138.40722222222223" x:fmla="=-(C3-L3)" bgcolor="#FFFFE8"><font size="1">-138.407</font></td>
+    <td align="center" x:num="-1322.2116444444448" x:fmla="=N2+(M3)*6.86" bgcolor="#FFFFE8"><font size="1">-1322.21</font></td>
+    <td align="center" x:num="16267.872788652739" bgcolor="#FFFFE8"><font size="1">16267.87</font></td>
+    <td align="center" x:num="-16752.185642281536" bgcolor="#FFFFE8"><font size="1">-16752.2</font></td>
+    <td align="center" x:num="14945.661144208294" x:fmla="=O3+N3" bgcolor="#FFFFE8"><font size="1">14945.66</font></td>
+    <td align="center" x:num="-18074.39728672598" x:fmla="=P3+N3" bgcolor="#FFFFE8"><font size="1">-18074.4</font></td>
+  </tr>
+  <tr height="17" style="height:12.75pt">
+    <td class="xl25" align="center" x:num style="margin-left: 0; margin-right: 0" bgcolor="#FFFFE8"><font size="1">3</font></td>
+    <td class="xl24" align="center" x:num="20.579268292682926" bgcolor="#FFFFE8"><font size="1">20.58</font></td>
+    <td align="center" x:num="755.71586419753089" bgcolor="#FFFFE8"><font size="1">755.7159</font></td>
+    <td align="center" x:num bgcolor="#FFFFE8"><font size="1">266.65</font></td>
+    <td align="center" bgcolor="#FFFFE8">&nbsp;</td>
+    <td align="center" x:num bgcolor="#FFFFE8"><font size="1">240</font></td>
+    <td align="center" x:num bgcolor="#FFFFE8"><font size="1">60</font></td>
+    <td align="center" x:num bgcolor="#FFFFE8"><font size="1">250</font></td>
+    <td align="center" bgcolor="#FFFFE8">&nbsp;</td>
+    <td align="center" x:num bgcolor="#FFFFE8"><font size="1">10</font></td>
+    <td align="center" x:num bgcolor="#FFFFE8"><font size="1">25</font></td>
+    <td align="center" x:num x:fmla="=SUM(D4:K4)" bgcolor="#FFFFE8"><font size="1">851.65</font></td>
+    <td align="center" x:num="95.934135802469086" x:fmla="=-(C4-L4)" bgcolor="#FFFFE8"><font size="1">95.93414</font></td>
+    <td align="center" x:num="-664.10347283950682" x:fmla="=N3+(M4)*6.86" bgcolor="#FFFFE8"><font size="1">-664.103</font></td>
+    <td align="center" x:num="24401.809182979108" bgcolor="#FFFFE8"><font size="1">24401.81</font></td>
+    <td align="center" x:num="-25128.278463422306" bgcolor="#FFFFE8"><font size="1">-25128.3</font></td>
+    <td align="center" x:num="23737.705710139602" x:fmla="=O4+N4" bgcolor="#FFFFE8"><font size="1">23737.71</font></td>
+    <td align="center" x:num="-25792.381936261812" x:fmla="=P4+N4" bgcolor="#FFFFE8"><font size="1">-25792.4</font></td>
+  </tr>
+  <tr height="17" style="height:12.75pt">
+    <td class="xl25" align="center" x:num style="margin-left: 0; margin-right: 0" bgcolor="#FFFFE8"><font size="1">4</font></td>
+    <td class="xl24" align="center" x:num="27.439024390243901" bgcolor="#FFFFE8"><font size="1">27.44</font></td>
+    <td align="center" x:num="756.75379286694101" bgcolor="#FFFFE8"><font size="1">756.7538</font></td>
+    <td align="center" x:num bgcolor="#FFFFE8"><font size="1">266.65</font></td>
+    <td align="center" bgcolor="#FFFFE8">&nbsp;</td>
+    <td align="center" x:num bgcolor="#FFFFE8"><font size="1">240</font></td>
+    <td align="center" x:num bgcolor="#FFFFE8"><font size="1">60</font></td>
+    <td align="center" x:num bgcolor="#FFFFE8"><font size="1">250</font></td>
+    <td align="center" bgcolor="#FFFFE8">&nbsp;</td>
+    <td align="center" x:num bgcolor="#FFFFE8"><font size="1">10</font></td>
+    <td align="center" x:num bgcolor="#FFFFE8"><font size="1">25</font></td>
+    <td align="center" x:num x:fmla="=SUM(D5:K5)" bgcolor="#FFFFE8"><font size="1">851.65</font></td>
+    <td align="center" x:num="94.896207133058965" x:fmla="=-(C5-L5)" bgcolor="#FFFFE8"><font size="1">94.89621</font></td>
+    <td align="center" x:num="-13.115491906722241" x:fmla="=N4+(M5)*6.86" bgcolor="#FFFFE8"><font size="1">-13.1155</font></td>
+    <td align="center" x:num="32535.745577305479" bgcolor="#FFFFE8"><font size="1">32535.75</font></td>
+    <td align="center" x:num="-33504.371284563073" bgcolor="#FFFFE8"><font size="1">-33504.4</font></td>
+    <td align="center" x:num="32522.630085398756" x:fmla="=O5+N5" bgcolor="#FFFFE8"><font size="1">32522.63</font></td>
+    <td align="center" x:num="-33517.486776469792" x:fmla="=P5+N5" bgcolor="#FFFFE8"><font size="1">-33517.5</font></td>
+  </tr>
+  <tr height="17" style="height:12.75pt">
+    <td class="xl25" align="center" x:num style="margin-left: 0; margin-right: 0" bgcolor="#FFFFE8"><font size="1">5</font></td>
+    <td class="xl24" align="center" x:num="34.298780487804876" bgcolor="#FFFFE8"><font size="1">34.30</font></td>
+    <td align="center" x:num="756.63846745922876" bgcolor="#FFFFE8"><font size="1">756.6385</font></td>
+    <td align="center" x:num bgcolor="#FFFFE8"><font size="1">266.65</font></td>
+    <td align="center" x:num bgcolor="#FFFFE8"><font size="1">200</font></td>
+    <td align="center" x:num bgcolor="#FFFFE8"><font size="1">240</font></td>
+    <td align="center" x:num bgcolor="#FFFFE8"><font size="1">60</font></td>
+    <td align="center" x:num bgcolor="#FFFFE8"><font size="1">250</font></td>
+    <td align="center" bgcolor="#FFFFE8">&nbsp;</td>
+    <td align="center" x:num bgcolor="#FFFFE8"><font size="1">10</font></td>
+    <td align="center" x:num bgcolor="#FFFFE8"><font size="1">25</font></td>
+    <td align="center" x:num x:fmla="=SUM(D6:K6)" bgcolor="#FFFFE8"><font size="1">1051.65</font></td>
+    <td align="center" x:num="295.01153254077133" x:fmla="=-(C6-L6)" bgcolor="#FFFFE8"><font size="1">295.0115</font></td>
+    <td align="center" x:num="2010.663621322969" x:fmla="=N5+(M6)*6.86" bgcolor="#FFFFE8"><font size="1">2010.664</font></td>
+    <td align="center" x:num="40669.68197163185" bgcolor="#FFFFE8"><font size="1">40669.68</font></td>
+    <td align="center" x:num="-41880.464105703839" bgcolor="#FFFFE8"><font size="1">-41880.5</font></td>
+    <td align="center" x:num="42680.345592954822" x:fmla="=O6+N6" bgcolor="#FFFFE8"><font size="1">42680.35</font></td>
+    <td align="center" x:num="-39869.800484380867" x:fmla="=P6+N6" bgcolor="#FFFFE8"><font size="1">-39869.8</font></td>
+  </tr>
+  <tr height="17" style="height:12.75pt">
+    <td class="xl25" align="center" x:num style="margin-left: 0; margin-right: 0" bgcolor="#FFFFE8"><font size="1">6</font></td>
+    <td class="xl24" align="center" x:num="41.158536585365852" bgcolor="#FFFFE8"><font size="1">41.16</font></td>
+    <td align="center" x:num="756.65128139341903" bgcolor="#FFFFE8"><font size="1">756.6513</font></td>
+    <td align="center" x:num bgcolor="#FFFFE8"><font size="1">266.65</font></td>
+    <td align="center" x:num bgcolor="#FFFFE8"><font size="1">200</font></td>
+    <td align="center" bgcolor="#FFFFE8">&nbsp;</td>
+    <td align="center" bgcolor="#FFFFE8">&nbsp;</td>
+    <td align="center" x:num bgcolor="#FFFFE8"><font size="1">250</font></td>
+    <td align="center" bgcolor="#FFFFE8">&nbsp;</td>
+    <td align="center" x:num bgcolor="#FFFFE8"><font size="1">10</font></td>
+    <td align="center" x:num bgcolor="#FFFFE8"><font size="1">25</font></td>
+    <td align="center" x:num x:fmla="=SUM(D7:K7)" bgcolor="#FFFFE8"><font size="1">751.65</font></td>
+    <td align="center" x:num="-5.001281393419049" x:fmla="=-(C7-L7)" bgcolor="#FFFFE8"><font size="1">-5.00128</font></td>
+    <td align="center" x:num="1976.3548309641144" x:fmla="=N6+(M7)*6.86" bgcolor="#FFFFE8"><font size="1">1976.355</font></td>
+    <td align="center" x:num="48803.618365958217" bgcolor="#FFFFE8"><font size="1">48803.62</font></td>
+    <td align="center" x:num="-50256.556926844612" bgcolor="#FFFFE8"><font size="1">-50256.6</font></td>
+    <td align="center" x:num="50779.973196922328" x:fmla="=O7+N7" bgcolor="#FFFFE8"><font size="1">50779.97</font></td>
+    <td align="center" x:num="-48280.202095880501" x:fmla="=P7+N7" bgcolor="#FFFFE8"><font size="1">-48280.2</font></td>
+  </tr>
+  <tr height="17" style="height:12.75pt">
+    <td class="xl25" align="center" x:num style="margin-left: 0; margin-right: 0" bgcolor="#FFFFE8"><font size="1">7</font></td>
+    <td class="xl24" align="center" x:num="48.018292682926827" bgcolor="#FFFFE8"><font size="1">48.02</font></td>
+    <td align="center" x:num="756.6498576229535" bgcolor="#FFFFE8"><font size="1">756.6499</font></td>
+    <td align="center" x:num bgcolor="#FFFFE8"><font size="1">266.65</font></td>
+    <td align="center" x:num bgcolor="#FFFFE8"><font size="1">200</font></td>
+    <td align="center" bgcolor="#FFFFE8">&nbsp;</td>
+    <td align="center" bgcolor="#FFFFE8">&nbsp;</td>
+    <td align="center" x:num bgcolor="#FFFFE8"><font size="1">250</font></td>
+    <td align="center" bgcolor="#FFFFE8">&nbsp;</td>
+    <td align="center" x:num bgcolor="#FFFFE8"><font size="1">10</font></td>
+    <td align="center" x:num bgcolor="#FFFFE8"><font size="1">25</font></td>
+    <td align="center" x:num x:fmla="=SUM(D8:K8)" bgcolor="#FFFFE8"><font size="1">751.65</font></td>
+    <td align="center" x:num="-4.9998576229535274" x:fmla="=-(C8-L8)" bgcolor="#FFFFE8"><font size="1">-4.99986</font></td>
+    <td align="center" x:num="1942.0558076706532" x:fmla="=N7+(M8)*6.86" bgcolor="#FFFFE8"><font size="1">1942.056</font></td>
+    <td align="center" x:num="56937.554760284591" bgcolor="#FFFFE8"><font size="1">56937.55</font></td>
+    <td align="center" x:num="-58632.649747985379" bgcolor="#FFFFE8"><font size="1">-58632.6</font></td>
+    <td align="center" x:num="58879.610567955242" x:fmla="=O8+N8" bgcolor="#FFFFE8"><font size="1">58879.61</font></td>
+    <td align="center" x:num="-56690.593940314728" x:fmla="=P8+N8" bgcolor="#FFFFE8"><font size="1">-56690.6</font></td>
+  </tr>
+  <tr height="17" style="height:12.75pt">
+    <td class="xl25" align="center" x:num style="margin-left: 0; margin-right: 0" bgcolor="#FFFFE8"><font size="1">8</font></td>
+    <td class="xl24" align="center" x:num="54.878048780487802" bgcolor="#FFFFE8"><font size="1">54.88</font></td>
+    <td align="center" x:num="756.65001581967181" bgcolor="#FFFFE8"><font size="1">756.65</font></td>
+    <td align="center" x:num bgcolor="#FFFFE8"><font size="1">266.65</font></td>
+    <td align="center" x:num bgcolor="#FFFFE8"><font size="1">200</font></td>
+    <td align="center" bgcolor="#FFFFE8">&nbsp;</td>
+    <td align="center" bgcolor="#FFFFE8">&nbsp;</td>
+    <td align="center" x:num bgcolor="#FFFFE8"><font size="1">250</font></td>
+    <td align="center" bgcolor="#FFFFE8">&nbsp;</td>
+    <td align="center" x:num bgcolor="#FFFFE8"><font size="1">10</font></td>
+    <td align="center" x:num bgcolor="#FFFFE8"><font size="1">25</font></td>
+    <td align="center" x:num x:fmla="=SUM(D9:K9)" bgcolor="#FFFFE8"><font size="1">751.65</font></td>
+    <td align="center" x:num="-5.0000158196718303" x:fmla="=-(C9-L9)" bgcolor="#FFFFE8"><font size="1">-5.00002</font></td>
+    <td align="center" x:num="1907.7556991477045" x:fmla="=N8+(M9)*6.86" bgcolor="#FFFFE8"><font size="1">1907.756</font></td>
+    <td align="center" x:num="65071.491154610958" bgcolor="#FFFFE8"><font size="1">65071.49</font></td>
+    <td align="center" x:num="-67008.742569126145" bgcolor="#FFFFE8"><font size="1">-67008.7</font></td>
+    <td align="center" x:num="66979.246853758668" x:fmla="=O9+N9" bgcolor="#FFFFE8"><font size="1"><b>66979.25</b></font></td>
+    <td align="center" x:num="-65100.986869978442" x:fmla="=P9+N9" bgcolor="#FFFFE8"><font size="1">-65101</font></td>
+  </tr>
+  <tr height="17" style="height:12.75pt">
+    <td class="xl25" align="center" x:num style="margin-left: 0; margin-right: 0" bgcolor="#FFFFE8"><font size="1">9</font></td>
+    <td class="xl24" align="center" x:num="61.737804878048777" bgcolor="#FFFFE8"><font size="1">61.74</font></td>
+    <td align="center" x:num="756.64999824225868" bgcolor="#FFFFE8"><font size="1">756.65</font></td>
+    <td align="center" x:num bgcolor="#FFFFE8"><font size="1">266.65</font></td>
+    <td align="center" x:num bgcolor="#FFFFE8"><font size="1">200</font></td>
+    <td align="center" bgcolor="#FFFFE8">&nbsp;</td>
+    <td align="center" bgcolor="#FFFFE8">&nbsp;</td>
+    <td align="center" x:num bgcolor="#FFFFE8"><font size="1">250</font></td>
+    <td align="center" bgcolor="#FFFFE8">&nbsp;</td>
+    <td align="center" x:num bgcolor="#FFFFE8"><font size="1">10</font></td>
+    <td align="center" x:num bgcolor="#FFFFE8"><font size="1">25</font></td>
+    <td align="center" x:num x:fmla="=SUM(D10:K10)" bgcolor="#FFFFE8"><font size="1">751.65</font></td>
+    <td align="center" x:num="-4.9999982422586982" x:fmla="=-(C10-L10)" bgcolor="#FFFFE8"><font size="1">-5</font></td>
+    <td align="center" x:num="1873.4557112058098" x:fmla="=N9+(M10)*6.86" bgcolor="#FFFFE8"><font size="1">1873.456</font></td>
+    <td align="center" x:num="65071.491154610958" bgcolor="#FFFFE8"><font size="1">65071.49</font></td>
+    <td align="center" x:num="-67008.742569126145" bgcolor="#FFFFE8"><font size="1">-67008.7</font></td>
+    <td align="center" x:num="66944.946865816761" x:fmla="=O10+N10" bgcolor="#FFFFE8"><font size="1">66944.95</font></td>
+    <td align="center" x:num="-65135.286857920335" x:fmla="=P10+N10" bgcolor="#FFFFE8"><font size="1">-65135.3</font></td>
+  </tr>
+  <tr height="17" style="height:12.75pt">
+    <td class="xl25" align="center" x:num style="margin-left: 0; margin-right: 0" bgcolor="#FFFFE8"><font size="1">10</font></td>
+    <td class="xl24" align="center" x:num="68.597560975609753" bgcolor="#FFFFE8"><font size="1">68.60</font></td>
+    <td align="center" x:num="756.65000019530464" bgcolor="#FFFFE8"><font size="1">756.65</font></td>
+    <td align="center" x:num bgcolor="#FFFFE8"><font size="1">266.65</font></td>
+    <td align="center" x:num bgcolor="#FFFFE8"><font size="1">200</font></td>
+    <td align="center" bgcolor="#FFFFE8">&nbsp;</td>
+    <td align="center" bgcolor="#FFFFE8">&nbsp;</td>
+    <td align="center" x:num bgcolor="#FFFFE8"><font size="1">250</font></td>
+    <td align="center" bgcolor="#FFFFE8">&nbsp;</td>
+    <td align="center" x:num bgcolor="#FFFFE8"><font size="1">10</font></td>
+    <td align="center" x:num bgcolor="#FFFFE8"><font size="1">25</font></td>
+    <td align="center" x:num x:fmla="=SUM(D11:K11)" bgcolor="#FFFFE8"><font size="1">751.65</font></td>
+    <td align="center" x:num="-5.0000001953046649" x:fmla="=-(C11-L11)" bgcolor="#FFFFE8"><font size="1">-5</font></td>
+    <td align="center" x:num="1839.1557098660198" x:fmla="=N10+(M11)*6.86" bgcolor="#FFFFE8"><font size="1">1839.156</font></td>
+    <td align="center" x:num="65071.491154610958" bgcolor="#FFFFE8"><font size="1">65071.49</font></td>
+    <td align="center" x:num="-67008.742569126145" bgcolor="#FFFFE8"><font size="1">-67008.7</font></td>
+    <td align="center" x:num="66910.646864476977" x:fmla="=O11+N11" bgcolor="#FFFFE8"><font size="1">66910.65</font></td>
+    <td align="center" x:num="-65169.586859260125" x:fmla="=P11+N11" bgcolor="#FFFFE8"><font size="1">-65169.6</font></td>
+  </tr>
+  <tr height="17" style="height:12.75pt">
+    <td class="xl25" align="center" x:num style="margin-left: 0; margin-right: 0" bgcolor="#FFFFE8"><font size="1">11</font></td>
+    <td class="xl24" align="center" x:num="75.457317073170728" bgcolor="#FFFFE8"><font size="1">75.46</font></td>
+    <td align="center" x:num="756.64999997829955" bgcolor="#FFFFE8"><font size="1">756.65</font></td>
+    <td align="center" x:num bgcolor="#FFFFE8"><font size="1">266.65</font></td>
+    <td align="center" x:num bgcolor="#FFFFE8"><font size="1">200</font></td>
+    <td align="center" bgcolor="#FFFFE8">&nbsp;</td>
+    <td align="center" bgcolor="#FFFFE8">&nbsp;</td>
+    <td align="center" x:num bgcolor="#FFFFE8"><font size="1">250</font></td>
+    <td align="center" bgcolor="#FFFFE8">&nbsp;</td>
+    <td align="center" x:num bgcolor="#FFFFE8"><font size="1">10</font></td>
+    <td align="center" x:num bgcolor="#FFFFE8"><font size="1">25</font></td>
+    <td align="center" x:num x:fmla="=SUM(D12:K12)" bgcolor="#FFFFE8"><font size="1">751.65</font></td>
+    <td align="center" x:num="-4.9999999782995701" x:fmla="=-(C12-L12)" bgcolor="#FFFFE8"><font size="1">-5</font></td>
+    <td align="center" x:num="1804.8557100148848" x:fmla="=N11+(M12)*6.86" bgcolor="#FFFFE8"><font size="1">1804.856</font></td>
+    <td align="center" x:num="65071.491154610958" bgcolor="#FFFFE8"><font size="1">65071.49</font></td>
+    <td align="center" x:num="-67008.742569126145" bgcolor="#FFFFE8"><font size="1">-67008.7</font></td>
+    <td align="center" x:num="66876.346864625841" x:fmla="=O12+N12" bgcolor="#FFFFE8"><font size="1">66876.35</font></td>
+    <td align="center" x:num="-65203.886859111262" x:fmla="=P12+N12" bgcolor="#FFFFE8"><font size="1">-65203.9</font></td>
+  </tr>
+  <tr height="17" style="height:12.75pt">
+    <td class="xl25" align="center" x:num style="margin-left: 0; margin-right: 0" bgcolor="#FFFFE8"><font size="1">12</font></td>
+    <td class="xl24" align="center" x:num="82.317073170731703" bgcolor="#FFFFE8"><font size="1">82.32</font></td>
+    <td align="center" x:num="756.65000000241116" bgcolor="#FFFFE8"><font size="1">756.65</font></td>
+    <td align="center" x:num bgcolor="#FFFFE8"><font size="1">266.65</font></td>
+    <td align="center" x:num bgcolor="#FFFFE8"><font size="1">200</font></td>
+    <td align="center" bgcolor="#FFFFE8">&nbsp;</td>
+    <td align="center" bgcolor="#FFFFE8">&nbsp;</td>
+    <td align="center" x:num bgcolor="#FFFFE8"><font size="1">250</font></td>
+    <td align="center" bgcolor="#FFFFE8">&nbsp;</td>
+    <td align="center" x:num bgcolor="#FFFFE8"><font size="1">10</font></td>
+    <td align="center" x:num bgcolor="#FFFFE8"><font size="1">25</font></td>
+    <td align="center" x:num x:fmla="=SUM(D13:K13)" bgcolor="#FFFFE8"><font size="1">751.65</font></td>
+    <td align="center" x:num="-5.0000000024111841" x:fmla="=-(C13-L13)" bgcolor="#FFFFE8"><font size="1">-5</font></td>
+    <td align="center" x:num="1770.5557099983441" x:fmla="=N12+(M13)*6.86" bgcolor="#FFFFE8"><font size="1">1770.556</font></td>
+    <td align="center" x:num="65071.491154610958" bgcolor="#FFFFE8"><font size="1">65071.49</font></td>
+    <td align="center" x:num="-67008.742569126145" bgcolor="#FFFFE8"><font size="1">-67008.7</font></td>
+    <td align="center" x:num="66842.046864609307" x:fmla="=O13+N13" bgcolor="#FFFFE8"><font size="1">66842.05</font></td>
+    <td align="center" x:num="-65238.186859127803" x:fmla="=P13+N13" bgcolor="#FFFFE8"><font size="1"><b>-65238.2</b></font></td>
+  </tr>
+  <tr height="17" style="height:12.75pt">
+    <td class="xl25" align="center" x:num style="margin-left: 0; margin-right: 0" bgcolor="#FFFFE8"><font size="1">13</font></td>
+    <td class="xl24" align="center" x:num="89.176829268292678" bgcolor="#FFFFE8"><font size="1">89.18</font></td>
+    <td align="center" x:num="756.64999999973202" bgcolor="#FFFFE8"><font size="1">756.65</font></td>
+    <td align="center" x:num bgcolor="#FFFFE8"><font size="1">266.65</font></td>
+    <td align="center" x:num bgcolor="#FFFFE8"><font size="1">200</font></td>
+    <td align="center" bgcolor="#FFFFE8">&nbsp;</td>
+    <td align="center" bgcolor="#FFFFE8">&nbsp;</td>
+    <td align="center" x:num bgcolor="#FFFFE8"><font size="1">250</font></td>
+    <td align="center" bgcolor="#FFFFE8">&nbsp;</td>
+    <td align="center" x:num bgcolor="#FFFFE8"><font size="1">10</font></td>
+    <td align="center" x:num bgcolor="#FFFFE8"><font size="1">25</font></td>
+    <td align="center" x:num x:fmla="=SUM(D14:K14)" bgcolor="#FFFFE8"><font size="1">751.65</font></td>
+    <td align="center" x:num="-4.9999999997320401" x:fmla="=-(C14-L14)" bgcolor="#FFFFE8"><font size="1">-5</font></td>
+    <td align="center" x:num="1736.2557100001823" x:fmla="=N13+(M14)*6.86" bgcolor="#FFFFE8"><font size="1">1736.256</font></td>
+    <td align="center" x:num="56937.554760284591" bgcolor="#FFFFE8"><font size="1">56937.55</font></td>
+    <td align="center" x:num="-58632.649747985379" bgcolor="#FFFFE8"><font size="1">-58632.6</font></td>
+    <td align="center" x:num="58673.81047028477" x:fmla="=O14+N14" bgcolor="#FFFFE8"><font size="1">58673.81</font></td>
+    <td align="center" x:num="-56896.394037985199" x:fmla="=P14+N14" bgcolor="#FFFFE8"><font size="1">-56896.4</font></td>
+  </tr>
+  <tr height="17" style="height:12.75pt">
+    <td class="xl25" align="center" x:num style="margin-left: 0; margin-right: 0" bgcolor="#FFFFE8"><font size="1">14</font></td>
+    <td class="xl24" align="center" x:num="96.036585365853654" bgcolor="#FFFFE8"><font size="1">96.04</font></td>
+    <td align="center" x:num="756.65000000002976" bgcolor="#FFFFE8"><font size="1">756.65</font></td>
+    <td align="center" x:num bgcolor="#FFFFE8"><font size="1">266.65</font></td>
+    <td align="center" x:num bgcolor="#FFFFE8"><font size="1">200</font></td>
+    <td align="center" bgcolor="#FFFFE8">&nbsp;</td>
+    <td align="center" bgcolor="#FFFFE8">&nbsp;</td>
+    <td align="center" x:num bgcolor="#FFFFE8"><font size="1">250</font></td>
+    <td align="center" bgcolor="#FFFFE8">&nbsp;</td>
+    <td align="center" x:num bgcolor="#FFFFE8"><font size="1">10</font></td>
+    <td align="center" x:num bgcolor="#FFFFE8"><font size="1">25</font></td>
+    <td align="center" x:num x:fmla="=SUM(D15:K15)" bgcolor="#FFFFE8"><font size="1">751.65</font></td>
+    <td align="center" x:num="-5.000000000029786" x:fmla="=-(C15-L15)" bgcolor="#FFFFE8"><font size="1">-5</font></td>
+    <td align="center" x:num="1701.9557099999779" x:fmla="=N14+(M15)*6.86" bgcolor="#FFFFE8"><font size="1">1701.956</font></td>
+    <td align="center" x:num="48803.618365958217" bgcolor="#FFFFE8"><font size="1">48803.62</font></td>
+    <td align="center" x:num="-50256.556926844612" bgcolor="#FFFFE8"><font size="1">-50256.6</font></td>
+    <td align="center" x:num="50505.574075958197" x:fmla="=O15+N15" bgcolor="#FFFFE8"><font size="1">50505.57</font></td>
+    <td align="center" x:num="-48554.601216844632" x:fmla="=P15+N15" bgcolor="#FFFFE8"><font size="1">-48554.6</font></td>
+  </tr>
+  <tr height="17" style="height:12.75pt">
+    <td class="xl25" align="center" x:num style="margin-left: 0; margin-right: 0" bgcolor="#FFFFE8"><font size="1">15</font></td>
+    <td class="xl24" align="center" x:num="102.89634146341463" bgcolor="#FFFFE8"><font size="1">102.90</font></td>
+    <td align="center" x:num="756.64999999999668" bgcolor="#FFFFE8"><font size="1">756.65</font></td>
+    <td align="center" x:num bgcolor="#FFFFE8"><font size="1">266.65</font></td>
+    <td align="center" bgcolor="#FFFFE8">&nbsp;</td>
+    <td align="center" bgcolor="#FFFFE8">&nbsp;</td>
+    <td align="center" bgcolor="#FFFFE8">&nbsp;</td>
+    <td align="center" x:num bgcolor="#FFFFE8"><font size="1">250</font></td>
+    <td align="center" bgcolor="#FFFFE8">&nbsp;</td>
+    <td align="center" x:num bgcolor="#FFFFE8"><font size="1">10</font></td>
+    <td align="center" x:num bgcolor="#FFFFE8"><font size="1">25</font></td>
+    <td align="center" x:num x:fmla="=SUM(D16:K16)" bgcolor="#FFFFE8"><font size="1">551.65</font></td>
+    <td align="center" x:num="-204.9999999999967" x:fmla="=-(C16-L16)" bgcolor="#FFFFE8"><font size="1">-205</font></td>
+    <td align="center" x:num="295.65571000000045" x:fmla="=N15+(M16)*6.86" bgcolor="#FFFFE8"><font size="1">295.6557</font></td>
+    <td align="center" x:num="40669.68197163185" bgcolor="#FFFFE8"><font size="1">40669.68</font></td>
+    <td align="center" x:num="-41880.464105703839" bgcolor="#FFFFE8"><font size="1">-41880.5</font></td>
+    <td align="center" x:num="40965.337681631849" x:fmla="=O16+N16" bgcolor="#FFFFE8"><font size="1">40965.34</font></td>
+    <td align="center" x:num="-41584.80839570384" x:fmla="=P16+N16" bgcolor="#FFFFE8"><font size="1">-41584.8</font></td>
+  </tr>
+  <tr height="17" style="height:12.75pt">
+    <td class="xl25" align="center" x:num style="margin-left: 0; margin-right: 0" bgcolor="#FFFFE8"><font size="1">16</font></td>
+    <td class="xl24" align="center" x:num="109.7560975609756" bgcolor="#FFFFE8"><font size="1">109.76</font></td>
+    <td align="center" x:num bgcolor="#FFFFE8"><font size="1">756.65</font></td>
+    <td align="center" x:num bgcolor="#FFFFE8"><font size="1">266.65</font></td>
+    <td align="center" bgcolor="#FFFFE8">&nbsp;</td>
+    <td align="center" x:num bgcolor="#FFFFE8"><font size="1">240</font></td>
+    <td align="center" x:num bgcolor="#FFFFE8"><font size="1">60</font></td>
+    <td align="center" x:num bgcolor="#FFFFE8"><font size="1">250</font></td>
+    <td align="center" bgcolor="#FFFFE8">&nbsp;</td>
+    <td align="center" x:num bgcolor="#FFFFE8"><font size="1">10</font></td>
+    <td align="center" x:num bgcolor="#FFFFE8"><font size="1">25</font></td>
+    <td align="center" x:num x:fmla="=SUM(D17:K17)" bgcolor="#FFFFE8"><font size="1">851.65</font></td>
+    <td align="center" x:num="94.999999999999659" x:fmla="=-(C17-L17)" bgcolor="#FFFFE8"><font size="1">95</font></td>
+    <td align="center" x:num="947.35570999999811" x:fmla="=N16+(M17)*6.86" bgcolor="#FFFFE8"><font size="1">947.3557</font></td>
+    <td align="center" x:num="32535.745577305479" bgcolor="#FFFFE8"><font size="1">32535.75</font></td>
+    <td align="center" x:num="-33504.371284563073" bgcolor="#FFFFE8"><font size="1">-33504.4</font></td>
+    <td align="center" x:num="33483.101287305479" x:fmla="=O17+N17" bgcolor="#FFFFE8"><font size="1">33483.1</font></td>
+    <td align="center" x:num="-32557.015574563073" x:fmla="=P17+N17" bgcolor="#FFFFE8"><font size="1">-32557</font></td>
+  </tr>
+  <tr height="17" style="height:12.75pt">
+    <td class="xl25" align="center" x:num style="margin-left: 0; margin-right: 0" bgcolor="#FFFFE8"><font size="1">17</font></td>
+    <td class="xl24" align="center" x:num="116.61585365853658" bgcolor="#FFFFE8"><font size="1">116.62</font></td>
+    <td align="center" x:num bgcolor="#FFFFE8"><font size="1">756.65</font></td>
+    <td align="center" x:num bgcolor="#FFFFE8"><font size="1">266.65</font></td>
+    <td align="center" bgcolor="#FFFFE8">&nbsp;</td>
+    <td align="center" x:num bgcolor="#FFFFE8"><font size="1">240</font></td>
+    <td align="center" x:num bgcolor="#FFFFE8"><font size="1">60</font></td>
+    <td align="center" x:num bgcolor="#FFFFE8"><font size="1">250</font></td>
+    <td align="center" bgcolor="#FFFFE8">&nbsp;</td>
+    <td align="center" x:num bgcolor="#FFFFE8"><font size="1">10</font></td>
+    <td align="center" x:num bgcolor="#FFFFE8"><font size="1">25</font></td>
+    <td align="center" x:num x:fmla="=SUM(D18:K18)" bgcolor="#FFFFE8"><font size="1">851.65</font></td>
+    <td align="center" x:num x:fmla="=-(C18-L18)" bgcolor="#FFFFE8"><font size="1">95</font></td>
+    <td align="center" x:num="1599.0557099999983" x:fmla="=N17+(M18)*6.86" bgcolor="#FFFFE8"><font size="1">1599.056</font></td>
+    <td align="center" x:num="24401.809182979108" bgcolor="#FFFFE8"><font size="1">24401.81</font></td>
+    <td align="center" x:num="-25128.278463422306" bgcolor="#FFFFE8"><font size="1">-25128.3</font></td>
+    <td align="center" x:num="26000.864892979105" x:fmla="=O18+N18" bgcolor="#FFFFE8"><font size="1">26000.86</font></td>
+    <td align="center" x:num="-23529.222753422309" x:fmla="=P18+N18" bgcolor="#FFFFE8"><font size="1">-23529.2</font></td>
+  </tr>
+  <tr height="17" style="height:12.75pt">
+    <td class="xl25" align="center" x:num style="margin-left: 0; margin-right: 0" bgcolor="#FFFFE8"><font size="1">18</font></td>
+    <td class="xl24" align="center" x:num="123.47560975609755" bgcolor="#FFFFE8"><font size="1">123.48</font></td>
+    <td align="center" x:num bgcolor="#FFFFE8"><font size="1">756.65</font></td>
+    <td align="center" x:num bgcolor="#FFFFE8"><font size="1">266.65</font></td>
+    <td align="center" bgcolor="#FFFFE8">&nbsp;</td>
+    <td align="center" x:num bgcolor="#FFFFE8"><font size="1">240</font></td>
+    <td align="center" x:num bgcolor="#FFFFE8"><font size="1">60</font></td>
+    <td align="center" x:num bgcolor="#FFFFE8"><font size="1">250</font></td>
+    <td align="center" bgcolor="#FFFFE8">&nbsp;</td>
+    <td align="center" x:num bgcolor="#FFFFE8"><font size="1">10</font></td>
+    <td align="center" x:num bgcolor="#FFFFE8"><font size="1">25</font></td>
+    <td align="center" x:num x:fmla="=SUM(D19:K19)" bgcolor="#FFFFE8"><font size="1">851.65</font></td>
+    <td align="center" x:num="94.999999999999886" x:fmla="=-(C19-L19)" bgcolor="#FFFFE8"><font size="1">95</font></td>
+    <td align="center" x:num="2250.7557099999976" x:fmla="=N18+(M19)*6.86" bgcolor="#FFFFE8"><font size="1">2250.756</font></td>
+    <td align="center" x:num="16267.872788652739" bgcolor="#FFFFE8"><font size="1">16267.87</font></td>
+    <td align="center" x:num="-16752.185642281536" bgcolor="#FFFFE8"><font size="1">-16752.2</font></td>
+    <td align="center" x:num="18518.628498652739" x:fmla="=O19+N19" bgcolor="#FFFFE8"><font size="1">18518.63</font></td>
+    <td align="center" x:num="-14501.429932281539" x:fmla="=P19+N19" bgcolor="#FFFFE8"><font size="1">-14501.4</font></td>
+  </tr>
+  <tr height="17" style="height:12.75pt">
+    <td class="xl25" align="center" x:num style="margin-left: 0; margin-right: 0" bgcolor="#FFFFE8"><font size="1">19</font></td>
+    <td class="xl24" align="center" x:num="130.33536585365852" bgcolor="#FFFFE8"><font size="1">130.34</font></td>
+    <td align="center" x:num bgcolor="#FFFFE8"><font size="1">756.65</font></td>
+    <td align="center" x:num bgcolor="#FFFFE8"><font size="1">266.65</font></td>
+    <td align="center" bgcolor="#FFFFE8">&nbsp;</td>
+    <td align="center" x:num bgcolor="#FFFFE8"><font size="1">240</font></td>
+    <td align="center" x:num bgcolor="#FFFFE8"><font size="1">60</font></td>
+    <td align="center" bgcolor="#FFFFE8">&nbsp;</td>
+    <td align="center" x:num bgcolor="#FFFFE8"><font size="1">50</font></td>
+    <td align="center" x:num bgcolor="#FFFFE8"><font size="1">10</font></td>
+    <td align="center" bgcolor="#FFFFE8">&nbsp;</td>
+    <td align="center" x:num x:fmla="=SUM(D20:K20)" bgcolor="#FFFFE8"><font size="1">626.65</font></td>
+    <td align="center" x:num x:fmla="=-(C20-L20)" bgcolor="#FFFFE8"><font size="1">-130</font></td>
+    <td align="center" x:num="1358.9557099999968" x:fmla="=N19+(M20)*6.86" bgcolor="#FFFFE8"><font size="1">1358.956</font></td>
+    <td align="center" x:num="8133.9363943263697" bgcolor="#FFFFE8"><font size="1">8133.936</font></td>
+    <td align="center" x:num="-8376.0928211407681" bgcolor="#FFFFE8"><font size="1">-8376.09</font></td>
+    <td align="center" x:num="9492.8921043263672" x:fmla="=O20+N20" bgcolor="#FFFFE8"><font size="1">9492.892</font></td>
+    <td align="center" x:num="-7017.1371111407716" x:fmla="=P20+N20" bgcolor="#FFFFE8"><font size="1">-7017.14</font></td>
+  </tr>
+  <tr height="17" style="height:12.75pt">
+    <td class="xl25" align="center" x:num style="margin-left: 0; margin-right: 0" bgcolor="#FFFFE8"><font size="1">20</font></td>
+    <td class="xl24" align="center" x:num="137.19512195121951" bgcolor="#FFFFE8"><font size="1">137.20</font></td>
+    <td align="center" x:num="680.98500000000001" x:fmla="=C2" bgcolor="#FFFFE8"><font size="1">680.985</font></td>
+    <td align="center" x:num bgcolor="#FFFFE8"><font size="1">266.65</font></td>
+    <td align="center" bgcolor="#FFFFE8">&nbsp;</td>
+    <td align="center" x:num bgcolor="#FFFFE8"><font size="1">240</font></td>
+    <td align="center" x:num bgcolor="#FFFFE8"><font size="1">60</font></td>
+    <td align="center" bgcolor="#FFFFE8">&nbsp;</td>
+    <td align="center" x:num bgcolor="#FFFFE8"><font size="1">50</font></td>
+    <td align="center" x:num bgcolor="#FFFFE8"><font size="1">10</font></td>
+    <td align="center" bgcolor="#FFFFE8">&nbsp;</td>
+    <td align="center" x:num x:fmla="=SUM(D21:K21)" bgcolor="#FFFFE8"><font size="1">626.65</font></td>
+    <td align="center" x:num="-54.335000000000001" x:fmla="=-(C21-L21)" bgcolor="#FFFFE8"><font size="1">-54.335</font></td>
+    <td align="center" x:num="986.21760999999651" x:fmla="=N20+(M21)*6.86" bgcolor="#FFFFE8"><font size="1">986.2176</font></td>
+    <td align="center" x:num bgcolor="#FFFFE8"><font size="1">0</font></td>
+    <td align="center" x:num bgcolor="#FFFFE8"><font size="1">0</font></td>
+    <td align="center" x:num="986.21760999999651" x:fmla="=O21+N21" bgcolor="#FFFFE8"><font size="1">986.2176</font></td>
+    <td align="center" x:num="986.21760999999651" x:fmla="=P21+N21" bgcolor="#FFFFE8"><font size="1">986.2176</font></td>
+  </tr>
+  <tr height="17" style="height:12.75pt">
+    <td align="center" style="margin-left: 0; margin-right: 0" bgcolor="#FFFFE8"><font size="1">Tot</font></td>
+    <td align="center" bgcolor="#FFFFE8">&nbsp;</td>
+    <td align="center" x:num="14989.236499999999" x:fmla="=SUM(C1:C21)" bgcolor="#FFFFE8"><font size="1"><b>14989.24</b></font></td>
+    <td align="center" x:num x:fmla="=SUM(D1:D21)" bgcolor="#FFFFE8"><font size="1"><b>5333</b></font></td>
+    <td align="center" x:num x:fmla="=SUM(E1:E21)" bgcolor="#FFFFE8"><font size="1"><b>2000</b></font></td>
+    <td align="center" x:num x:fmla="=SUM(F1:F21)" bgcolor="#FFFFE8"><font size="1"><b>2400</b></font></td>
+    <td align="center" x:num x:fmla="=SUM(G1:G21)" bgcolor="#FFFFE8"><font size="1"><b>600</b></font></td>
+    <td align="center" x:num x:fmla="=SUM(H1:H21)" bgcolor="#FFFFE8"><font size="1"><b>4000</b></font></td>
+    <td align="center" x:num x:fmla="=SUM(I1:I21)" bgcolor="#FFFFE8"><font size="1"><b>200</b></font></td>
+    <td align="center" x:num x:fmla="=SUM(J1:J21)" bgcolor="#FFFFE8"><font size="1"><b>200</b></font></td>
+    <td align="center" x:num x:fmla="=SUM(K1:K21)" bgcolor="#FFFFE8"><font size="1"><b>400</b></font></td>
+    <td align="center" x:num x:fmla="=SUM(D22:K22)" bgcolor="#FFFFE8"><font size="1"><b>15133</b></font></td>
+    <td align="center" x:num="-143.76350000000093" x:fmla="=C22-L22" bgcolor="#FFFFE8"><font size="1"><b>-143.764</b></font></td>
+    <td align="center" bgcolor="#FFFFE8">&nbsp;</td>
+    <td align="center" bgcolor="#FFFFE8">&nbsp;</td>
+    <td align="center" bgcolor="#FFFFE8">&nbsp;</td>
+    <td align="center" bgcolor="#FFFFE8">&nbsp;</td>
+    <td align="center" bgcolor="#FFFFE8">&nbsp;</td>
+  </tr>
+</table>
+<p style="margin-top: 0; margin-bottom: 0"><font size="1">Data: Jim King 2004</font></p>
+<p style="margin-top: 0; margin-bottom: 0">&nbsp;</p>
+<p style="margin-top: 0; margin-bottom: 0"><img border="0" src="graph_total_weight.gif"></p>
+<p><img border="0" src="graph_shear_force.gif" width="375" height="273"></p>
+<p><img border="0" src="graph_static_bm.gif" width="375" height="273"></p>
+<p>&nbsp;</p>
+<p><img border="0" src="graph_net_bm.gif" width="529" height="268"></p>
+<p>&nbsp;</p>
+<p><font face="Arial" size="2">&nbsp;</font></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</BODY></HTML>

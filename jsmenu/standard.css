@@ -1,0 +1,168 @@
+BODY {
+background-color: #FFffFF;
+font-family: Verdana, Arial, sans-serif;
+font-size: 80%;
+margin-top: 0;
+margin-left: 50;
+margin-right: 50;
+}
+
+P, TD, LI, UL, Table {
+color: #000000;
+font-family: Verdana, Arial, sans-serif;
+font-size: 100%;
+}
+
+
+/* this group sets the normal link colors */
+A:LINK {
+color: #336699;
+text-decoration : underline;
+}
+
+A:VISITED {
+color:  #663399;
+text-decoration : underline;
+}
+
+A:HOVER {
+color : #D37A1B;
+text-decoration : underline;
+}
+
+A:ACTIVE {
+color : #D37A1B;
+text-decoration : underline;
+}
+
+/* this grouping sets the heading colors and sizes */
+H1 {
+font-size : 185%;
+font-weight : bold;
+color : #336699;
+text-align: center;
+margin-top: 4;
+margin-bottom: 0;
+}
+
+H2 {
+font-size : 125%;
+margin-top: 40;
+color: #336699;
+}
+ 
+H3, H4, H6 {
+font-size : 150%;
+font-weight : bold;
+color : #996633;
+letter-spacing: 2;
+padding-top: 40px
+}
+
+H5 {
+font-size : 100%;
+font-weight : bold;
+margin-top: 50;
+}
+
+/* the area below contains special classes */
+/* classes specify special formatting */
+
+/* this class sets the properties of the main left side table cell */
+.leftside {
+padding-right: 5px
+}
+
+/* this class sets the properties of the main right side table cell */
+.rightside {
+font-family : Verdana, Arial, sans-serif;
+font-size: 100%;
+text-align: justify;
+line-height: 15px;
+padding-left: 30px;
+padding-right: 30px;
+padding-top: 15px;
+padding-bottom: 15px;
+}
+
+/* this is the class for the hot topic table top cell */
+.hottopic1 {
+text-align: right;
+font-weight: bold;
+color: #D77A7A;
+border-right: 1px solid #D77A7A;
+border-bottom: 1px solid #D77A7A;
+padding-left: 10px;
+padding-right: 10px
+}
+
+/*this is the class for the hot topic table bottom cell */
+.hottopic2 {
+text-align: right;
+padding-top: 5px;
+padding-left: 10px;
+padding-right: 10px;
+padding-bottom: 5px;
+border-right: 1px solid #D77A7A;
+}
+
+.hottopic3 {
+font-size: 85%;
+color: #996633;
+text-align: right;
+padding-top: 5px;
+padding-left: 10px;
+padding-right: 10px;
+padding-bottom: 5px;
+border-right: 1px solid #D77A7A;
+}
+
+/* this class sets the properties for the horizontal rule bar */
+hr {
+color: #336699;
+height: 1px;
+width: 100%;
+}
+
+.tiny {
+text-align: center;
+font-size: 80%;
+letter-spacing: 2;
+font-weight: bold;
+}
+
+.author {
+font-size: 70%;
+letter-spacing: 2;
+font-weight: normal;
+text-align: center;
+margin-top: 0;
+}
+
+.subheading {
+text-align: left;
+font-size: 125%;
+color: #336699;
+font-weight: bold;
+padding-top: 80px;
+}
+
+.quote {
+text-align: left;
+font-size: 85%;
+color: #996633;
+margin-left: 50;
+margin-right: 100;
+}
+
+.main {
+text-align: left;
+font-size: 100%;
+color: #000000;
+}
+
+.caption {
+text-align: left;
+font-size: 80%;
+color: #336699;
+}

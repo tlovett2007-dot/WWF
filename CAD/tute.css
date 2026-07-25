@@ -1,0 +1,119 @@
+BODY {
+background-image: url('images/background.gif');
+background-color: #F5ECDD;
+font-family: Verdana, Arial, sans-serif;
+font-size: 80%;
+margin-top: 0;
+margin-left: 0;
+margin-right: 0;
+margin-bottom: 15px;
+}
+
+P, TD, LI, UL, Table {
+color: #000000;
+font-family: Verdana, Arial, sans-serif;
+font-size: 100%;
+}
+
+/* this group sets the normal link colors */
+A:LINK {
+color: #CDA77F;
+text-decoration: none;
+font-weight: bold;
+}
+A:VISITED {
+color: #736761;
+text-decoration : none;
+font-weight: bold;
+}
+A:HOVER {
+color : #ff0000;
+text-decoration : underline;
+font-weight: bold;
+}
+A:ACTIVE {
+color : #D77A7A;
+text-decoration : none;
+font-weight: bold;
+}
+
+/* this grouping sets the heading colors and sizes */
+H1 {
+font-size : 150%;
+font-weight : bold;
+color : #736761;
+letter-spacing: 2;
+}
+H2, H3, H4, H5, H6 {
+font-size : 120%;
+font-weight : bold;
+color : #996633;
+letter-spacing: 2;
+margin-top: 40;
+}
+
+/* the area below contains special classes */
+/* classes specify special formatting */
+
+/* this class sets the properties of the main left side table cell */
+.leftside {
+padding-right: 5px
+}
+
+/* this class sets the properties of the main right side table cell */
+.rightside {
+font-family : Verdana, Arial, sans-serif;
+font-size: 100%;
+text-align: justify;
+line-height: 15px;
+padding-left: 30px;
+padding-right: 30px;
+padding-top: 15px;
+padding-bottom: 15px;
+}
+
+/* this is the class for the hot topic table top cell */
+.hottopic1 {
+text-align: right;
+font-weight: bold;
+color: #D77A7A;
+border-right: 1px solid #D77A7A;
+border-bottom: 1px solid #D77A7A;
+padding-left: 10px;
+padding-right: 10px
+}
+
+/*this is the class for the hot topic table bottom cell */
+.hottopic2 {
+text-align: right;
+padding-top: 5px;
+padding-left: 10px;
+padding-right: 10px;
+padding-bottom: 5px;
+border-right: 1px solid #D77A7A;
+}
+
+.hottopic3 {
+font-size: 85%;
+color: #996633;
+text-align: right;
+padding-top: 5px;
+padding-left: 10px;
+padding-right: 10px;
+padding-bottom: 5px;
+border-right: 1px solid #D77A7A;
+}
+
+/* this class sets the properties for the horizontal rule bar */
+hr {
+color: #D77A7A;
+height: 1px;
+width: 100%;
+}
+
+.tiny {
+text-align: center;
+font-size: 80%;
+letter-spacing: 2;
+font-weight: bold;
+}

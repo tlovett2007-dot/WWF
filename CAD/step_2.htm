@@ -1,0 +1,183 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+
+<head>
+<title>Hull Loft Tute 2</title>
+<meta name="description" content="add your site description here">
+<meta name="keywords" content="add your search engine keywords here separated by commas">
+<meta http-equiv="Content-Language" content="en-us">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<link rel="stylesheet" type="text/css" href="tute.css">
+</head>
+
+<body>
+  <table style="border-collapse: collapse" bordercolor="#111111" cellpadding="0" cellspacing="0" width="100%">
+    <tr>
+      <td width="200" class="leftside" valign="top" bgcolor="#FFFFFF">
+      <p align="center"><img border="0" src="loft_pic.jpg" width="200" height="267"><p>&nbsp;</p>
+      <div align="left">
+        <table width="100%">
+          <tr>
+            <td width="100%" class="hottopic1"><a href="http://www.worldwideflood.com">HOME</a>
+              <p><a href="http://www.worldwideflood.com/jsmenu/full_menu.htm">WWF
+              Menu</a></p>
+              <p>&nbsp;</p>
+              <p>Hull Lofting Tutorial:</p>
+            </td>
+          </tr>
+          <tr>
+            <td width="100%" class="hottopic2"><a href="start.htm">Start: 0</a><br>
+              <a href="step_1.htm"> Set the first dxf: 1</a><br>
+              <a href="step_2.htm"> Paste other dxf's: 2</a><br>
+              <a href="step_3.htm">Loft profiles: 3</a><br>
+              <a href="step_4.htm">Loft test: 4</a><br>
+              <a href="step_5.htm">Loft Better: 5</a><br>
+              <a href="step_6.htm">Shelling: 6</a><br>
+              <a href="step_7.htm">Full Length: 7</a><br>
+              <a href="step_8.htm">Keel, Mirror &amp; Render: 8</a>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <p>&nbsp;</p>
+      <p>&nbsp;</p>
+      <table width="100%">
+        <tr>
+          <td width="100%" class="hottopic1">Background:</td>
+        </tr>
+        <tr>
+          <td width="100%" class="hottopic3">The ship lines were created by Dr
+            Allen Magnuson in Feb 2005 using Vacanti Prolines LE. The data was
+            exported in 2D&nbsp;dxf format, then traced&nbsp;in TurboCad Pro
+            8.2. Hull is based on the proportions of Noah's Ark according to
+            Genesis 6:15. Tutorial by Tim Lovett Feb 05.</td>
+        </tr>
+      </table>
+      <p align="center">&nbsp;</p>
+      </td>
+      <td valign="top" class="rightside">
+      <h1 style="text-align: center">STEP 2: Paste the other dxf's</h1>
+      <hr>
+      <h2>1. Workplane for Body lines</h2>
+      <p>In Design Director (DD), click on WorkPlanes, then Right Button (RB) in
+      table &gt; Create New &gt; type &quot;midship&quot;.</p>
+      <p>Tick (check) it. You will see that the plane is lying flat but we want
+      it upright. To get the workplane vertical and facing the right way we have
+      to play with the orientation.&nbsp;</p>
+      <ul>
+        <li>Position:&nbsp; 0, 0, 0 (leave as default)</li>
+        <li>X Vector:&nbsp; 0, -1, 0 (horizontal pointing to right when viewing
+          by workplane)</li>
+        <li>Up vector: -1, 0, 0 (the 'up' vector is the plane normal)</li>
+      </ul>
+      <p><img border="0" src="step2_files/amidship_vectors.gif" width="297" height="187"></p>
+      <p>Spin it to check. Not very &quot;amidships&quot; is it? It has
+      defaulted to station 0.</p>
+      <p><img border="0" src="step2_files/not_amidship.gif" width="219" height="74"></p>
+      <hr>
+      <h2>2. Move Body workplane to midship&nbsp;</h2>
+      <p>Remember that station spacing? 90.861&quot;. We need to move the plane
+      59/2 spacings in the +X direction, which is 2680.4 inches.</p>
+      <p>To move the new workplane; In DD, click the Position cell of the &quot;midship&quot;
+      workplane. Enter X of 2680.4 &gt; OK. (If the plane does not move,
+      sometimes you might set another plane as current, then come back and set
+      this one current to refresh it - assume the workplanes are on of course.
+      Workspace &gt; Display Workplane)&nbsp;</p>
+      <p>Notice that the new workplane does not line up with any station -
+      that's because we have an even number of stations. It sits exactly halfway
+      between Station 30 and Station 31. (You can check this by going back to
+      Layers in DD, then invisible STA30 or STA31.</p>
+      <p><img border="0" src="step2_files/sta3031.gif" width="202" height="149"></p>
+      <hr>
+      <h2>3. Group the Body.dxf geometry</h2>
+      <p>To paste Body.dxf onto the new plane;</p>
+      <ul>
+        <li>Start a new temporary TC drawing. Start &gt; New... &gt; New from
+          Scratch</li>
+        <li>Open Body.dxf&nbsp;</li>
+      </ul>
+      <p><img border="0" src="start_files/body.gif" width="236" height="206"></p>
+      <ul>
+        <li>This time we want to break the sketch into 2 halves, and group each
+          half separately. (You'll see why later). Make sure you get everything
+          on the RHS - use a combination of window selects and picks while
+          holding the shift button down. Group this side; Format &gt; Create
+          Group</li>
+      </ul>
+      <p><img border="0" src="step2_files/body_group_RHS.gif" width="446" height="373"></p>
+      <p>&nbsp;</p>
+      <ul>
+        <li>Do the same for LHS. Take care to get them all. (You can turn off
+          the current layer visibility in DD to check if you got them all on the
+          RHS... Looks like this;&nbsp;</li>
+      </ul>
+      <p><img border="0" src="step2_files/got_them_all.gif" width="549" height="292"></p>
+      <ul>
+        <li>Now select the remaining LHS geometry and group it.</li>
+        <li>Turn visibility back on to your current layer (mine was Layer 0)</li>
+        <li>Select both sides and and copy to clipboard.</li>
+      </ul>
+      <hr>
+      <h2>4. Insert the Body.dxf lines</h2>
+      <p>Back on the Ship.tcw drawing, set the view to the new workplane (in DD
+      click the 3rd column &quot;View by Workplane&quot; of &quot;midship&quot;).
+      You will get a very boring scene since you are now looking &quot;end
+      on&quot;.&nbsp;</p>
+      <p><img border="0" src="step2_files/view_by_wp.gif" width="155" height="119"></p>
+      <p>Now paste from clipboard.&nbsp; Spin in 3d to check.</p>
+      <p><img border="0" src="step2_files/paste_body.gif" width="296" height="131"></p>
+      <p>Check if Body lines are centered to the hull center line, measure any
+      mismatch and move it by coordinates. Looks pretty good to me - no matter
+      how much I zoom up the sides are aligned.</p>
+      <p>Better save it.</p>
+      <hr>
+      <h2>5. Make the Profile workplane</h2>
+      <p>In DD, under workplanes &gt; RB &gt; Create New &gt;
+      &quot;profile&quot;.&nbsp;</p>
+      <p>Orientate the plane;</p>
+      <ul>
+        <li>Position: (2680.4, 0, 0)</li>
+        <li>X vector: (1, 0, 0)</li>
+        <li>Up vector: (0, -1, 0)</li>
+      </ul>
+      <p>Don't forget to refresh to see the new workplane orientation. To check
+      it's position, view from top (alt+up arrow) and zoom up to check the edge
+      view of the new workplane lines up with centre of the plan lines.</p>
+      <hr>
+      <h2>6. Fit Profile.dxf</h2>
+      <ul>
+        <li>Go get it;&nbsp; File &gt; Open &gt; Profile.dxf.&nbsp;</li>
+        <li>Group it; Window Select everything &gt; Format &gt; Create Group.</li>
+        <li>Copy it to clipboard; Edit &gt; Copy.</li>
+        <li>Now go back to Ship.tcw, then 'View by Workplane' on
+          &quot;profile&quot;.</li>
+      </ul>
+      <p>To attempt some symmetry, turn off workplane (Workspace &gt; Show
+      workplanes). Then View &gt; Zoom&gt; Extents to center the stuff. Now turn
+      workplanes on again.</p>
+      <ul>
+        <li>Now paste. Looks reasonable</li>
+      </ul>
+      <p><img border="0" src="step2_files/paste_profile.gif" width="352" height="123"></p>
+      <p>Still need to check the position carefully. Zoom up shows alignment is
+      OK.</p>
+      <p>Finished the dxf setup! SAVE IT</p>
+          <hr>
+          <div align="left">
+            <table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%">
+              <tr>
+                <td width="100%" class="tiny">
+          <p style="tiny; text-align:center">Tim Lovett © 2005 | All Rights 
+          Reserved| <a href="http://www.worldwideflood.com">http://www.worldwideflood.com</a>
+                </td>
+              </tr>
+            </table>
+      </div>
+      </td>
+    </tr>
+  </table>
+
+</body>
+
+</html>

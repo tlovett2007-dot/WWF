@@ -1,0 +1,25 @@
+To Do List:  Aug 2004
+
+
+Flash Movies:	
+	Hong explained B,D,L
+	Flood timeline
+
+Flash Interactive:
+	Bouyancy sim
+	Multiple choice tests
+	Hong BDL adjuster
+	Webpage instructor
+
+3D Gamestudio:
+	Ancient crane - organise guy to do it, or use Newton?
+	New on-board level 
+
+Research:
+	Gyromouse hookup - fit in a model
+	Gyromouse pointed hull model testing
+	The cubit paper
+	Reply on ark team meeting
+	Ventilation design
+		
+	

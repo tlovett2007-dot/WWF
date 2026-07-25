@@ -1,0 +1,243 @@
+<HTML><HEAD>
+<TITLE>JavaScript Quiz</TITLE>
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Hide from JavaScript-Impaired Browsers
+/*Modified from original code based on "http://www.mcli.dist.maricopa.edu/eye/code/jsquiz.zip" */
+
+
+ctr=100;
+/* Title of test... */
+testitle="Test 3 - THEORIES AND JARGON";
+
+/* Score line text...*/
+scoretext="Your score is ";
+percent=" %";
+
+/* Perfect score 100 (integer<999)... */
+psco=100;
+scos=0
+
+
+/* Number of questions... */
+nq=10;
+
+/* Number of options per question... */
+nop=4;
+
+/* Deduction for each skipped question... */
+noans=psco/nq;
+
+/* Deduction for each wrong answer based on no. of options to get 50% pass mark...  */
+wrans=noans+(noans/(nop-1));
+
+/* The Questions... */
+ques=new Array();
+ques[0]="1. Antediluvian...";
+ques[1]="2. The following are all true statements against a local flood theory. Which is the WEAKEST argument?";
+ques[2]="3. Catastrophic Plate Techtonics (CPT); Which is NOT RELEVANT? ";
+ques[3]="4. Has Noah's Ark been found today? Which is TRUE?";
+ques[4]="5. Simplest disproof of the theory - Pre-flood human ages were measured in months, not years. ";
+ques[5]="6. God's specifications for the ark: Which is the LEAST obvious sign of inspired instructions?";
+ques[6]="7. If the flood made the virtually all fossils, which of the following is NOT RELEVANT?";
+ques[7]="8. After the flood: Which is FALSE?";
+ques[8]="9. Comparing post-flood world to the previous conditions. Which is FALSE? (Ref: Gen 9:2-3, Gen 11)";
+ques[9]="10. Getting the animals to and from the ark. Which is FALSE? ";
+
+
+
+
+/* The correct answers... */
+cor="bcadbaccdb";
+
+/* Answers... */
+ans=new Array();
+ans[0]="Someone opposed to the idea of the flood";
+ans[1]="Before the flood";
+ans[2]="Flood sediments";
+ans[3]="Descendents of Noah";
+
+ans[4]="All mankind was destroyed and only those on the ark survived. Gen 7:21-23.";
+ans[5]="Noah saved birds capable of flying to dry land in a local flood. Gen 8:9";
+ans[6]="It rained for 40 days and 40 nights. Gen 7:12";
+ans[7]="God promised never to repeat the event. Gen 8:21,9:11,9:15";
+
+ans[8]="A canopy of water vapour held in the atmosphere was released during the flood";
+ans[9]="Runaway subduction - the heavy crust sinks into the mantle, causing more heat, which softens the mantle and accelerates the process";
+ans[10]="Continental Sprint - typical crustal plate motion but at much higher rate";
+ans[11]="Vocanic activity could account for rain, and crustal movement for the rising oceans";
+
+ans[12]="It has been found on Mt Ararat but it is too dangerous to go there and study it ";
+ans[13]="The remains of the ark have been discovered as a boat shaped mound of soil, rocks and fossilised wood";
+ans[14]="Someone found the ark but had to keep its location secret ";
+ans[15]="No direct evidence has yet been found";
+
+ans[16]="When divided by 12, the pre-flood lifespans are much shorter than today's";
+ans[17]="Enoch was 65 when he fathered Methuselah, and 65 months is a 5 year old";
+ans[18]="Shielding of UV rays by the vapour canopy combined with hyperbaric conditions could lengthen lives ";
+ans[19]="The orbit of the earth (year) has slowed down, making the old ages realistic by today's standards";
+
+ans[20]="Records from that period indicate Noah would have used cubits for measurement";
+ans[21]="Length/depth/width ratio is good - Long enough for smooth ride, deep enough for strength and wide enough for stability";
+ans[22]="Realistic scale for a near maximum capacity timber vessel";
+ans[23]="Minor details make sense - ceiling height is OK, ventilation opening is adequate, 120 years is enough time to build";
+
+ans[24]="Fossils must form quickly before they decay or are eaten ";
+ans[25]="Fossils formed by the sudden capture of live animals indicate a rapid burial";
+ans[26]="Many fossil animals are now exict";
+ans[27]="Marine fossils are the most common";
+
+ans[28]="Warm oceans and cold landmass are likely to have caused the ice age after the flood";
+ans[29]="All people alive today are related to Noah";
+ans[30]="God opened the door and Noah brought the animals out of the ark on dry land";
+ans[31]="People disobeyed God's instruction to spread out over the world until God introduced different languages at the Babel incident";
+
+ans[32]="Animals became fearful of man.";
+ans[33]="God allowed the eating of meat, so previously man was vegetarian.";
+ans[34]="The recorded lifespans began to decrease markedly.";
+ans[35]="Dinsoaurs (dragons) were not on the ark, so they became extinct";
+
+ans[36]="God brought the animals, and the pre-flood world may have been a single landmass. Gen 1:9";
+ans[37]="Animals in distant lands were not effected by the flood.";
+ans[38]="Koalas did not necessarily eat only gum leaves, they can be trained to eat other foods today";
+ans[39]="After Babel ancient people were surprisingly adventurous at sea, and they would have taken animals with them";
+
+
+
+
+
+// The rest of the code which wasn't supposed to be edited...
+ns="0123456789"
+ls="abcde";
+astr="";
+ack=new Array();
+for (var i=0;i<nq;i++){
+ ack[i]=(nq*nop)+1;
+ }
+
+function lightIt(){
+ document.images[flg+ad].src="rbl.gif";
+ }
+function dimIt(){
+ if (ack[Math.floor(flg/nop)]!=flg){
+  document.images[flg+ad].src="rbd.gif";
+  }
+ }
+function dumpIt(){
+ if (ack[Math.floor(flg/nop)]==flg){
+  document.images[ack[Math.floor(flg/nop)]+ad].src="rbd.gif";
+  ack[Math.floor(flg/nop)]=(nq*nop)+1;
+  }
+ else{
+  if (ack[Math.floor(flg/nop)]!=flg&&ack[Math.floor(flg/nop)]!=(nq*nop)+1){
+   document.images[ack[Math.floor(flg/nop)]+ad].src="rbd.gif";
+   }
+  document.images[flg+ad].src="rbl.gif";
+  ack[Math.floor(flg/nop)]=flg;
+  }
+ }
+ 
+//When you click the score button... 
+function ckSco(){  
+ document.images[ad+(nq*nop)].src="button_down.jpg";  
+
+ for (var i=0;i<nq;i++){   //Stick the green arrows in...
+  u=cor.charAt(i);
+  v=ls.indexOf(u)+(i*nop);
+  document.images[ad+v].src="gbl.gif";
+  }
+ sco=psco;     //Add up score...
+ for (var i=0;i<nq;i++){
+  if (ack[i]==(nq*nop)+1){
+   sco-=noans;
+   }
+  else{
+   u=cor.charAt(i);
+   v=ls.indexOf(u)+(i*nop);
+   sco=(v==ack[i]?sco:sco-wrans);
+   }       
+  }
+ sco=(sco<0?0:sco); // prevent minus score
+ scos=""+sco;
+ while (scos.length<3){
+  scos="0"+scos; 
+  }  
+ SCORE.innerHTML = "<font size=5>" + scoretext + sco + percent + "</font>"   //Print the score
+ }
+
+  
+function litbut(){
+ document.images[ad+(nq*nop)].src="button_up.jpg";
+ }
+function dimbut(){
+ document.images[ad+(nq*nop)].src="button_up_unlit.jpg";
+ }
+ ctr=0;
+
+function srand() {
+ today=new Date();
+ rand=today.getTime();
+ picker=""+rand
+ picker=picker.charAt((picker.length - nop));
+ rec=eval(picker);
+ }
+ 
+/* Lets you have up to 10 images before the question buttons begin. */
+function getImgAdd(){
+ for (var i=0;i<10;i++){
+  if (document.images[i].src.indexOf("rbd.gif")>-1){
+   ad=i;
+   i=10;
+   }
+  }
+ } 
+// End Hiding -->
+</SCRIPT>
+<style fprolloverstyle>A:hover {color: #FF0000; font-family: Arial}
+</style>
+</HEAD>
+
+
+<BODY BGCOLOR="#C0C0C0">
+<TABLE BORDER=0 WIDTH=600>
+<TR><TD><FONT FACE="helvetica,arial,geneva" SIZE=2><FONT COLOR=BLACK><B>Instructions:</B></FONT>
+	<BR>1. Click on blue button to select. To unselect, click the red button <img border="0" src="rbl.gif" width="12" height="12"> again.
+	<BR>2. No guessing. Wrong answers are penalized.
+	<BR>3. Score at the end. Correct answers are shown by the <img border="0" src="gbl.gif" width="16" height="14"> symbol.
+	</FONT><HR NOSHADE>
+	</TD></TR>	
+</TABLE>
+
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Hide from JavaScript-Impaired Browsers
+document.write('<TABLE BORDER=0 CELLPADDING=2 CELLSPACING=0 WIDTH=600><TR><TD COLSPAN=2 ALIGN=CENTER><FONT SIZE=5 FACE="arial" COLOR=blue>'+testitle+'</FONT></TD></TR><TR>');
+for (var i=0;i<nq;i++){
+ document.write('<TD COLSPAN=2 VALIGN=TOP><HR NOSHADE><FONT SIZE=3 FACE="arial"><B>'+ques[i]+'</B></FONT></TD></TR>')
+ for (var j=0;j<nop;j++){
+  document.write('<TR><TD><A '
+  +'" onMouseOver=" flg='+((i*nop)+j)+';lightIt();return true'
+  +'" onMouseOut="flg='+((i*nop)+j)+';dimIt();return true;' 
+  +'" onClick="flg='+((i*nop)+j)+';dumpIt();return false;">'
+  +'<IMG SRC="rbd.gif" WIDTH=15 HEIGHT=15 BORDER=0></TD><TD ALIGN=LEFT><FONT SIZE=3 FACE="arial">'+ans[(i*nop)+j]+'</FONT></TD></TR>');
+  }
+ }
+//The SCORE button...... 
+document.write('<TR><TD COLSPAN=2 ><A onMouseDown="ckSco();return false;" onMouseOver="litbut();return true;"' 
++'onMouseOut="dimbut();return true;" onMouseUp="litbut();return true;">'
++'<HR NOSHADE><IMG SRC="button_up_unlit.jpg" WIDTH=146 HEIGHT=28 BORDER=0 NAME="but">'
++'</TABLE>');
+
+
+getImgAdd();
+
+// End Hiding -->
+
+</SCRIPT><!-- And so on... -->
+<DIV style = "color: red" id="SCORE"></DIV> 
+<font face="Arial"><a href="../../default.htm">Home</a></font> &nbsp; <font face="Arial"><a href="quiz2.htm">Repeat this Test</a></font> &nbsp;
+
+   
+<p>&nbsp;</p>
+
+   
+</BODY>

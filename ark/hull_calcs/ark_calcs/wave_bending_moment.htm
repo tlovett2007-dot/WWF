@@ -1,0 +1,650 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>Ark Scale Calculator</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=windows-1252">
+<SCRIPT language=JavaScript>
+	// Ark Scale Calculator Copyright Tim Lovett Nov 2003
+	// www.worldwideflood.com
+	// Text array for units...
+	var unitName = new Array("mm", "inches") 
+	var steelwall = new Array(1,1,1,1,1,1,1)
+	// Christianity is not a religion, it's a relationship. 	
+function getData(form) { 
+	var dp=100									//decimal places
+   	var i = form.cubitName.selectedIndex 	//ith Cubit 
+   	var ci = form.cubitName.value 			//Cubit in inches
+   	var cmm = ci* 25.4 						//Cubit in mm
+   	var cubm = cmm/1000						//cubit in m
+   	var cir = Math.round(ci*100)/100 		//round off ci
+   	var cmmr = Math.round(cmm*10)/10 		//round off cmm     
+   	var wood = form.txtWood.value			//Wood thickness in m
+   	var SG = form.txtDraft.value			//Spec gravity of ark   	
+	form.txtAboutCubit.value = "Around " + cir + " inches or " + cmmr + "mm"    
+	
+   	//Calculate ark dimensions in m as a rectangle
+   	var L = 300*cubm										//Hull Length
+   	var B = 50*cubm										//Hull Width (beam)
+   	var D = 30*cubm										//Hull Depth
+   	var DB = B-2*wood										//Bulkhead width
+   var displace = L*B*D*SG								//Displacement in cu m  
+   form.txtB.value = Math.round(B*100)/100 + "m"
+   form.txtD.value = Math.round(D*100)/100 + "m"
+   form.txtArk.value = "Length=" + Math.round(L*100)/100 + ",  Beam=" + Math.round(B*100)/100 + ",  Depth=" + Math.round(D*100)/100
+  
+	//Calculate Mw using LLoyd's Register ChD:315
+   	//The Rule section modulus Z = C1 * L^2 * B * (Cb +0.7) mm3 (from Lloyds ChD:319)
+	//Factor C1 from Table D3.2 interpolating by linear regression (R=0.9996), 90 to 150m length
+	//Ark is Type 2; General misc. cargo density under 1 tonne/m3	
+   	var C1 = 6.2527 + 0.0178*L	  						//Factor C1	
+	var Cb = 1												//Block Coeff --> displace/(L*B*D*SG)=1
+	var Z = C1 * L * L * B * (Cb + 0.7)				//Min Section modulus in cm3	
+	var SigmaW = 98.1										//98.1 MPa: Lloyd's Table D 3.4 Seagoing, Type 2
+	var Mw = SigmaW * Z 									//Nm: LLoyd's Register ChD:315
+	form.txtC1.value = Math.round(C1*1000)/1000
+	form.txtZ.value = Math.round(Z*1000/1000000)/1000
+	form.txtMw.value = Math.round(Mw*dp/1000000)/dp
+	form.txtTable2.value = "Block Coeff Cb= " + Cb + ", C1 = " + Math.round(C1*1000)/1000 + ", SigmaW = 98.1 MPa" 
+	var steelIxx = Z*(0.5*D*100) / Math.pow(100,4)			//Ixx for steel hull in m4
+	form.txtSteelIxx.value = Math.round(steelIxx*1000)/10	//Ixx in E6cm4	
+	//var T = 0.0032*Math.pow(L,1.2764)						//T is almost a linear function of L.
+	var T = Z / (( B*D + D*D/3)*100*100)						//PNA Vol 1, Ch4, Eqn 108 re-arranged
+	form.txtSteelcm.value = Math.round(T*1000)/1000	
+	form.txtT.value = Math.round(T*1000)/1000 + "cm"
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	//Geometric area properties 
+	//Find centroid...
+	var WoodK = form.txtWoodK.value; var WoodD = form.txtWoodD.value; var WoodR = form.txtWoodR.value	
+	var WD = D-WoodK-WoodR
+	var d1 = 2*WoodK + WD
+	var woody = new Array(WD, WoodK, WoodD, WoodD, WoodR)					//Vertical dims of(Wall,Keel,Deck1,Deck2,Roof)
+	var woodx = new Array(wood*2, B, DB, DB, B)								//Horiz dims of " "	
+	//var woodd = new Array(WoodK+WD/2, WoodK/2, D/3, 2*D/3, D-WoodR/2) 	//Centroids of " "
+	var woodd = new Array(d1/2, WoodK/2, D/3, 2*D/3, D-WoodR/2) 			//Centroids of " "	
+	var wArea = new Array(1,1,1,1,1)	
+	var TotArea = 0
+	var TotAxD = 0
+	var info = 0
+	for (var i=0; i<5; i++)	{
+		wArea[i] = woodx[i] * woody[i]
+		TotArea = TotArea + wArea[i]
+		TotAxD = TotAxD + wArea[i]*woodd[i]
+		//info = info + ": " + i + "=" + woodd[i]
+	}
+	form.txtSectArea.value = Math.round(TotArea*1000)/1000
+	var Centroid = TotAxD/TotArea 
+	form.txtCentroid.value = Math.round(Centroid*1000)/1000
+	//Find Ixx...
+	var Icx = new Array (1,1,1,1,1)
+	var Ixx = new Array (1,1,1,1,1)
+	var TotIxx = 0
+	var d = 0	
+	for (var i=0; i<5; i++)	{
+		d = Centroid - woodd[i]
+		Icx[i] = woodx[i] * Math.pow(woody[i],3)/12
+		Ixx[i] = Icx[i] + wArea[i] * d * d
+		TotIxx = TotIxx + Ixx[i]		
+	}
+	form.txtTotIxx.value = Math.round(TotIxx*100)	
+	var yk = Centroid
+	var yr = D-yk
+	var kstress = Mw * yk / TotIxx
+	var rstress = Mw * yr / TotIxx
+	form.txtKStress.value = Math.round(kstress/1000)/1000	 
+	form.txtRStress.value = Math.round(rstress/1000)/1000	 
+	form.txtRStress46.value = Math.round(rstress*1.46/1000)/1000
+	
+
+ 
+	//Calculate full-scale ark properties in m,kg
+   	var woodvol = L*(TotArea) + 2*B*D*wood							//Volume in cubic m
+   	var woodSG = form.txtWoodSG.value								//Wood spec gravity
+   	var woodmass = woodvol*woodSG									//Mass in tonnes
+  	var cargo = displace-woodmass									//Net cargo in tonnes
+   	form.displace.value = Math.round(displace*dp)/dp + " tonnes"
+   form.hullmass.value = Math.round(woodmass*dp)/dp + " tonnes"
+	var modelcargo = cargo
+	form.cargokg.value = Math.round(modelcargo*dp)/dp + " tonnes"
+	
+
+	//Convert the PNA sample cargo hull Vol 1, Ch 3.3
+	var Ienglish = form.txtCargoShipIxxEnglish.value			//Convert Ixx
+	var Imetric = Ienglish*2.54*2.54*30.48*30.48
+	form.txtCargoShipIxxMetric.value = Math.round(Imetric*dp/1000000)/dp
+	var Zenglish = form.txtCargoShipZEnglish.value				//Convert Z (SMod)
+	var Zmetric = Zenglish*2.54*2.54*30.48
+	form.txtCargoShipZMetric.value = Math.round(Zmetric*dp/1000000)/dp
+	CSL = 161.09; CSB = 23.16; CSD = 13.56; CSCb = 0.612
+	var CSC1 = 6.2527 + 0.0178*CSL	  								//Factor C1	
+	var CSZ = CSC1 * CSL * CSL * CSB * (CSCb + 0.7)				//Min Section modulus in cm3	
+	var SigmaW = 98.1													//MPa: Lloyd's Table D 3.4 Seagoing, Type 2
+	var CSMw = SigmaW * CSZ 										//Nm: LLoyd's Register ChD:315
+	form.txtCSZmetric.value = Math.round(CSZ*dp/1000000)/dp
+	var CSZe = CSZ /(2.54*2.54*30.48)
+	form.txtCSZenglish.value = Math.round(CSZe)
+	var percente = Zenglish*100/CSZe								//Percentage of Lloyds to actual		
+	form.txtPercente.value = Math.round(percente)
+	var percentm = Zmetric*100/CSZ
+	form.txtPercentm.value = Math.round(percentm)
+	
+
+	
+	
+	
+	
+	
+	
+	
+
+
+	
+	
+	//Geometric area properties N,m,Pa for hogging cantilever	
+	//var Ixx = (B*D^3/12) - ((B-2*wood)*(D-2*wood)^3/12)			//Ixx as hollow box girder
+	//var GeoZ = Ixx / (D/2)										//Z=I/y
+	//var w = displace * 9.8 * 1000/L								//Newtons of half the ark
+	//var GeoM = w*(L/2)^2/2										//Uniform cantilever Nm
+	//var GeoS = GeoM/(GeoZ*1000000)								//Stress in Pa->MPa		
+	//form.txtIxx1.value = Math.round(Ixx*dp)/dp
+	//form.txtGeoZ.value = Math.round(GeoZ*dp)/dp
+	//form.txtGeoM.value = Math.round(GeoM*dp/1000000)/dp
+	//form.txtGeoS.value = Math.round(GeoS*dp)/dp
+	
+} 
+
+
+</SCRIPT>
+
+<META content="Microsoft FrontPage 4.0" name=GENERATOR>
+<script type="text/javascript" language="javascript" src="http://www.worldwideflood.com/jsmenu/sniffer.js">
+//Top Navigational Bar III v3.4.1.1b (By BrotherCake @ cake@brothercake.net)
+//Permission granted/modified by Dynamicdrive.com to include script in archive
+//For this and 100's more DHTML scripts, visit http://www.dynamicdrive.com/
+//This notice MUST stay intact for legal use
+</script>
+<script type="text/javascript" language="javascript1.2" src="http://www.worldwideflood.com/jsmenu/custom.js"></script>
+<script type="text/javascript" language="javascript1.2" src="http://www.worldwideflood.com/jsmenu/style.js"></script>
+
+</head>
+
+<BODY onload=getData(document.scaleData)>
+
+<script type="text/javascript" language="javascript1.2" src="http://www.worldwideflood.com/jsmenu/menu.js"></script>
+
+
+<table border="0" cellspacing="0" width="100%">
+  <tr>
+    <td style="background-color: #FFFFFF; border-style: solid; border-color: #FFFFFF" bordercolor="#FFFFFF">
+<p style="left: 17; top: 15; width: 907; height: 29; position: absolute; margin-top: 0; margin-bottom: 0"><font color="#800000"><font face="Arial" size="5"><b>Wave
+Bending Moment Estimation</b> </font><font face="Arial" size="1">&nbsp;&nbsp;&nbsp;
+</font><font face="Arial" size="2"><a href="../../default.htm">HOME</a></font></font></p>
+<p style="left: 17; top: 21; width: 907; height: 29; position: absolute; margin-top: 0; margin-bottom: 0">&nbsp;</p>
+<p style="left: 17; top: 21; width: 907; height: 29; position: absolute; margin-top: 0; margin-bottom: 0">&nbsp;</p>
+<p style="left: 17; top: 21; width: 907; height: 29; position: absolute; margin-top: 0; margin-bottom: 0">&nbsp;</p>
+<p style="left: 17; top: 45; width: 907; height: 29; position: absolute; margin-top: 0; margin-bottom: 0"><font face="Arial" size="1">COPYRIGHT Tim
+Lovett 2003 </font></p>
+<p style="left: 17; top: 45; width: 907; height: 29; position: absolute; margin-top: 0; margin-bottom: 0">&nbsp;</p>
+    </td>
+  </tr>
+</table>
+
+<FORM name=scaleData style="margin-top: 0; margin-bottom: 0">
+<table border="1" cellpadding="0" cellspacing="0" style="border-collapse: collapse; left: 11; top: 261; position: absolute" bordercolor="#000000" id="AutoNumber2" align="left" width="450" height="61">
+  <tr>
+    <td bgcolor="#FFFFE8" bordercolor="#000000" width="74" align="right" style="background-color: #FFE9CA" height="25">
+<font face="Arial" size="2">&nbsp;Cubit size&nbsp;</font>
+    </td>
+    <td bgcolor="#FFFFE8" bordercolor="#000000" width="370" align="left" height="25">
+<p align="left">
+<font face="Arial" size="2"> &nbsp;<SELECT onchange=getData(this.form) name=cubitName size="1" style="font-weight: bold"> 
+  <OPTION value="17.5">Short Hebrew
+  <option value="17.6">Short Egyptian</option>
+  <OPTION selected value="18">Common
+  <option value="19.8">Babylonian Royal</option>
+  <option value="20.4">Long Hebrew</option>
+  <OPTION value="20.6">Royal Egyptian<OPTION value="24">Long Babylonian</OPTION></SELECT><!--webbot
+bot="Validation" s-data-type="Number" s-number-separators=",." --><INPUT size=24 name=txtAboutCubit style="text-align: Left; background-color: #FFFFE8; border-style: solid; border-color: #FFFFE8"></font>
+</p>
+    </td>
+  </tr>
+  <tr>
+    <td bgcolor="#FFFFE8" bordercolor="#000000" width="74" align="right" style="background-color: #FFE9CA" height="24">
+<font face="Arial" size="2">&nbsp;Dimensions&nbsp;</font> 
+    </td>
+    <td bgcolor="#FFFFE8" bordercolor="#000000" width="370" align="left" height="24">
+<p align="left"><font face="Arial" size="2">&nbsp;<!--webbot bot="Validation"
+s-data-type="Number" s-number-separators=",." --><INPUT size=47 name=txtArk style="text-align: Left; background-color: #FFFFE8; border-style: solid; border-color: #FFFFE8">&nbsp;&nbsp;
+&nbsp;</font></p>
+    </td>
+  </tr>
+</table>
+<p>&nbsp;
+</p>
+<div style="left: 13; top: 100; width: 663; height: 80; position: absolute">
+  <p><font face="Arial" size="2"><b>How strong did the Ark have to be?</b></font>
+</p>
+  <p><font face="Arial" size="2">If the wooden hull of Noah's ark was in the
+  open sea, it must be built to a certain minimum strength. Based on the worst
+  seas of today, the first thing to check on any ship design is the bending
+  strength along the hull. A ship riding over large waves experiences bending
+  forces (moment or torque) that flex the hull up and down along its length
+  (hogging and sagging). Without adequate strength and rigidity, the ark could
+  leak or break when it meets high seas. For a starting point, we will
+  investigate the required hull strength for an ark riding modern ocean waves.</font>
+</p>
+  <p><font face="Arial" size="2"><b>If the ark were built in steel, how thick
+  should the plate be?</b></font>
+</p>
+</div>
+<p>&nbsp;
+</p>
+<p>&nbsp;
+</p>
+<p>&nbsp;
+</p>
+<p><br>
+</p>
+<p>&nbsp;</p>
+<p style="left: 5; top: 340; width: 917; height: 362; position: absolute">&nbsp;</p>
+		
+<table border="1" cellpadding="0" cellspacing="0" style="border-collapse: collapse; left: 14; top: 2232; position: absolute; z-index: 1" bordercolor="#111111" id="AutoNumber7" align="left" width="260" height="430">
+  <tr>
+    <td width="471" align="center" height="26" colspan="4" style="background-color: #EEEEEE">
+      <p style="margin-top: 0; margin-bottom: 0"><font color="#800000" face="Arial" size="2"><b>Table
+      5: Ark Sectional Properties&nbsp;(Plate Structure)</b></font></p>
+      <p style="margin-top: 0; margin-bottom: 0"><font color="#800000" face="Arial" size="2"><b>An
+      initial estimate of ark properties</b></font></p>
+    </td>
+  </tr>
+  <tr>
+    <td width="112" align="center" height="14" bgcolor="#EEEEEE"><font face="Arial" size="2" color="#800000"><b>&nbsp;Property&nbsp;</b></font></td>
+    <td width="108" height="14" align="center" bgcolor="#EEEEEE"><font face="Arial" size="2" color="#800000"><b>&nbsp;Value&nbsp;</b></font></td>
+    <td width="48" align="center" height="14" bgcolor="#EEEEEE">
+      <p align="center"><font face="Arial" size="2" color="#800000"><b>&nbsp;Units</b></font></p>
+    </td>
+    <td width="203" height="14" bgcolor="#EEEEEE">
+      <p align="center"><font face="Arial" size="2" color="#800000"><b>&nbsp;Ref.</b></font></p>
+    </td>
+  </tr>
+  <tr>
+    <td width="112" align="right" height="28"><font face="Arial" size="2">Sect 
+    Area&nbsp;</font></td>
+    <td width="108" align="right" height="28"><font face="Arial" size="2">
+    <INPUT 
+size=13 name=txtSectArea style="background-color: #FFFFFF; text-align: Center; color: #800000; border-style: solid; border-color: #FFFFFF"></font></td>
+    <td width="48" height="28" align="center"><font face="Arial" size="2">m<sup>2</sup></font></td>
+    <td width="203" height="28">
+      <font face="Arial" size="2">&nbsp;Timber CSA</font>
+    </td>
+  </tr>
+  <tr>
+    <td width="112" align="right" height="28"><font face="Arial" size="2">Sect 
+    Centroid&nbsp;</font></td>
+    <td width="108" align="right" height="28"><font face="Arial" size="2"><INPUT 
+size=13 name=txtCentroid style="background-color: #FFFFFF; text-align: Center; color: #800000; border-style: solid; border-color: #FFFFFF"></font></td>
+    <td width="48" height="28" align="center"><font face="Arial" size="2">m</font></td>
+    <td width="203" height="28">
+      <font face="Arial" size="2">&nbsp;From 
+      keel</font>
+    </td>
+  </tr>
+  <tr>
+    <td width="112" align="right" height="28"><font face="Arial" size="2">Ixx &nbsp;</font></td>
+    <td width="108" align="right" height="28"><font face="Arial" size="2">
+    <INPUT 
+size=13 name=txtTotIxx style="background-color: #FFFFFF; text-align: Center; color: #800000; border-style: solid; border-color: #FFFFFF"></font></td>
+    <td width="48" height="28" align="center"><font face="Arial" size="2">E6cm<sup>4</sup></font></td>
+    <td width="203" height="28">
+      <p align="left"><font face="Arial" size="2">&nbsp;Based on timber&nbsp;</font></p>
+    </td>
+  </tr>
+  <tr>
+    <td width="112" align="right" height="28"><font face="Arial" size="2">Stress 
+    at Keel&nbsp;&nbsp; </font></td>
+    <td width="108" align="right" height="28"><font face="Arial" size="2">
+    <INPUT 
+size=11 name=txtKStress style="background-color: #FFFFFF; text-align: Center; color: #800000; border-style: solid; border-color: #FFFFFF"></font></td>
+    <td width="48" height="28" align="center"><font face="Arial" size="2">MPa</font></td>
+    <td width="203" height="28">
+      <p align="left"> <font face="Arial" size="2">&nbsp;Based on Lloyd's Mw</font></p>
+    </td>
+  </tr>
+  <tr>
+    <td width="112" align="right" height="28"><font face="Arial" size="2">Stress 
+    at Roof&nbsp;&nbsp; </font></td>
+    <td width="108" align="right" height="28"><font face="Arial" size="2">
+    <INPUT 
+size=11 name=txtRStress style="background-color: #FFFFFF; text-align: Center; color: #800000; border-style: solid; border-color: #FFFFFF"></font></td>
+    <td width="48" height="28" align="center"><font face="Arial" size="2">MPa</font></td>
+    <td width="203" height="28">
+      <p align="left"> <font face="Arial" size="2">&nbsp;Based on Lloyd's Mw</font></p>
+    </td>
+  </tr>
+  <tr>
+    <td width="112" align="right" height="28"><font face="Arial" size="2">add
+      46%&nbsp;&nbsp; </font></td>
+    <td width="108" align="right" height="28"><font face="Arial" size="2">
+    <INPUT 
+size=11 name=txtRStress46 style="background-color: #FFFFFF; text-align: Center; color: #800000; border-style: solid; border-color: #FFFFFF"></font></td>
+    <td width="48" height="28" align="center"><font face="Arial" size="2">MPa</font></td>
+    <td width="203" height="28">
+      <p align="left"> <font face="Arial" size="2">&nbsp;Typical extra&nbsp;</font></p>
+    </td>
+  </tr>
+  <tr>
+    <td width="471" align="right" height="28" colspan="4" style="background-color: #EEEEEE">
+      <p align="left" style="margin-left: 4"><font face="Arial" size="2" color="#000000">&nbsp;Using
+      values typical of the PNA cargo ship, the wave bending moment was
+      increased by 46%. &nbsp;</font></td>
+  </tr>
+</table>
+		
+<table border="1" cellpadding="0" cellspacing="0" style="border-collapse: collapse; left: 16; top: 417; position: absolute; z-index: 1" bordercolor="#111111" id="AutoNumber6" width="447" align="left" height="739">
+  <tr>
+    <td width="460" align="center" height="103" colspan="4" style="background-color: #EEEEEE">
+      <p style="margin-top: 0; margin-bottom: 0"><font color="#800000" face="Arial" size="2"><b>Table
+      2: A Steel Ark. Lloyd's method for Wave Bending Moment</b></font>
+      <p style="margin-top: 0; margin-bottom: 0"><font face="Arial" size="2">
+    <INPUT 
+size=57 name=txtTable2 style="background-color: #EEEEEE; text-align: Center; color: #800000; font-family: Arial; border-style: solid; border-color: #EEEEEE"></font>
+      </p>
+      <p align="left" style="margin-left: 4; margin-top: 0; margin-bottom: 0"><font face="Arial" size="2" color="#000000">&nbsp;Lloyd's
+      Chapter D, part 315 gives a formula for estimating the bending moment
+      midway along the hull (amidships) that could be applied by typical sea
+      waves. The factor C1 is tabulated and based on shipping data. (Note that
+      the still water bending moment is not yet considered.)&nbsp;&nbsp;</font>
+    </td>
+  </tr>
+  <tr>
+    <td width="460" align="center" colspan="4" style="background-color: #FFFFFF" height="71"><img border="0" src="arkulator_files/LloydsChD315.gif" width="400" height="71"></td>
+  </tr>
+  <tr>
+    <td width="105" align="center" height="16" bgcolor="#EEEEEE"><font face="Arial" size="2" color="#800000"><b>&nbsp;Property&nbsp;</b></font></td>
+    <td width="113" height="16" align="center" bgcolor="#EEEEEE"><font face="Arial" size="2" color="#800000"><b>
+    &nbsp;Value&nbsp;</b></font></td>
+    <td width="55" align="center" height="16" bgcolor="#EEEEEE">
+      <p align="center"><font face="Arial" size="2" color="#800000"><b>&nbsp;Units</b></font></p>
+    </td>
+    <td width="187" height="16" bgcolor="#EEEEEE">
+      <p align="center"><font face="Arial" size="2" color="#800000"><b>&nbsp;Lloyd's
+      Reference</b></font></p>
+    </td>
+  </tr>
+  <tr>
+    <td width="105" align="right" height="26"><font face="Arial" size="2">C1&nbsp;&nbsp;</font></td>
+    <td width="113" align="right" height="26"><font face="Arial" size="2"><INPUT 
+size=14 name=txtC1 style="background-color: #FFFFFF; text-align: Center; color: #800000; border-style: solid; border-color: #FFFFFF"></font></td>
+    <td width="55" height="26" align="center">-</td>
+    <td width="187" height="26">
+      <font face="Arial" size="2">&nbsp;Table D:3.2 Interpolated</font>
+    </td>
+  </tr>
+  <tr>
+    <td width="105" align="right" height="26"><font face="Arial" size="2">SM&nbsp;&nbsp;</font></td>
+    <td width="113" align="right" height="26"><font face="Arial" size="2"><INPUT 
+size=14 name=txtZ style="background-color: #FFFFFF; text-align: Center; color: #800000; border-style: solid; border-color: #FFFFFF"></font></td>
+    <td width="55" height="26" align="center"><font face="Arial" size="2">E6cm<sup>3</sup></font></td>
+    <td width="187" height="26">
+      <font face="Arial" size="2">&nbsp;D:318, 319(a)</font>
+    </td>
+  </tr>
+  <tr>
+    <td width="105" align="right" height="26"><font face="Arial" size="2">&nbsp;Mw&nbsp;</font></td>
+    <td width="113" align="right" height="26"><font face="Arial" size="2"><INPUT 
+size=12 name=txtMw style="background-color: #FFFFFF; text-align: Center; color: #800000; font-weight: bold; border-style: solid; border-color: #FFFFFF"></font></td>
+    <td width="55" height="26" align="center"><font face="Arial" size="2">E6Nm&nbsp;</font></td>
+    <td width="187" height="26">
+      <p align="left"><font face="Arial" size="2">&nbsp;Wave BM: D:315&nbsp;</font></p>
+    </td>
+  </tr>
+  <tr>
+    <td width="460" align="right" height="32" colspan="4" style="background-color: #EEEEEE">
+      <p align="left" style="margin-left: 4; margin-top: 0; margin-bottom: 0"><font face="Arial" size="2" color="#000000">To
+      find the wall thickness, we will assume a perfectly
+      rectangular section of constant wall thickness - in mild steel.</font></td>
+  </tr>
+  <tr>
+    <td width="105" align="right" height="26"><font face="Arial" size="2">Ixx&nbsp;</font></td>
+    <td width="113" align="right" height="26"><font face="Arial" size="2"><INPUT 
+size=14 name=txtSteelIxx style="background-color: #FFFFFF; text-align: Center; color: #800000; border-style: solid; border-color: #FFFFFF"></font></td>
+    <td width="55" height="26" align="center"><font face="Arial" size="2">E6cm<sup>4</sup>&nbsp;</font></td>
+    <td width="187" height="26">
+      <p align="left"><font face="Arial" size="2">&nbsp;Rectangular tube: y=D/2&nbsp;</font></p>
+    </td>
+  </tr>
+  <tr>
+    <td width="105" align="right" height="26"><font face="Arial" size="2">Steel
+      Plate T&nbsp;&nbsp;</font></td>
+    <td width="113" align="right" height="26"><font face="Arial" size="2"><INPUT 
+size=14 name=txtSteelcm style="background-color: #FFFFFF; text-align: Center; color: #800000; border-style: solid; border-color: #FFFFFF"></font></td>
+    <td width="55" height="26" align="center"><font face="Arial" size="2">cm&nbsp;</font></td>
+    <td width="187" height="26">
+      <p align="left"><font face="Arial" size="2">&nbsp;PNA 1:Ch4:Eqn
+      108:p277&nbsp;</font></p>
+    </td>
+  </tr>
+  <tr>
+    <td width="460" align="right" height="245" colspan="4">
+      <p align="center"><img border="0" src="arkulator_files/hull_section_rect_steel.gif" width="389" height="245"><font face="Arial" size="2"><INPUT 
+size=12 name=txtB style="background-color: #FFFFFF; text-align: Center; color: #0000FF; font-weight: bold; left: 180; top: 428; width: 81; height: 23; position: absolute; border-style: solid; border-color: #FFFFFF"><INPUT 
+size=12 name=txtD style="background-color: #FFFFFF; text-align: Center; color: #0000FF; font-weight: bold; left: 303; top: 541; width: 81; height: 23; position: absolute; border-style: solid; border-color: #FFFFFF"><INPUT 
+size=12 name=txtT style="background-color: #FFFFFF; text-align: Left; color: #0000FF; font-weight: bold; left: 102; top: 564; width: 81; height: 23; position: absolute; border-style: solid; border-color: #FFFFFF"></font></td>
+  </tr>
+  <tr>
+    <td width="460" align="right" height="114" colspan="4" style="background-color: #EEEEEE">
+      <p align="left" style="background-color: #EEEEEE; margin-left: 4; margin-top: 0"><font face="Arial" size="2">Assuming
+      an ark-sized vessel with a simplified hull cross-section in steel, the
+      recommended Wave Bending Moment was calculated using a semi empirical
+      method (Lloyd's register of shipping). For this geometry, and over the
+      length range determined by the choice of cubit, the hull wall thickness
+      increases slightly more than a linear function of ship length;</font>
+      <p align="left" style="background-color: #EEEEEE; margin-left: 4; margin-top: 0"><font face="Arial" size="2">&nbsp;</font><font face="Arial"><font size="3"><b>T</b>
+      = 0.0032&nbsp; <b>L</b><sup>1.2755&nbsp; </sup></font><font size="2">Where
+      T = wall thickness (cm), L = length (m).</font></font></td>
+  </tr>
+</table>
+		
+<table border="1" cellpadding="0" cellspacing="0" style="border-collapse: collapse; left: 16; top: 1990; position: absolute; z-index: 1; border-style: solid" id="AutoNumber4" width="403" align="left" height="231" bordercolor="#000000">
+  <tr>
+    <td bgcolor="#FFFFE8" bordercolor="#000000" width="399" align="right" style="background-color: #FFE9CA" colspan="2">
+<p align="center"><font color="#800000" face="Arial" size="2"><b>Table 4: A
+Timber Ark. (Plate Structure Properties)</b></font>
+    </td>
+  </tr>
+  <tr>
+    <td bgcolor="#FFFFE8" bordercolor="#000000" width="136" align="right" style="background-color: #FFE9CA">
+<font face="Arial" size="2">Timber Properties&nbsp;</font>
+    </td>
+    <td bgcolor="#FFFFE8" bordercolor="#000000" width="261" align="left">
+<font face="Arial" size="2">&nbsp;SG = <!--webbot bot="Validation"
+s-data-type="Number" s-number-separators=",."
+s-validation-constraint="Greater than" s-validation-value=".2"
+s-validation-constraint="Less than or equal to" s-validation-value="10" --><INPUT size=5 name=txtWoodSG style="text-align: Left" value="0.6">&nbsp;&nbsp;</font>
+    </td>
+  </tr>
+  <tr>
+    <td bgcolor="#FFFFE8" bordercolor="#000000" width="136" align="right" style="background-color: #FFE9CA">
+<font face="Arial" size="2">Plate Thickness (m)&nbsp;</font>
+    </td>
+    <td bgcolor="#FFFFE8" bordercolor="#000000" width="261" align="left">
+<p style="margin-top: 0; margin-bottom: 0"><font face="Arial" size="2">&nbsp;Sides&nbsp;
+= <!--webbot bot="Validation" s-data-type="Number" s-number-separators=",."
+s-validation-constraint="Greater than" s-validation-value="0"
+s-validation-constraint="Less than or equal to" s-validation-value="5" --><INPUT size=7 name=txtWood style="text-align: Left" value="0.3">
+ Keel = <!--webbot bot="Validation" s-data-type="Number"
+s-number-separators=",." s-validation-constraint="Greater than"
+s-validation-value="0" s-validation-constraint="Less than or equal to"
+s-validation-value="15" --><INPUT size=7 name=txtWoodK style="text-align: Left" value="0.3">
+&nbsp;</font>
+</p>
+<p style="margin-top: 0; margin-bottom: 0">
+<font face="Arial" size="2">&nbsp;Decks = <!--webbot bot="Validation"
+s-data-type="Number" s-number-separators=",."
+s-validation-constraint="Greater than" s-validation-value="0"
+s-validation-constraint="Less than or equal to" s-validation-value="15" --><INPUT size=7 name=txtWoodD style="text-align: Left" value="0">
+ Roof = <!--webbot bot="Validation" s-data-type="Number"
+s-number-separators=",." s-validation-constraint="Greater than"
+s-validation-value="0" s-validation-constraint="Less than or equal to"
+s-validation-value="15" --><INPUT size=7 name=txtWoodR style="text-align: Left" value="0.3">&nbsp;&nbsp;</font>
+</p>
+    </td>
+  </tr>
+  <tr>
+    <td bgcolor="#FFFFE8" bordercolor="#000000" width="136" align="right" style="background-color: #FFE9CA">
+<font face="Arial" size="2">Draft&nbsp;</font> 
+    </td>
+    <td bgcolor="#FFFFE8" bordercolor="#000000" width="261" align="left">
+<font face="Arial" size="2">&nbsp;<!--webbot bot="Validation"
+s-data-type="Number" s-number-separators=",."
+s-validation-constraint="Greater than" s-validation-value="0"
+s-validation-constraint="Less than or equal to" s-validation-value="1" --><INPUT size=5 name=txtDraft style="text-align: Left" value="0.5">of&nbsp;
+Depth&nbsp;&nbsp; <input type="button" value="Re-Calculate" onclick=getData(this.form) name="B6" style="font-size: 10pt; font-family: Arial"></font>
+    </td>
+  </tr>
+  <tr>
+    <td width="399" align="center" colspan="2">
+      <p align="center" style="background-color: #EEEEEE"><font face="Arial" size="2"><b><font color="#800000">Mass
+      Properties</font></b></font></td>
+  </tr>
+  <tr>
+    <td width="136" align="right"><font face="Arial" size="2">&nbsp;Displacement:</font></td>
+    <td width="261"><font face="Arial" size="2"> <INPUT 
+size=18 name=displace style="background-color: #FFFFFF; color: #800000; border-style: solid; border-color: #FFFFFF"></font></td>
+  </tr>
+  <tr>
+    <td width="136" align="right"><font face="Arial" size="2">Hull Plate
+      Structure:</font></td>
+    <td width="261"><font face="Arial" size="2"> <INPUT 
+size=18 name=hullmass style="background-color: #FFFFFF; color: #800000; border-style: solid; border-color: #FFFFFF"></font></td>
+  </tr>
+  <tr>
+    <td width="136" align="right"><font face="Arial" size="2">Cargo Deadweight:</font></td>
+    <td width="261"><font face="Arial" size="2"> <INPUT 
+size=18 name=cargokg style="background-color: #FFFFFF; color: #800000; border-style: solid; border-color: #FFFFFF"></font></td>
+  </tr>
+</table>
+<p style="margin-top: 0; margin-bottom: 0">&nbsp; </p>
+      <p style="margin-top: 0; margin-bottom: 0">&nbsp;</p>
+      <p style="margin-top: 0; margin-bottom: 0">&nbsp;</p>
+      <p style="margin-top: 0; margin-bottom: 0">&nbsp;</p>
+      <p style="margin-top: 0; margin-bottom: 0">&nbsp;</p>
+      <p style="margin-top: 0; margin-bottom: 0">&nbsp;</p>
+      <p style="margin-top: 0; margin-bottom: 0">&nbsp;</p>
+      <p style="margin-top: 0; margin-bottom: 0">&nbsp;</p>
+      <p style="margin-top: 0; margin-bottom: 0">&nbsp;</p>
+<p align="left">&nbsp; 
+		
+<table border="1" cellpadding="0" cellspacing="0" style="border-collapse: collapse; left: 16; top: 1169; position: absolute; z-index: 1" bordercolor="#111111" id="AutoNumber3" width="447" align="left" height="809">
+  <tr>
+    <td align="right" colspan="5" style="background-color: #EEEEEE" width="497">
+      <p align="center" style="margin-top: 0; margin-bottom: 0"><font color="#800000" face="Arial" size="2"><b>Table
+      3: Comparison with a real ship:&nbsp;</b></font>
+      <p align="center" style="margin-top: 0; margin-bottom: 0"><font color="#800000" face="Arial" size="2"><b>
+      PNA sample hull section modulus. (Vol 1, Ch4, Sect 3.3)</b></font></td>
+  </tr>
+  <tr>
+    <td align="right" colspan="5" style="background-color: #FFFFFF" width="497">
+      <p align="center"><font face="Arial" size="2" color="#000000"><img border="0" src="arkulator_files/cargo_hull_section.gif" width="400" height="519"></font></td>
+  </tr>
+  <tr>
+    <td align="left" colspan="5" style="background-color: #EEEEEE; margin-left: 2" width="497">
+      <p align="left" style="margin-left: 4; margin-right: 0; margin-top: 0; margin-bottom: 0"><font face="Arial" size="2" color="#000000">An
+      example section modulus calculation based on a 19,000 tonne cargo vessel.
+      528.5&nbsp; x 76&nbsp; x 44.5 ft. (161 x 23 x 13.6 m).</font><p align="left" style="margin-left: 4; margin-right: 0; margin-top: 0; margin-bottom: 0"><font face="Arial" size="2" color="#000000">Total
+      Moment of inertia was given as 1078744 in2
+      ft2, with a
+      bottom SM of 53323 in2 ft.
+      For Lloyd's formula we will assume &quot;Gen. Cargo Ship&quot; type 5, PNA
+      vol1,Ch1, S3, Table 2, where Cb=0.612.&nbsp;</font></td>
+  </tr>
+  <tr>
+    <td width="137" align="right" height="28"><font face="Arial" size="2" color="#000000">Moment
+      of Inertia&nbsp;&nbsp;</font></td>
+    <td width="118" height="28"><font face="Arial" size="2" color="#000000"><INPUT 
+size=11 name=txtCargoShipIxxEnglish style="background-color: #FFFFFF; text-align: Center; color: #800000; border-style: solid; border-color: #FFFFFF" value="1078744"></font></td>
+    <td width="52" align="right" height="28">
+      <p align="left"><font face="Arial" size="2" color="#000000">&nbsp;in<sup>2</sup>
+      ft<sup>2</sup></font></p>
+    </td>
+    <td width="124" align="right" height="28">
+      <font face="Arial" size="2" color="#000000"><INPUT 
+size=11 name=txtCargoShipIxxMetric style="background-color: #FFFFFF; text-align: Center; color: #800000; border-style: solid; border-color: #FFFFFF"></font>
+    </td>
+    <td width="58" align="right" height="28">
+      <p align="left"><font face="Arial" size="2" color="#000000">&nbsp;E6cm<sup>4</sup></font></p>
+    </td>
+  </tr>
+  <tr>
+    <td width="137" align="right" height="26"><font face="Arial" size="2" color="#000000">Bottom
+      SM &nbsp;</font></td>
+    <td width="118" height="26"><font face="Arial" size="2" color="#000000"><INPUT 
+size=11 name=txtCargoShipZEnglish style="background-color: #FFFFFF; text-align: Center; color: #800000; border-style: solid; border-color: #FFFFFF" value="53323"></font></td>
+    <td width="52" align="right" height="26">
+      <p align="left"><font face="Arial" size="2" color="#000000">&nbsp;in<sup>2</sup> ft</font></p>
+    </td>
+    <td width="124" align="right" height="26">
+    <font face="Arial" size="2" color="#000000"><INPUT 
+size=11 name=txtCargoShipZMetric style="background-color: #FFFFFF; text-align: Center; color: #800000; border-style: solid; border-color: #FFFFFF"></font>
+    </td>
+    <td width="58" align="right" height="26">
+      <p align="left"><font face="Arial" size="2" color="#000000">&nbsp;E6cm<sup>3</sup></font></p>
+    </td>
+  </tr>
+  <tr>
+    <td width="137" align="right" height="26"><font face="Arial" size="2" color="#000000">Lloyd's
+      SM &nbsp;</font></td>
+    <td width="118" height="26"><font face="Arial" size="2" color="#000000"><INPUT 
+size=11 name=txtCSZenglish style="background-color: #FFFFFF; text-align: Center; color: #800000; border-style: solid; border-color: #FFFFFF"></font></td>
+    <td width="52" align="right" height="26">
+      <p align="left"><font face="Arial" size="2" color="#000000">&nbsp;in<sup>2</sup> ft</font></p>
+    </td>
+    <td width="124" align="right" height="26">
+    <font face="Arial" size="2" color="#000000"><INPUT 
+size=11 name=txtCSZmetric style="background-color: #FFFFFF; text-align: Center; color: #800000; border-style: solid; border-color: #FFFFFF"></font>
+    </td>
+    <td width="58" align="right" height="26">
+      <p align="left"><font face="Arial" size="2" color="#000000">&nbsp;E6cm<sup>3</sup></font></p>
+    </td>
+  </tr>
+  <tr>
+    <td width="137" align="right" height="26"><font face="Arial" size="2" color="#000000">%
+      above Lloyds &nbsp; </font></td>
+    <td width="118" height="26"><font face="Arial" size="2" color="#000000"><INPUT 
+size=11 name=txtPercente style="background-color: #FFFFFF; text-align: Center; color: #800000; border-style: solid; border-color: #FFFFFF"></font></td>
+    <td width="52" align="right" height="26">
+      <p align="left"><font size="2" face="Arial" color="#000000">&nbsp;%</font></p>
+    </td>
+    <td width="124" align="right" height="26">
+    <font face="Arial" size="2" color="#000000"><INPUT 
+size=11 name=txtPercentm style="background-color: #FFFFFF; text-align: Center; color: #800000; border-style: solid; border-color: #FFFFFF"></font>
+    </td>
+    <td width="58" align="right" height="26">
+      <p align="left"><font size="2" face="Arial" color="#000000">&nbsp;%</font></p>
+    </td>
+  </tr>
+  <tr>
+    <td width="489" align="right" height="26" colspan="5" style="background-color: #EEEEEE">
+      <p align="left" style="margin-left: 4; margin-right: 0; margin-top: 0; margin-bottom: 0"><font face="Arial" size="2" color="#000000">So
+      the actual hull strength is 46% higher than predicted by the Lloyd's
+      formula. This is probably accounting for still water (static) bending
+      moment due to worst case mismatch between cargo &amp; buoyancy along the
+      hull.</font></td>
+  </tr>
+</table>
+<P> &nbsp; </P>
+<P> &nbsp; </P>
+<P> &nbsp; </P>
+<P> &nbsp; </P>
+<P> &nbsp; </P>
+<P> &nbsp; </P>
+<P> &nbsp; </P>
+<P> &nbsp; </P>
+<P> &nbsp; </P></FORM></BODY></HTML>

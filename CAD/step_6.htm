@@ -1,0 +1,124 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+
+<head>
+<title>Hull Loft Tute 4</title>
+<meta name="description" content="add your site description here">
+<meta name="keywords" content="add your search engine keywords here separated by commas">
+<meta http-equiv="Content-Language" content="en-us">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<link rel="stylesheet" type="text/css" href="tute.css">
+</head>
+
+<body>
+  <table style="border-collapse: collapse" bordercolor="#111111" cellpadding="0" cellspacing="0" width="100%">
+    <tr>
+      <td width="200" class="leftside" valign="top" bgcolor="#FFFFFF">
+      <p align="center"><img border="0" src="loft_pic.jpg" width="200" height="267"><p>&nbsp;</p>
+      <div align="left">
+        <table width="100%">
+          <tr>
+            <td width="100%" class="hottopic1"><a href="http://www.worldwideflood.com">HOME</a>
+              <p><a href="http://www.worldwideflood.com/jsmenu/full_menu.htm">WWF
+              Menu</a></p>
+              <p>&nbsp;</p>
+              <p>Hull Lofting Tutorial:</p>
+            </td>
+          </tr>
+          <tr>
+            <td width="100%" class="hottopic2"><a href="start.htm">Start: 0</a><br>
+              <a href="step_1.htm"> Set the first dxf: 1</a><br>
+              <a href="step_2.htm"> Paste other dxf's: 2</a><br>
+              <a href="step_3.htm">Loft profiles: 3</a><br>
+              <a href="step_4.htm">Loft test: 4</a><br>
+              <a href="step_5.htm">Loft Better: 5</a><br>
+              <a href="step_6.htm">Shelling: 6</a><br>
+              <a href="step_7.htm">Full Length: 7</a><br>
+              <a href="step_8.htm">Keel, Mirror &amp; Render: 8</a>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <p>&nbsp;</p>
+      <p>&nbsp;</p>
+      <table width="100%">
+        <tr>
+          <td width="100%" class="hottopic1">Background:</td>
+        </tr>
+        <tr>
+          <td width="100%" class="hottopic3">The ship lines were created by Dr
+            Allen Magnuson in Feb 2005 using Vacanti Prolines LE. The data was
+            exported in 2D&nbsp;dxf format, then traced&nbsp;in TurboCad Pro
+            8.2. Hull is based on the proportions of Noah's Ark according to
+            Genesis 6:15. Tutorial by Tim Lovett Feb 05.</td>
+        </tr>
+      </table>
+      <p align="center">&nbsp;</p>
+      </td>
+      <td valign="top" class="rightside" align="center">
+      <h1 style="text-align: center">STEP 6: Shelling</h1>
+      <hr>
+      <h2>1. Shell test</h2>
+      <p>The loft represents the planking of the hull. More specifically, the
+      INSIDE surface (where planking meets the frames). To give the loft some
+      thickness, the Shell command is used. Here's how;</p>
+      <ul>
+        <li>Modify &gt; Shell Solid</li>
+        <li>Select the loft&nbsp;</li>
+        <li>In the Shell settings menu (bottom of TC screen), set the wall
+          thickness to 12 inches, and pick &quot;Shell Outwards&quot;. Then
+          Finish.</li>
+      </ul>
+      <p><img border="0" src="step6_files/shell_settings.gif" width="288" height="97"></p>
+      <p>Error Message?</p>
+      <p><img border="0" src="step6_files/shell_error.jpg" width="300" height="110"></p>
+      <p>Try shelling the other way (Shell Inside). In my case it worked this
+      time, and the hull looks like this... (using Hidden Line render)</p>
+      <p><img border="0" src="step6_files/shelled_inwards.gif" width="328" height="286"></p>
+      <p>Wait a minute. Let's check the bow elevation view to see which way we
+      really shelled...</p>
+      <p><img border="0" src="step6_files/outwards_yes.gif" width="328" height="286"></p>
+      <p>Yes, the Shelled Loft (green) is definitely outside the loft profiles
+      (red). This means the shell is actually outward. It is not always easy fot
+      a computer to work out what is the inside and the outside of an object -
+      in this case it got it round the wrong way.&nbsp;</p>
+          <hr>
+      <h2>2. Repair bow details</h2>
+      <p>The fact that one of the lofts didn't work is not good.&nbsp; It is
+      caused by poor loft geometry at the base of the bow. The transition from
+      Station 1 to the bottom of the bow profile is awkward and must be tweaked
+      to give a smooth loft. By making a thicker shell you can see what is going
+      on. Here it is again at 24 inches thick...</p>
+      <p><img border="0" src="step6_files/wrapped_stem.gif" width="174" height="305"></p>
+      <p>This means the loft was turning inwards as it approached the stem - so
+      station 1 must be brought inwards, or the bow pushed outwards.&nbsp;</p>
+      <ul>
+        <li>Tweak station 1 and/or bow profile</li>
+        <li>Rebuild the loft (the first 4 or 5 profiles should be an adequate
+          test</li>
+        <li>Test the shell</li>
+      </ul>
+      <p>Repeat above steps until the loft will shell correctly. The lowest
+      portion of the stem is difficult to smooth out. Another work-around is to
+      bring this detail inboard a little to ensure it is completely hidden
+      inside the stem post (when it is added later).&nbsp;</p>
+      <p><img border="0" src="step6_files/stem_tweek.gif" width="167" height="126"></p>
+          <hr>
+          <div align="left">
+            <table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%">
+              <tr>
+                <td width="100%" class="tiny">
+          <p style="tiny; text-align:center">Tim Lovett © 2005 | All Rights 
+          Reserved| <a href="http://www.worldwideflood.com">http://www.worldwideflood.com</a>
+                </td>
+              </tr>
+            </table>
+      </div>
+      </td>
+    </tr>
+  </table>
+
+</body>
+
+</html>

@@ -1,0 +1,465 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+
+<head>
+<title>Hull Loft Tute 4</title>
+<meta name="description" content="add your site description here">
+<meta name="keywords" content="add your search engine keywords here separated by commas">
+<meta http-equiv="Content-Language" content="en-us">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<link rel="stylesheet" type="text/css" href="tute.css">
+</head>
+
+<body>
+  <table style="border-collapse: collapse" bordercolor="#111111" cellpadding="0" cellspacing="0" width="100%">
+    <tr>
+      <td width="200" class="leftside" valign="top" bgcolor="#FFFFFF">
+      <p align="center"><img border="0" src="loft_pic.jpg" width="200" height="267"><p>&nbsp;</p>
+      <div align="left">
+        <table width="100%">
+          <tr>
+            <td width="100%" class="hottopic1"><a href="http://www.worldwideflood.com">HOME</a>
+              <p><a href="http://www.worldwideflood.com/jsmenu/full_menu.htm">WWF
+              Menu</a></p>
+              <p>&nbsp;</p>
+              <p>Hull Lofting Tutorial:</p>
+            </td>
+          </tr>
+          <tr>
+            <td width="100%" class="hottopic2"><a href="start.htm">Start: 0</a><br>
+              <a href="step_1.htm"> Set the first dxf: 1</a><br>
+              <a href="step_2.htm"> Paste other dxf's: 2</a><br>
+              <a href="step_3.htm">Loft profiles: 3</a><br>
+              <a href="step_4.htm">Loft test: 4</a><br>
+              <a href="step_5.htm">Loft Better: 5</a><br>
+              <a href="step_6.htm">Shelling: 6</a><br>
+              <a href="step_7.htm">Full Length: 7</a><br>
+              <a href="step_8.htm">Keel, Mirror &amp; Render: 8</a>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <p>&nbsp;</p>
+      <p>&nbsp;</p>
+      <table width="100%">
+        <tr>
+          <td width="100%" class="hottopic1">Background:</td>
+        </tr>
+        <tr>
+          <td width="100%" class="hottopic3">The ship lines were created by Dr
+            Allen Magnuson in Feb 2005 using Vacanti Prolines LE. The data was
+            exported in 2D&nbsp;dxf format, then traced&nbsp;in TurboCad Pro
+            8.2. Hull is based on the proportions of Noah's Ark according to
+            Genesis 6:15. Tutorial by Tim Lovett Feb 05.</td>
+        </tr>
+      </table>
+      <p align="center">&nbsp;</p>
+      </td>
+      <td valign="top" class="rightside" align="center">
+      <h1 style="text-align: center">STEP 5: Loft Better</h1>
+      <hr>
+      <h2>1. Not a pretty sight</h2>
+      <p>The hull looks nice doesn't it? - Well, not really.</p>
+      <p>Delete the loft and add the bow profile (drawn onto the
+      &quot;profile&quot; workplane). Now redo the loft.</p>
+      <p>By the time you complete the bow by adding the front profile the loft
+      is looking a little strange.&nbsp; You see, the problem is the division
+      lines do not 'flow' with the curvature very well. The best loft is one
+      where the nodes line up to be almost&nbsp; perpendicular to the loft
+      profiles. In other words, we want the loft to be form a 'grid' of
+      approximate rectangles instead of parallelograms.</p>
+      <p><img border="0" src="step5_files/ugly_loft.gif"></p>
+      <p>Think of the loft forming straight lines between loft profiles. If the
+      straight lines span the loft profiles at a steep angle the resulting loft
+      will not be smooth. Change the texture to 'grid';</p>
+      <ul>
+        <li>Select loft &gt; RB &gt; Properties &gt; 3D &gt; Category =
+          Miscellaneous, Material = Grid &gt; Edit Material... &gt; Wrapping: Y
+          plane, Scale=80 &gt; OK &gt; OK</li>
+      </ul>
+      <p>Now do Quality Render. Spin and zoom to accentuate the surface
+      irregularities.</p>
+      <p><img border="0" src="step5_files/bumpy.gif"></p>
+      <p>We can play with the ACIS settings to improve this; (ACIS is the 3D
+      geometry engine, same one as AutoCAD)</p>
+      <ul>
+        <li>Options &gt; ACIS... &gt; Quality</li>
+      </ul>
+      <p>But there is a limit to how much improvement we can get by increasing
+      smoothness tolerances (and we are trading accuracy of course)</p>
+      <p><img border="0" src="step5_files/bumpy2.gif"></p>
+      <hr>
+      <h2>2. A better node arrangement</h2>
+      <p>We want to fit the nodes along each Body to give a better loft. Try
+      this modified set of division lines for setting the profile nodes more
+      perpendicular to the loft. The second image shows the resulting loft, with
+      the (purple) loft lines indicating an improved 'flow' along the hull. The
+      3rd image shows the much improved surface when viewed in Quality Render
+      with &quot;Grid&quot; material.&nbsp;</p>
+      <p><img border="0" src="step5_files/division2.gif" width="140" height="223">&nbsp;&nbsp;&nbsp;
+      <img border="0" src="step5_files/loft2.gif" width="245" height="208">&nbsp;&nbsp;
+      <img border="0" src="step5_files/loft2_grid.gif" width="286" height="182"></p>
+      <hr>
+      <h2>3. Halfway along...</h2>
+      <p>The complete set of station X axis positions - measured from Station 1.</p>
+      <table style="BORDER-COLLAPSE: collapse; mso-padding-alt: 0cm 0cm 0cm 0cm" cellSpacing="0" cellPadding="0" width="276" border="0">
+        <tbody>
+          <tr>
+            <td style="BORDER-RIGHT: black 0.5pt solid; PADDING-RIGHT: 0.75pt; BORDER-TOP: black 0.5pt solid; PADDING-LEFT: 0.75pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: black 0.5pt solid; PADDING-TOP: 0.75pt; BORDER-BOTTOM: black 0.5pt solid; HEIGHT: 12.75pt" vAlign="bottom" width="36" bgColor="#ffddbb">
+              <p class="MsoNormal" style="TEXT-ALIGN: center" align="center"><span style="FONT-SIZE: 10pt; FONT-FAMILY: Arial"><b>Sta<O:P>
+              </O:P>
+              </b></span></p>
+            </td>
+            <td style="BORDER-RIGHT: black 0.5pt solid; PADDING-RIGHT: 0.75pt; BORDER-TOP: black 0.5pt solid; PADDING-LEFT: 0.75pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; PADDING-TOP: 0.75pt; BORDER-BOTTOM: black 0.5pt solid; HEIGHT: 12.75pt" vAlign="bottom" width="82" bgColor="#ffddbb" x:fmla="=(A1-1)*90.861" x:num>
+              <p class="MsoNormal" style="TEXT-ALIGN: center" align="center"><b><span style="FONT-SIZE: 10pt; FONT-FAMILY: Arial">X
+              fore<O:P>
+              </O:P>
+              </span></b></p>
+            </td>
+            <td style="BORDER-RIGHT: black 0.5pt solid; PADDING-RIGHT: 0.75pt; BORDER-TOP: black 0.5pt solid; PADDING-LEFT: 0.75pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: black 0.5pt solid; PADDING-TOP: 0.75pt; BORDER-BOTTOM: black 0.5pt solid; HEIGHT: 12.75pt" vAlign="bottom" width="42" bgColor="#ffddbb">
+              <p class="MsoNormal" style="TEXT-ALIGN: center" align="center"><span style="FONT-SIZE: 10pt; FONT-FAMILY: Arial"><b>Sta<O:P>
+              </O:P>
+              </b></span></p>
+            </td>
+            <td style="BORDER-RIGHT: black 0.5pt solid; PADDING-RIGHT: 0.75pt; BORDER-TOP: black 0.5pt solid; PADDING-LEFT: 0.75pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; PADDING-TOP: 0.75pt; BORDER-BOTTOM: black 0.5pt solid; HEIGHT: 12.75pt" vAlign="bottom" width="76" bgColor="#ffddbb" x:fmla="=(A1-1)*90.861" x:num>
+              <p class="MsoNormal" style="TEXT-ALIGN: center" align="center"><b><span style="FONT-SIZE: 10pt; FONT-FAMILY: Arial">X
+              aft<O:P>
+              </O:P>
+              </span></b></p>
+            </td>
+          </tr>
+          <tr style="HEIGHT: 12.75pt">
+            <td style="BORDER-RIGHT: black 0.5pt solid; PADDING-RIGHT: 0.75pt; BORDER-TOP: black 0.5pt solid; PADDING-LEFT: 0.75pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: black 0.5pt solid; PADDING-TOP: 0.75pt; BORDER-BOTTOM: black 0.5pt solid; HEIGHT: 12.75pt" vAlign="bottom" width="36">
+              <p class="MsoNormal" style="TEXT-ALIGN: center" align="center"><span style="FONT-SIZE: 10pt; FONT-FAMILY: Arial">1<O:P>
+              </O:P>
+              </span></p>
+            </td>
+            <td style="BORDER-RIGHT: black 0.5pt solid; PADDING-RIGHT: 0.75pt; BORDER-TOP: black 0.5pt solid; PADDING-LEFT: 0.75pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; PADDING-TOP: 0.75pt; BORDER-BOTTOM: black 0.5pt solid; HEIGHT: 12.75pt" vAlign="bottom" width="82" x:fmla="=(A1-1)*90.861" x:num>
+              <p class="MsoNormal" style="TEXT-ALIGN: center" align="center"><span style="FONT-SIZE: 10pt; FONT-FAMILY: Arial">0<O:P>
+              </O:P>
+              </span></p>
+            </td>
+            <td style="BORDER-RIGHT: black 0.5pt solid; PADDING-RIGHT: 0.75pt; BORDER-TOP: medium none; PADDING-LEFT: 0.75pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: black 0.5pt solid; PADDING-TOP: 0.75pt; BORDER-BOTTOM: black 0.5pt solid; HEIGHT: 12.75pt" vAlign="bottom" width="41">
+              <p class="MsoNormal" style="TEXT-ALIGN: center" align="center"><span style="FONT-SIZE: 10pt; FONT-FAMILY: Arial">35<O:P>
+              </O:P>
+              </span></p>
+            </td>
+            <td style="BORDER-RIGHT: black 0.5pt solid; PADDING-RIGHT: 0.75pt; BORDER-TOP: medium none; PADDING-LEFT: 0.75pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; PADDING-TOP: 0.75pt; BORDER-BOTTOM: black 0.5pt solid; HEIGHT: 12.75pt" vAlign="bottom" width="103" x:fmla="=(A15-1)*90.861" x:num="3089.2740000000003">
+              <p class="MsoNormal" style="TEXT-ALIGN: center" align="center"><span style="FONT-SIZE: 10pt; FONT-FAMILY: Arial">3089.274<O:P>
+              </O:P>
+              </span></p>
+            </td>
+          </tr>
+          <tr style="HEIGHT: 12.75pt">
+            <td style="BORDER-RIGHT: black 0.5pt solid; PADDING-RIGHT: 0.75pt; BORDER-TOP: medium none; PADDING-LEFT: 0.75pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: black 0.5pt solid; PADDING-TOP: 0.75pt; BORDER-BOTTOM: black 0.5pt solid; HEIGHT: 12.75pt" vAlign="bottom" width="36">
+              <p class="MsoNormal" style="TEXT-ALIGN: center" align="center"><span style="FONT-SIZE: 10pt; FONT-FAMILY: Arial">2<O:P>
+              </O:P>
+              </span></p>
+            </td>
+            <td style="BORDER-RIGHT: black 0.5pt solid; PADDING-RIGHT: 0.75pt; BORDER-TOP: medium none; PADDING-LEFT: 0.75pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; PADDING-TOP: 0.75pt; BORDER-BOTTOM: black 0.5pt solid; HEIGHT: 12.75pt" vAlign="bottom" width="82" x:fmla="=(A2-1)*90.861" x:num="90.861000000000004">
+              <p class="MsoNormal" style="TEXT-ALIGN: center" align="center"><span style="FONT-SIZE: 10pt; FONT-FAMILY: Arial">90.861<O:P>
+              </O:P>
+              </span></p>
+            </td>
+            <td style="BORDER-RIGHT: black 0.5pt solid; PADDING-RIGHT: 0.75pt; BORDER-TOP: medium none; PADDING-LEFT: 0.75pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: black 0.5pt solid; PADDING-TOP: 0.75pt; BORDER-BOTTOM: black 0.5pt solid; HEIGHT: 12.75pt" vAlign="bottom" width="41">
+              <p class="MsoNormal" style="TEXT-ALIGN: center" align="center"><span style="FONT-SIZE: 10pt; FONT-FAMILY: Arial">39<O:P>
+              </O:P>
+              </span></p>
+            </td>
+            <td style="BORDER-RIGHT: black 0.5pt solid; PADDING-RIGHT: 0.75pt; BORDER-TOP: medium none; PADDING-LEFT: 0.75pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; PADDING-TOP: 0.75pt; BORDER-BOTTOM: black 0.5pt solid; HEIGHT: 12.75pt" vAlign="bottom" width="103" x:fmla="=(A16-1)*90.861" x:num="3452.7180000000003">
+              <p class="MsoNormal" style="TEXT-ALIGN: center" align="center"><span style="FONT-SIZE: 10pt; FONT-FAMILY: Arial">3452.718<O:P>
+              </O:P>
+              </span></p>
+            </td>
+          </tr>
+          <tr style="HEIGHT: 12.75pt">
+            <td style="BORDER-RIGHT: black 0.5pt solid; PADDING-RIGHT: 0.75pt; BORDER-TOP: medium none; PADDING-LEFT: 0.75pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: black 0.5pt solid; PADDING-TOP: 0.75pt; BORDER-BOTTOM: black 0.5pt solid; HEIGHT: 12.75pt" vAlign="bottom" width="36">
+              <p class="MsoNormal" style="TEXT-ALIGN: center" align="center"><span style="FONT-SIZE: 10pt; FONT-FAMILY: Arial">3<O:P>
+              </O:P>
+              </span></p>
+            </td>
+            <td style="BORDER-RIGHT: black 0.5pt solid; PADDING-RIGHT: 0.75pt; BORDER-TOP: medium none; PADDING-LEFT: 0.75pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; PADDING-TOP: 0.75pt; BORDER-BOTTOM: black 0.5pt solid; HEIGHT: 12.75pt" vAlign="bottom" width="82" x:fmla="=(A3-1)*90.861" x:num="181.72200000000001">
+              <p class="MsoNormal" style="TEXT-ALIGN: center" align="center"><span style="FONT-SIZE: 10pt; FONT-FAMILY: Arial">181.722<O:P>
+              </O:P>
+              </span></p>
+            </td>
+            <td style="BORDER-RIGHT: black 0.5pt solid; PADDING-RIGHT: 0.75pt; BORDER-TOP: medium none; PADDING-LEFT: 0.75pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: black 0.5pt solid; PADDING-TOP: 0.75pt; BORDER-BOTTOM: black 0.5pt solid; HEIGHT: 12.75pt" vAlign="bottom" width="41">
+              <p class="MsoNormal" style="TEXT-ALIGN: center" align="center"><span style="FONT-SIZE: 10pt; FONT-FAMILY: Arial">42<O:P>
+              </O:P>
+              </span></p>
+            </td>
+            <td style="BORDER-RIGHT: black 0.5pt solid; PADDING-RIGHT: 0.75pt; BORDER-TOP: medium none; PADDING-LEFT: 0.75pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; PADDING-TOP: 0.75pt; BORDER-BOTTOM: black 0.5pt solid; HEIGHT: 12.75pt" vAlign="bottom" width="103" x:fmla="=(A17-1)*90.861" x:num="3725.3010000000004">
+              <p class="MsoNormal" style="TEXT-ALIGN: center" align="center"><span style="FONT-SIZE: 10pt; FONT-FAMILY: Arial">3725.301<O:P>
+              </O:P>
+              </span></p>
+            </td>
+          </tr>
+          <tr style="HEIGHT: 12.75pt">
+            <td style="BORDER-RIGHT: black 0.5pt solid; PADDING-RIGHT: 0.75pt; BORDER-TOP: medium none; PADDING-LEFT: 0.75pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: black 0.5pt solid; PADDING-TOP: 0.75pt; BORDER-BOTTOM: black 0.5pt solid; HEIGHT: 12.75pt" vAlign="bottom" width="36">
+              <p class="MsoNormal" style="TEXT-ALIGN: center" align="center"><span style="FONT-SIZE: 10pt; FONT-FAMILY: Arial">4<O:P>
+              </O:P>
+              </span></p>
+            </td>
+            <td style="BORDER-RIGHT: black 0.5pt solid; PADDING-RIGHT: 0.75pt; BORDER-TOP: medium none; PADDING-LEFT: 0.75pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; PADDING-TOP: 0.75pt; BORDER-BOTTOM: black 0.5pt solid; HEIGHT: 12.75pt" vAlign="bottom" width="82" x:fmla="=(A4-1)*90.861" x:num="272.58300000000003">
+              <p class="MsoNormal" style="TEXT-ALIGN: center" align="center"><span style="FONT-SIZE: 10pt; FONT-FAMILY: Arial">272.583<O:P>
+              </O:P>
+              </span></p>
+            </td>
+            <td style="BORDER-RIGHT: black 0.5pt solid; PADDING-RIGHT: 0.75pt; BORDER-TOP: medium none; PADDING-LEFT: 0.75pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: black 0.5pt solid; PADDING-TOP: 0.75pt; BORDER-BOTTOM: black 0.5pt solid; HEIGHT: 12.75pt" vAlign="bottom" width="41">
+              <p class="MsoNormal" style="TEXT-ALIGN: center" align="center"><span style="FONT-SIZE: 10pt; FONT-FAMILY: Arial">45<O:P>
+              </O:P>
+              </span></p>
+            </td>
+            <td style="BORDER-RIGHT: black 0.5pt solid; PADDING-RIGHT: 0.75pt; BORDER-TOP: medium none; PADDING-LEFT: 0.75pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; PADDING-TOP: 0.75pt; BORDER-BOTTOM: black 0.5pt solid; HEIGHT: 12.75pt" vAlign="bottom" width="103" x:fmla="=(A18-1)*90.861" x:num="3997.884">
+              <p class="MsoNormal" style="TEXT-ALIGN: center" align="center"><span style="FONT-SIZE: 10pt; FONT-FAMILY: Arial">3997.884<O:P>
+              </O:P>
+              </span></p>
+            </td>
+          </tr>
+          <tr style="HEIGHT: 12.75pt">
+            <td style="BORDER-RIGHT: black 0.5pt solid; PADDING-RIGHT: 0.75pt; BORDER-TOP: medium none; PADDING-LEFT: 0.75pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: black 0.5pt solid; PADDING-TOP: 0.75pt; BORDER-BOTTOM: black 0.5pt solid; HEIGHT: 12.75pt" vAlign="bottom" width="36">
+              <p class="MsoNormal" style="TEXT-ALIGN: center" align="center"><span style="FONT-SIZE: 10pt; FONT-FAMILY: Arial">5<O:P>
+              </O:P>
+              </span></p>
+            </td>
+            <td style="BORDER-RIGHT: black 0.5pt solid; PADDING-RIGHT: 0.75pt; BORDER-TOP: medium none; PADDING-LEFT: 0.75pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; PADDING-TOP: 0.75pt; BORDER-BOTTOM: black 0.5pt solid; HEIGHT: 12.75pt" vAlign="bottom" width="82" x:fmla="=(A5-1)*90.861" x:num="363.44400000000002">
+              <p class="MsoNormal" style="TEXT-ALIGN: center" align="center"><span style="FONT-SIZE: 10pt; FONT-FAMILY: Arial">363.444<O:P>
+              </O:P>
+              </span></p>
+            </td>
+            <td style="BORDER-RIGHT: black 0.5pt solid; PADDING-RIGHT: 0.75pt; BORDER-TOP: medium none; PADDING-LEFT: 0.75pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: black 0.5pt solid; PADDING-TOP: 0.75pt; BORDER-BOTTOM: black 0.5pt solid; HEIGHT: 12.75pt" vAlign="bottom" width="41">
+              <p class="MsoNormal" style="TEXT-ALIGN: center" align="center"><span style="FONT-SIZE: 10pt; FONT-FAMILY: Arial">47<O:P>
+              </O:P>
+              </span></p>
+            </td>
+            <td style="BORDER-RIGHT: black 0.5pt solid; PADDING-RIGHT: 0.75pt; BORDER-TOP: medium none; PADDING-LEFT: 0.75pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; PADDING-TOP: 0.75pt; BORDER-BOTTOM: black 0.5pt solid; HEIGHT: 12.75pt" vAlign="bottom" width="103" x:fmla="=(A19-1)*90.861" x:num="4179.6059999999998">
+              <p class="MsoNormal" style="TEXT-ALIGN: center" align="center"><span style="FONT-SIZE: 10pt; FONT-FAMILY: Arial">4179.606<O:P>
+              </O:P>
+              </span></p>
+            </td>
+          </tr>
+          <tr style="HEIGHT: 12.75pt">
+            <td style="BORDER-RIGHT: black 0.5pt solid; PADDING-RIGHT: 0.75pt; BORDER-TOP: medium none; PADDING-LEFT: 0.75pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: black 0.5pt solid; PADDING-TOP: 0.75pt; BORDER-BOTTOM: black 0.5pt solid; HEIGHT: 12.75pt" vAlign="bottom" width="36">
+              <p class="MsoNormal" style="TEXT-ALIGN: center" align="center"><span style="FONT-SIZE: 10pt; FONT-FAMILY: Arial">6<O:P>
+              </O:P>
+              </span></p>
+            </td>
+            <td style="BORDER-RIGHT: black 0.5pt solid; PADDING-RIGHT: 0.75pt; BORDER-TOP: medium none; PADDING-LEFT: 0.75pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; PADDING-TOP: 0.75pt; BORDER-BOTTOM: black 0.5pt solid; HEIGHT: 12.75pt" vAlign="bottom" width="82" x:fmla="=(A6-1)*90.861" x:num="454.30500000000001">
+              <p class="MsoNormal" style="TEXT-ALIGN: center" align="center"><span style="FONT-SIZE: 10pt; FONT-FAMILY: Arial">454.305<O:P>
+              </O:P>
+              </span></p>
+            </td>
+            <td style="BORDER-RIGHT: black 0.5pt solid; PADDING-RIGHT: 0.75pt; BORDER-TOP: medium none; PADDING-LEFT: 0.75pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: black 0.5pt solid; PADDING-TOP: 0.75pt; BORDER-BOTTOM: black 0.5pt solid; HEIGHT: 12.75pt" vAlign="bottom" width="41">
+              <p class="MsoNormal" style="TEXT-ALIGN: center" align="center"><span style="FONT-SIZE: 10pt; FONT-FAMILY: Arial">49<O:P>
+              </O:P>
+              </span></p>
+            </td>
+            <td style="BORDER-RIGHT: black 0.5pt solid; PADDING-RIGHT: 0.75pt; BORDER-TOP: medium none; PADDING-LEFT: 0.75pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; PADDING-TOP: 0.75pt; BORDER-BOTTOM: black 0.5pt solid; HEIGHT: 12.75pt" vAlign="bottom" width="103" x:fmla="=(A20-1)*90.861" x:num="4361.3280000000004">
+              <p class="MsoNormal" style="TEXT-ALIGN: center" align="center"><span style="FONT-SIZE: 10pt; FONT-FAMILY: Arial">4361.328<O:P>
+              </O:P>
+              </span></p>
+            </td>
+          </tr>
+          <tr style="HEIGHT: 12.75pt">
+            <td style="BORDER-RIGHT: black 0.5pt solid; PADDING-RIGHT: 0.75pt; BORDER-TOP: medium none; PADDING-LEFT: 0.75pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: black 0.5pt solid; PADDING-TOP: 0.75pt; BORDER-BOTTOM: black 0.5pt solid; HEIGHT: 12.75pt" vAlign="bottom" width="36">
+              <p class="MsoNormal" style="TEXT-ALIGN: center" align="center"><span style="FONT-SIZE: 10pt; FONT-FAMILY: Arial">8<O:P>
+              </O:P>
+              </span></p>
+            </td>
+            <td style="BORDER-RIGHT: black 0.5pt solid; PADDING-RIGHT: 0.75pt; BORDER-TOP: medium none; PADDING-LEFT: 0.75pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; PADDING-TOP: 0.75pt; BORDER-BOTTOM: black 0.5pt solid; HEIGHT: 12.75pt" vAlign="bottom" width="82" x:fmla="=(A7-1)*90.861" x:num="636.02700000000004">
+              <p class="MsoNormal" style="TEXT-ALIGN: center" align="center"><span style="FONT-SIZE: 10pt; FONT-FAMILY: Arial">636.027<O:P>
+              </O:P>
+              </span></p>
+            </td>
+            <td style="BORDER-RIGHT: black 0.5pt solid; PADDING-RIGHT: 0.75pt; BORDER-TOP: medium none; PADDING-LEFT: 0.75pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: black 0.5pt solid; PADDING-TOP: 0.75pt; BORDER-BOTTOM: black 0.5pt solid; HEIGHT: 12.75pt" vAlign="bottom" width="41">
+              <p class="MsoNormal" style="TEXT-ALIGN: center" align="center"><span style="FONT-SIZE: 10pt; FONT-FAMILY: Arial">51<O:P>
+              </O:P>
+              </span></p>
+            </td>
+            <td style="BORDER-RIGHT: black 0.5pt solid; PADDING-RIGHT: 0.75pt; BORDER-TOP: medium none; PADDING-LEFT: 0.75pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; PADDING-TOP: 0.75pt; BORDER-BOTTOM: black 0.5pt solid; HEIGHT: 12.75pt" vAlign="bottom" width="103" x:fmla="=(A21-1)*90.861" x:num>
+              <p class="MsoNormal" style="TEXT-ALIGN: center" align="center"><span style="FONT-SIZE: 10pt; FONT-FAMILY: Arial">4543.05<O:P>
+              </O:P>
+              </span></p>
+            </td>
+          </tr>
+          <tr style="HEIGHT: 12.75pt">
+            <td style="BORDER-RIGHT: black 0.5pt solid; PADDING-RIGHT: 0.75pt; BORDER-TOP: medium none; PADDING-LEFT: 0.75pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: black 0.5pt solid; PADDING-TOP: 0.75pt; BORDER-BOTTOM: black 0.5pt solid; HEIGHT: 12.75pt" vAlign="bottom" width="36">
+              <p class="MsoNormal" style="TEXT-ALIGN: center" align="center"><span style="FONT-SIZE: 10pt; FONT-FAMILY: Arial">10<O:P>
+              </O:P>
+              </span></p>
+            </td>
+            <td style="BORDER-RIGHT: black 0.5pt solid; PADDING-RIGHT: 0.75pt; BORDER-TOP: medium none; PADDING-LEFT: 0.75pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; PADDING-TOP: 0.75pt; BORDER-BOTTOM: black 0.5pt solid; HEIGHT: 12.75pt" vAlign="bottom" width="82" x:fmla="=(A8-1)*90.861" x:num="817.74900000000002">
+              <p class="MsoNormal" style="TEXT-ALIGN: center" align="center"><span style="FONT-SIZE: 10pt; FONT-FAMILY: Arial">817.749<O:P>
+              </O:P>
+              </span></p>
+            </td>
+            <td style="BORDER-RIGHT: black 0.5pt solid; PADDING-RIGHT: 0.75pt; BORDER-TOP: medium none; PADDING-LEFT: 0.75pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: black 0.5pt solid; PADDING-TOP: 0.75pt; BORDER-BOTTOM: black 0.5pt solid; HEIGHT: 12.75pt" vAlign="bottom" width="41">
+              <p class="MsoNormal" style="TEXT-ALIGN: center" align="center"><span style="FONT-SIZE: 10pt; FONT-FAMILY: Arial">53<O:P>
+              </O:P>
+              </span></p>
+            </td>
+            <td style="BORDER-RIGHT: black 0.5pt solid; PADDING-RIGHT: 0.75pt; BORDER-TOP: medium none; PADDING-LEFT: 0.75pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; PADDING-TOP: 0.75pt; BORDER-BOTTOM: black 0.5pt solid; HEIGHT: 12.75pt" vAlign="bottom" width="103" x:fmla="=(A22-1)*90.861" x:num="4724.7719999999999">
+              <p class="MsoNormal" style="TEXT-ALIGN: center" align="center"><span style="FONT-SIZE: 10pt; FONT-FAMILY: Arial">4724.772<O:P>
+              </O:P>
+              </span></p>
+            </td>
+          </tr>
+          <tr style="HEIGHT: 12.75pt">
+            <td style="BORDER-RIGHT: black 0.5pt solid; PADDING-RIGHT: 0.75pt; BORDER-TOP: medium none; PADDING-LEFT: 0.75pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: black 0.5pt solid; PADDING-TOP: 0.75pt; BORDER-BOTTOM: black 0.5pt solid; HEIGHT: 12.75pt" vAlign="bottom" width="36">
+              <p class="MsoNormal" style="TEXT-ALIGN: center" align="center"><span style="FONT-SIZE: 10pt; FONT-FAMILY: Arial">12<O:P>
+              </O:P>
+              </span></p>
+            </td>
+            <td style="BORDER-RIGHT: black 0.5pt solid; PADDING-RIGHT: 0.75pt; BORDER-TOP: medium none; PADDING-LEFT: 0.75pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; PADDING-TOP: 0.75pt; BORDER-BOTTOM: black 0.5pt solid; HEIGHT: 12.75pt" vAlign="bottom" width="82" x:fmla="=(A9-1)*90.861" x:num="999.471">
+              <p class="MsoNormal" style="TEXT-ALIGN: center" align="center"><span style="FONT-SIZE: 10pt; FONT-FAMILY: Arial">999.471<O:P>
+              </O:P>
+              </span></p>
+            </td>
+            <td style="BORDER-RIGHT: black 0.5pt solid; PADDING-RIGHT: 0.75pt; BORDER-TOP: medium none; PADDING-LEFT: 0.75pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: black 0.5pt solid; PADDING-TOP: 0.75pt; BORDER-BOTTOM: black 0.5pt solid; HEIGHT: 12.75pt" vAlign="bottom" width="41">
+              <p class="MsoNormal" style="TEXT-ALIGN: center" align="center"><span style="FONT-SIZE: 10pt; FONT-FAMILY: Arial">55<O:P>
+              </O:P>
+              </span></p>
+            </td>
+            <td style="BORDER-RIGHT: black 0.5pt solid; PADDING-RIGHT: 0.75pt; BORDER-TOP: medium none; PADDING-LEFT: 0.75pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; PADDING-TOP: 0.75pt; BORDER-BOTTOM: black 0.5pt solid; HEIGHT: 12.75pt" vAlign="bottom" width="103" x:fmla="=(A23-1)*90.861" x:num="4906.4940000000006">
+              <p class="MsoNormal" style="TEXT-ALIGN: center" align="center"><span style="FONT-SIZE: 10pt; FONT-FAMILY: Arial">4906.494<O:P>
+              </O:P>
+              </span></p>
+            </td>
+          </tr>
+          <tr style="HEIGHT: 12.75pt">
+            <td style="BORDER-RIGHT: black 0.5pt solid; PADDING-RIGHT: 0.75pt; BORDER-TOP: medium none; PADDING-LEFT: 0.75pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: black 0.5pt solid; PADDING-TOP: 0.75pt; BORDER-BOTTOM: black 0.5pt solid; HEIGHT: 12.75pt" vAlign="bottom" width="36">
+              <p class="MsoNormal" style="TEXT-ALIGN: center" align="center"><span style="FONT-SIZE: 10pt; FONT-FAMILY: Arial">15<O:P>
+              </O:P>
+              </span></p>
+            </td>
+            <td style="BORDER-RIGHT: black 0.5pt solid; PADDING-RIGHT: 0.75pt; BORDER-TOP: medium none; PADDING-LEFT: 0.75pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; PADDING-TOP: 0.75pt; BORDER-BOTTOM: black 0.5pt solid; HEIGHT: 12.75pt" vAlign="bottom" width="82" x:fmla="=(A10-1)*90.861" x:num="1272.0540000000001">
+              <p class="MsoNormal" style="TEXT-ALIGN: center" align="center"><span style="FONT-SIZE: 10pt; FONT-FAMILY: Arial">1272.054<O:P>
+              </O:P>
+              </span></p>
+            </td>
+            <td style="BORDER-RIGHT: black 0.5pt solid; PADDING-RIGHT: 0.75pt; BORDER-TOP: medium none; PADDING-LEFT: 0.75pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: black 0.5pt solid; PADDING-TOP: 0.75pt; BORDER-BOTTOM: black 0.5pt solid; HEIGHT: 12.75pt" vAlign="bottom" width="41">
+              <p class="MsoNormal" style="TEXT-ALIGN: center" align="center"><span style="FONT-SIZE: 10pt; FONT-FAMILY: Arial">56<O:P>
+              </O:P>
+              </span></p>
+            </td>
+            <td style="BORDER-RIGHT: black 0.5pt solid; PADDING-RIGHT: 0.75pt; BORDER-TOP: medium none; PADDING-LEFT: 0.75pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; PADDING-TOP: 0.75pt; BORDER-BOTTOM: black 0.5pt solid; HEIGHT: 12.75pt" vAlign="bottom" width="103" x:fmla="=(A24-1)*90.861" x:num="4997.3550000000005">
+              <p class="MsoNormal" style="TEXT-ALIGN: center" align="center"><span style="FONT-SIZE: 10pt; FONT-FAMILY: Arial">4997.355<O:P>
+              </O:P>
+              </span></p>
+            </td>
+          </tr>
+          <tr style="HEIGHT: 12.75pt">
+            <td style="BORDER-RIGHT: black 0.5pt solid; PADDING-RIGHT: 0.75pt; BORDER-TOP: medium none; PADDING-LEFT: 0.75pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: black 0.5pt solid; PADDING-TOP: 0.75pt; BORDER-BOTTOM: black 0.5pt solid; HEIGHT: 12.75pt" vAlign="bottom" width="36">
+              <p class="MsoNormal" style="TEXT-ALIGN: center" align="center"><span style="FONT-SIZE: 10pt; FONT-FAMILY: Arial">18<O:P>
+              </O:P>
+              </span></p>
+            </td>
+            <td style="BORDER-RIGHT: black 0.5pt solid; PADDING-RIGHT: 0.75pt; BORDER-TOP: medium none; PADDING-LEFT: 0.75pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; PADDING-TOP: 0.75pt; BORDER-BOTTOM: black 0.5pt solid; HEIGHT: 12.75pt" vAlign="bottom" width="82" x:fmla="=(A11-1)*90.861" x:num="1544.6370000000002">
+              <p class="MsoNormal" style="TEXT-ALIGN: center" align="center"><span style="FONT-SIZE: 10pt; FONT-FAMILY: Arial">1544.637<O:P>
+              </O:P>
+              </span></p>
+            </td>
+            <td style="BORDER-RIGHT: black 0.5pt solid; PADDING-RIGHT: 0.75pt; BORDER-TOP: medium none; PADDING-LEFT: 0.75pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: black 0.5pt solid; PADDING-TOP: 0.75pt; BORDER-BOTTOM: black 0.5pt solid; HEIGHT: 12.75pt" vAlign="bottom" width="41">
+              <p class="MsoNormal" style="TEXT-ALIGN: center" align="center"><span style="FONT-SIZE: 10pt; FONT-FAMILY: Arial">57<O:P>
+              </O:P>
+              </span></p>
+            </td>
+            <td style="BORDER-RIGHT: black 0.5pt solid; PADDING-RIGHT: 0.75pt; BORDER-TOP: medium none; PADDING-LEFT: 0.75pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; PADDING-TOP: 0.75pt; BORDER-BOTTOM: black 0.5pt solid; HEIGHT: 12.75pt" vAlign="bottom" width="103" x:fmla="=(A25-1)*90.861" x:num="5088.2160000000003">
+              <p class="MsoNormal" style="TEXT-ALIGN: center" align="center"><span style="FONT-SIZE: 10pt; FONT-FAMILY: Arial">5088.216<O:P>
+              </O:P>
+              </span></p>
+            </td>
+          </tr>
+          <tr style="HEIGHT: 12.75pt">
+            <td style="BORDER-RIGHT: black 0.5pt solid; PADDING-RIGHT: 0.75pt; BORDER-TOP: medium none; PADDING-LEFT: 0.75pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: black 0.5pt solid; PADDING-TOP: 0.75pt; BORDER-BOTTOM: black 0.5pt solid; HEIGHT: 12.75pt" vAlign="bottom" width="36">
+              <p class="MsoNormal" style="TEXT-ALIGN: center" align="center"><span style="FONT-SIZE: 10pt; FONT-FAMILY: Arial">21<O:P>
+              </O:P>
+              </span></p>
+            </td>
+            <td style="BORDER-RIGHT: black 0.5pt solid; PADDING-RIGHT: 0.75pt; BORDER-TOP: medium none; PADDING-LEFT: 0.75pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; PADDING-TOP: 0.75pt; BORDER-BOTTOM: black 0.5pt solid; HEIGHT: 12.75pt" vAlign="bottom" width="82" x:fmla="=(A12-1)*90.861" x:num>
+              <p class="MsoNormal" style="TEXT-ALIGN: center" align="center"><span style="FONT-SIZE: 10pt; FONT-FAMILY: Arial">1817.22<O:P>
+              </O:P>
+              </span></p>
+            </td>
+            <td style="BORDER-RIGHT: black 0.5pt solid; PADDING-RIGHT: 0.75pt; BORDER-TOP: medium none; PADDING-LEFT: 0.75pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: black 0.5pt solid; PADDING-TOP: 0.75pt; BORDER-BOTTOM: black 0.5pt solid; HEIGHT: 12.75pt" vAlign="bottom" width="41">
+              <p class="MsoNormal" style="TEXT-ALIGN: center" align="center"><span style="FONT-SIZE: 10pt; FONT-FAMILY: Arial">58<O:P>
+              </O:P>
+              </span></p>
+            </td>
+            <td style="BORDER-RIGHT: black 0.5pt solid; PADDING-RIGHT: 0.75pt; BORDER-TOP: medium none; PADDING-LEFT: 0.75pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; PADDING-TOP: 0.75pt; BORDER-BOTTOM: black 0.5pt solid; HEIGHT: 12.75pt" vAlign="bottom" width="103" x:fmla="=(A26-1)*90.861" x:num="5179.0770000000002">
+              <p class="MsoNormal" style="TEXT-ALIGN: center" align="center"><span style="FONT-SIZE: 10pt; FONT-FAMILY: Arial">5179.077<O:P>
+              </O:P>
+              </span></p>
+            </td>
+          </tr>
+          <tr style="HEIGHT: 12.75pt">
+            <td style="BORDER-RIGHT: black 0.5pt solid; PADDING-RIGHT: 0.75pt; BORDER-TOP: medium none; PADDING-LEFT: 0.75pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: black 0.5pt solid; PADDING-TOP: 0.75pt; BORDER-BOTTOM: black 0.5pt solid; HEIGHT: 12.75pt" vAlign="bottom" width="36">
+              <p class="MsoNormal" style="TEXT-ALIGN: center" align="center"><span style="FONT-SIZE: 10pt; FONT-FAMILY: Arial">25<O:P>
+              </O:P>
+              </span></p>
+            </td>
+            <td style="BORDER-RIGHT: black 0.5pt solid; PADDING-RIGHT: 0.75pt; BORDER-TOP: medium none; PADDING-LEFT: 0.75pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; PADDING-TOP: 0.75pt; BORDER-BOTTOM: black 0.5pt solid; HEIGHT: 12.75pt" vAlign="bottom" width="82" x:fmla="=(A13-1)*90.861" x:num="2180.6640000000002">
+              <p class="MsoNormal" style="TEXT-ALIGN: center" align="center"><span style="FONT-SIZE: 10pt; FONT-FAMILY: Arial">2180.664<O:P>
+              </O:P>
+              </span></p>
+            </td>
+            <td style="BORDER-RIGHT: black 0.5pt solid; PADDING-RIGHT: 0.75pt; BORDER-TOP: medium none; PADDING-LEFT: 0.75pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: black 0.5pt solid; PADDING-TOP: 0.75pt; BORDER-BOTTOM: black 0.5pt solid; HEIGHT: 12.75pt" vAlign="bottom" width="41">
+              <p class="MsoNormal" style="TEXT-ALIGN: center" align="center"><span style="FONT-SIZE: 10pt; FONT-FAMILY: Arial">59<O:P>
+              </O:P>
+              </span></p>
+            </td>
+            <td style="BORDER-RIGHT: black 0.5pt solid; PADDING-RIGHT: 0.75pt; BORDER-TOP: medium none; PADDING-LEFT: 0.75pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; PADDING-TOP: 0.75pt; BORDER-BOTTOM: black 0.5pt solid; HEIGHT: 12.75pt" vAlign="bottom" width="103" x:fmla="=(A27-1)*90.861" x:num="5269.9380000000001">
+              <p class="MsoNormal" style="TEXT-ALIGN: center" align="center"><span style="FONT-SIZE: 10pt; FONT-FAMILY: Arial">5269.938<O:P>
+              </O:P>
+              </span></p>
+            </td>
+          </tr>
+          <tr style="HEIGHT: 12.75pt">
+            <td style="BORDER-RIGHT: black 0.5pt solid; PADDING-RIGHT: 0.75pt; BORDER-TOP: medium none; PADDING-LEFT: 0.75pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: black 0.5pt solid; PADDING-TOP: 0.75pt; BORDER-BOTTOM: black 0.5pt solid; HEIGHT: 12.75pt" vAlign="bottom" width="36">
+              <p class="MsoNormal" style="TEXT-ALIGN: center" align="center"><span style="FONT-SIZE: 10pt; FONT-FAMILY: Arial">30<O:P>
+              </O:P>
+              </span></p>
+            </td>
+            <td style="BORDER-RIGHT: black 0.5pt solid; PADDING-RIGHT: 0.75pt; BORDER-TOP: medium none; PADDING-LEFT: 0.75pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; PADDING-TOP: 0.75pt; BORDER-BOTTOM: black 0.5pt solid; HEIGHT: 12.75pt" vAlign="bottom" width="82" x:fmla="=(A14-1)*90.861" x:num="2634.9690000000001">
+              <p class="MsoNormal" style="TEXT-ALIGN: center" align="center"><span style="FONT-SIZE: 10pt; FONT-FAMILY: Arial">2634.969<O:P>
+              </O:P>
+              </span></p>
+            </td>
+            <td style="BORDER-RIGHT: black 0.5pt solid; PADDING-RIGHT: 0.75pt; BORDER-TOP: medium none; PADDING-LEFT: 0.75pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: black 0.5pt solid; PADDING-TOP: 0.75pt; BORDER-BOTTOM: black 0.5pt solid; HEIGHT: 12.75pt" vAlign="bottom" width="41">
+              <p class="MsoNormal" style="TEXT-ALIGN: center" align="center"><span style="FONT-SIZE: 10pt; FONT-FAMILY: Arial">60<O:P>
+              </O:P>
+              </span></p>
+            </td>
+            <td style="BORDER-RIGHT: black 0.5pt solid; PADDING-RIGHT: 0.75pt; BORDER-TOP: medium none; PADDING-LEFT: 0.75pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; PADDING-TOP: 0.75pt; BORDER-BOTTOM: black 0.5pt solid; HEIGHT: 12.75pt" vAlign="bottom" width="103" x:fmla="=(A28-1)*90.861" x:num="5360.799">
+              <p class="MsoNormal" style="TEXT-ALIGN: center" align="center"><span style="FONT-SIZE: 10pt; FONT-FAMILY: Arial">5360.799<O:P>
+              </O:P>
+              </span></p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <p>The loft to midsection is shown below. Keep checking the loft after
+      several profiles are done to check for any faults. If the loft suddenly
+      splits into a large number of lines then you need to trace the faulty loft
+      profile (Test by slipping profiles in temporary lofts until the problem
+      profile can be isolated).&nbsp;</p>
+      <p><img border="0" src="step5_files/loft2_grid02.gif" width="286" height="182"></p>
+          <hr>
+          <div align="left">
+            <table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%">
+              <tr>
+                <td width="100%" class="tiny">
+          <p style="tiny; text-align:center">Tim Lovett © 2005 | All Rights 
+          Reserved| <a href="http://www.worldwideflood.com">http://www.worldwideflood.com</a>
+                </td>
+              </tr>
+            </table>
+      </div>
+      </td>
+    </tr>
+  </table>
+
+</body>
+
+</html>

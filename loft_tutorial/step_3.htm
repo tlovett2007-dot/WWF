@@ -1,0 +1,155 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+
+<head>
+<title>Hull Loft Tute 3</title>
+<meta name="description" content="add your site description here">
+<meta name="keywords" content="add your search engine keywords here separated by commas">
+<meta http-equiv="Content-Language" content="en-us">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<link rel="stylesheet" type="text/css" href="tute.css">
+</head>
+
+<body>
+  <table style="border-collapse: collapse" bordercolor="#111111" cellpadding="0" cellspacing="0">
+    <tr>
+      <td width="250" class="leftside" valign="top" bgcolor="#FFFFFF">
+      <p align="center"><img border="0" src="loft_pic.jpg" width="200" height="267"><p>&nbsp;</p>
+      <div align="left">
+        <table width="100%">
+          <tr>
+            <td width="100%" class="hottopic1">Lofting Tutorial:</td>
+          </tr>
+          <tr>
+            <td width="100%" class="hottopic2"><a href="start.htm">Start: 0</a><br>
+              <a href="step_1.htm"> Set the first dxf in 3d: 1</a><br>
+              <a href="step_2.htm"> Paste the other dxf's: 2</a><br>
+              <a href="step_3.htm">Set up loft profiles: 3</a><br>
+              <a href="step_4.htm">Loft test: 4</a><br>
+              <a href="step_5.htm">Loft halfway: 5</a><br>
+              <a href="step_3.htm">: 6</a>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <p>&nbsp;</p>
+      <table width="100%">
+        <tr>
+          <td width="100%" class="hottopic1">Ship Lines Credit:</td>
+        </tr>
+        <tr>
+          <td width="100%" class="hottopic3">The ship lines were created by Dr
+            Allen Magnuson in Feb 2005 using Vacanti Prolines.&nbsp;&nbsp;</td>
+        </tr>
+      </table>
+      <p align="center">&nbsp;</p>
+      </td>
+      <td width="100%" valign="top" class="rightside" align="center">
+      <h1 style="text-align: center">STEP 3: Set up loft profiles</h1>
+      <hr>
+      <h2>1. Right Hand Side</h2>
+      <ul>
+        <li>First of all, Save it.</li>
+        <li>Now save again as a new name (to keep the old one safe). Like
+          Ship002.tcw</li>
+        <li>Now mirror the Body LHS to the RHS, then erase the old LHS. The fore
+          &amp; aft lines are now on top of each other on the RHS. It is easy to
+          do this while still grouped in each half. See why we did it now?&nbsp;</li>
+        <li>Now explode everything and you get this mess...</li>
+      </ul>
+      <p><img border="0" src="step3_files/explode_everything.gif" width="324" height="237"></p>
+      <p><b>Test the layers. </b>In Design Director (DD), hide a layer -
+      you should see 3 corresponding curves disappear, which is really the one
+      curve projected onto the 3 planes - plan, body and profile.</p>
+      <hr>
+      <h2>2. Simplify</h2>
+      <p>There are a lot of lines here. If I was me, I'd chuck some. Keep a good
+      accuracy near the busy areas of bow and stern, but throw away lots of
+      stuff in the middle.</p>
+      <p>Delete station layers to keep only the following;</p>
+      <ul>
+        <li>Stations:
+          1,2,3,4,5,6,8,10,12,15,18,21,25,30,35,39,42,45,47,49,51,53,55,56,57,58,59,60</li>
+        <li>Waterlines: 2,4,7,10,14,18</li>
+        <li>Buttock lines: 1,2,4,6,8</li>
+        <li>Chine</li>
+      </ul>
+      <p><img border="0" src="step3_files/rationalized.gif" width="352" height="135"></p>
+      <hr>
+      <h2>3. Spline Dividers</h2>
+      <p>We are working almost exclusively with station lines, as these will
+      form the section profiles for the hull loft. Turbocad is happiest when it has
+      the same number of points for each loft profile (station). To help us do
+      this we will sketch some radiating lines on the Body plane (amidships). We
+      will use 12 points per section, which means 11 dividing lines radiating
+      from the top centerline (Drawn in blue here - directly onto the Body
+      workplane).&nbsp;The radiating lines are concentrated at the bilge radius
+      to improve resolution at that spot.&nbsp;&nbsp;&nbsp;</p>
+      <p>Notice the vertical line set at the bow stem thickness (12th line). This will
+      become the loft inside limit - which leaves a gap between LHS and RHS of
+      the hull. The keel and stem will be added later as a separate object.</p>
+      <p>&nbsp;</p>
+      <p><img border="0" src="step3_files/spline_divide.gif" width="333" height="514"></p>
+      <p>Pretty isn't it? Trouble is I forgot to tell you to put them on a new
+      layer. Sorry... just kidding. CAD isn't this cruel. Now for our next
+      trick....</p>
+      <hr>
+      <h2><b>4. Whoops. How to move stuff to another layer.&nbsp;</b></h2>
+      <p>(This could come in handy!)</p>
+      <ul>
+        <li>In DD, make a new layer &quot;dividers&quot;. BTW It's no fun having
+          the new layer at the bottom of a big list, so drag it up near the top.</li>
+        <li>Select the 12 divider lines (Hold down Shift as you pick them. This
+          will flick you back to Level &quot;0&quot; - the default level they
+          went on)</li>
+      </ul>
+      <p><img border="0" src="step3_files/select_dividers.gif" width="167" height="257"></p>
+      <ul>
+        <li>While these are selected, simply make the &quot;dividers&quot; layer
+          current. That's it. Hey Presto, easy peasy!</li>
+      </ul>
+      <p><img border="0" src="step3_files/layer_swap.gif" width="297" height="283"></p>
+          <hr>
+      <h2>5. Splines setup</h2>
+      <p>Each station curve (body line) will be a spline. In Turbocad we can set
+      the mathematical resolution of spline. The default is 20 points between
+      each control point (node), but we will reduce this to make the curves
+      smoother. (Bit silly to have station control points so close together if
+      the stations-to-station distance is so much larger).&nbsp;</p>
+      <p>Use the standard Properties Dialogue to get at the object's Properties
+      (Like you do for everything else in TC). There are lots of ways to get to
+      it;</p>
+      <p style="margin-left: 40"><font size="1">From the Main Menu choose Format| Properties.
+      OR<br>
+      Right-click anywhere in the drawing and select Properties from the Local Menu.
+      OR<br>
+      Select the Properties icon in the lower left corner of the screen on the Inspector Bar.
+      OR<br>
+      Set some Properties directly using the Properties toolbar. OR<br>
+      Open the Properties Palette at the right of the screen. OR<br>
+      When the Select tool is active, double click the object.&nbsp;</font></p>
+      <ul>
+        <li>Anyway, RB on blank screen area &gt; Properties... &gt; Curve &gt;
+          Set control points to 5 (default was 20). Set curve type to Spline. OK</li>
+        <li>Oh, and make a new layer called &quot;splines_fore&quot;. We'll draw
+          the splines onto this later.&nbsp;</li>
+      </ul>
+          <hr>
+          <div align="left">
+            <table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%">
+              <tr>
+                <td width="100%" class="tiny">
+          <p style="tiny; text-align:center">Tim Lovett © 2005 | All Rights 
+          Reserved| <a href="http://www.worldwideflood.com">http://www.worldwideflood.com</a>
+                </td>
+              </tr>
+            </table>
+      </div>
+      </td>
+    </tr>
+  </table>
+
+</body>
+
+</html>

@@ -1,0 +1,460 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD>
+<TITLE>WWF: Wave Bending Moment</TITLE>
+<META content="Microsoft FrontPage 4.0" name=GENERATOR>
+<META content=FrontPage.Editor.Document name=ProgId>
+<meta name="Wave Bending Moment" content="What loads must a ship hull be built to withstand?">
+<meta name="keywords" content="wave bending moment,naval architecture,design,hull,Noah's Ark,waves,wind,capsize,Genesis 6:15">
+<META http-equiv=Content-Language content=en-us>
+<META http-equiv=Content-Type content="text/html; charset=windows-1252">
+<link rel="stylesheet" type="text/css" href="/css/standard.css">
+
+<script type="text/javascript" language="javascript" src="/jsmenu/sniffer.js">
+//Top Navigational Bar III v3.4.1.1b (By BrotherCake @ cake@brothercake.net)
+//Permission granted to include script by http://www.dynamicdrive.com/
+//This notice MUST stay intact for legal use
+</script>
+<script type="text/javascript" language="javascript1.2" src="/jsmenu/custom2.js"></script>
+<script type="text/javascript" language="javascript1.2" src="/jsmenu/style.js"></script>
+<SCRIPT language=JavaScript>
+	// Ark Scale Calculator Copyright Tim Lovett Dec 2003
+	// www.worldwideflood.com
+	// Text array for units...
+	var unitName = new Array("mm", "inches") 
+	var steelwall = new Array(1,1,1,1,1,1,1)
+	// Christianity is not a religion, it's a relationship. 	
+function getData(form) { 
+	var dp=10								//decimal places
+   	var i = form.cubitName.selectedIndex 	//ith Cubit 
+   	var ci = form.cubitName.value 			//Cubit in inches
+   	var cmm = ci* 25.4 						//Cubit in mm
+   	var cubm = cmm/1000						//cubit in m
+   	var cir = Math.round(ci*100)/100 		//round off ci
+   	var cmmr = Math.round(cmm*10)/10 		//round off cmm  
+   	var ft = 1/0.3048							//convert to feet   
+   	form.txtAboutCubit.value = "Around " + cir + " inches or " + cmmr + "mm"   
+   	//Calculate ark dimensions in m as a rectangle
+   	var L = 300*cubm									//Hull Length
+   	var B = 50*cubm										//Hull Width (beam)
+   	var D = 30*cubm										//Hull Depth
+   form.txtArk.value = "Length=" + Math.round(L*dp)/dp + ",  Beam=" + Math.round(B*dp)/dp + ",  Depth=" + Math.round(D*dp)/dp + " (m)"
+   form.txtArkft.value = "Length=" + Math.round(L*dp*ft)/dp + ",  Beam=" + Math.round(B*dp*ft)/dp + ",  Depth=" + Math.round(D*dp*ft)/dp + " (ft)"
+  	
+   	//Block Coefficient Cb
+   	var j = form.blockCoeff.selectedIndex		//jth block coeff
+   	var Cb = form.blockCoeff.value * 1				//jth Cb value
+   	form.txtSelectedCb.value= "Cb = " + Cb		
+   	var g = 30/3.059			//ABS value for g=9.797   	
+   	
+   	//Wave Bending Moment by Bureau Veritas 
+   	var HBV = 703 - 65 * Math.pow(((300-L)/100), 1.5)
+   	HBV = Math.round(HBV*100)/100
+   	var MwBV = HBV * L * L * B * (Cb+0.7)/1000
+   	form.txtMomentBVtfm.value = Math.round(MwBV/9.8)+ " (tf.m) [" + Math.round(MwBV) +" kNm]"
+   	   	      	
+	//Calculate Mw using LLoyd's Register ChD:315
+   	//The Rule section modulus Z = C1 * L^2 * B * (Cb +0.7) mm3 (from Lloyds ChD:319)
+	//Factor C1 from Table D3.2 interpolating by linear regression (R=0.9996), 90 to 150m length
+	//Ark is Type 2; General misc. cargo density under 1 tonne/m3	
+	var C1 = 6.2527 + 0.0178*L	  						//Factor C1	
+	var Z = C1 * L * L * B * (Cb + 0.7)				//Min Section modulus in cm3	
+	var SigmaW = 98.1										//98.1 MPa: Lloyd's Table D 3.4 Seagoing, Type 2
+	var LMw = SigmaW * Z 								//Nm: LLoyd's Register ChD:315
+	form.txtMomentLloydstfm.value = Math.round(LMw/(1000*g)) + " (tf.m) [" + Math.round(LMw/1000) +" kNm]"
+
+	
+	//Calculate Mw using ABS Rules	
+	C2 = 10.75-Math.pow(((300-L)/100),1.5)
+	//form.txtC2.value = Math.round(C2*1000)/1000	  						
+	var k1 = 11.22
+	var k2 = 19.37	
+	var MwSag=-k1*C2*L*L*B*(Cb+0.7)/1000
+	var MwHog=k2*C2*L*L*B*(Cb)/1000		
+	
+	form.txtMomentABSsagtfm.value = Math.round(MwSag) + " tfm [" + Math.round(MwSag*g) +" kNm]"
+	form.txtMomentABShogtfm.value = Math.round(MwHog) + " tfm [" + Math.round(MwHog*g) +" kNm]"
+	var k=3.059
+	var Fw = k*C2*L*B*(Cb+0.7)/100
+	form.txtShearABS.value = Math.round(Fw) + " tfm [" + Math.round(Fw*g) +" kNm]"
+
+} 
+</SCRIPT>
+</head>
+
+
+
+
+
+<body>
+<script type="text/javascript" language="javascript1.2" src="/jsmenu/menu.js"></script>
+
+<h1>Wave Bending Moment</h1>
+
+<p class="author" >Tim Lovett 2004 with contributions by Jim King 2004. Updated July 2005 | <a href="/default.htm">Home</a>
+| <a href="/jsmenu/full_menu.htm">Menu</a></p>
+
+<h2>Standard estimate of loads applied by waves</h2>
+
+<table border="0" cellpadding="0" cellspacing="0" width="750" height="192">
+  <tr>
+    <td width="378" bgcolor="#DDEEFF" >
+      <p class="celltext"><b>WAVE DAMAGE. November 19, 2002</b><br><br>
+      The leaking oil tanker Prestige sinks some 240km off Spain's north-western
+      coast, taking more than 70,000 tonnes of fuel to the seabed 4 km below.<br>
+      The Prestige ran into trouble during a violent storm,
+      the salvage company tried to prevent the tanker from splitting by turning
+      it so that its ruptured hull no longer faced the waves. <a name="01" href="#ref01">More...</a></p>
+      <p class= "caption">Prestige oil tanker breaks in half. Photo: AP</p>
+    </td>
+    <td width="372">
+      <img border="0" src="prestige_sinking.jpg" width="372" height="192"></td>
+  </tr>
+</table>
+
+<h3>Long hull syndrome</h3>
+<p class="MAIN">The proportions of Noah's Ark are explicitly stated in Genesis 6:15; 300 x 50 x 30
+cubits. The vessel is ten times as long as it is high, which means that the
+bending loads applied by waves will be significant. The Ark has similar
+proportions to a modern ship, and ships are not supposed to break in half. To
+avoid making a ship that is too weak in the middle, there are rules.</p>
+<p><b>Wave bending moment (Mw)</b> is about waves trying to bend
+the hull. If the hull can be built to withstand this amount of bending then it
+should be strong enough in the worst modern sea. What about the waves of the
+flood? See <a href="../../flood/waves/waves.htm">Waves</a>.</p>
+<p><b>The Calculator.</b> Select a cubit and a general shape. The numbers in red
+indicate how strong the hull needs to be in the middle. Of course, that still
+leaves all the engineering associated with hull construction yet to be done. See
+<a href="../design_notebook/transverse_section.htm">Midsection</a></p>
+  <table height="5" width="600">
+  <tr>
+    <td style="background-color: #FFFFFF; border-style: solid; border-color: #FFFFFF" bordercolor="#FFFFFF" height="3">
+<p style="left: 12; top: 68; width: 752; height: 29; position: absolute; margin-top: 0; margin-bottom: 0">&nbsp;</p>
+<p style="left: 35; top: 69; width: 752; height: 29; position: absolute; margin-top: 0; margin-bottom: 0">&nbsp;</p>
+<p style="left: 17; top: 74; width: 752; height: 29; position: absolute; margin-top: 0; margin-bottom: 0">&nbsp;</p>
+    </td>
+  </tr>
+
+<FORM name=scaleData style="margin-top: 0; margin-bottom: 0">
+  <td height="1">
+<table border="1" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#000000" id="AutoNumber2" width="720" height="214">
+  <tr>
+    <td bgcolor="#F8D5B1" bordercolor="#000000" width="594" align="right" style="background-color: #F8D5B1" height="40" colspan="3">
+<p align="center" style="margin-top: 4; margin-bottom: 4"><b><font face="Arial" size="3">&nbsp;
+<font color="#800000">CALCULATOR: Wave Bending Moment and Shear Force</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<input style="FONT-SIZE: 10pt; FONT-FAMILY: Verdana" onclick="getData(this.form)" type="button" value="Calculate" name="B5"></p>
+</font></font>
+    </td>
+  </tr>
+  <tr>
+    <td bgcolor="#FFFFE8" bordercolor="#000000" width="209" align="right" style="background-color: #FFE9CA" height="28" class="celltext">
+Select Cubit size&nbsp;
+    </td>
+    <td bgcolor="#FFFFE8" bordercolor="#000000" width="290" align="left" height="28" class="celltext">
+<p align="left">
+ &nbsp;<SELECT onchange=getData(this.form) name=cubitName size="1" style="font-weight: bold"> 
+  <OPTION value="17.5">Short Hebrew
+  <option value="17.6">Short Egyptian</option>
+  <OPTION selected value="18">Common
+  <option value="19.8">Babylonian Royal</option>
+  <option value="20.4">Long Hebrew</option>
+  <OPTION value="20.6">Royal Egyptian<OPTION value="24">Long Babylonian</OPTION></SELECT>
+</p>
+    </td>
+    <td bgcolor="#FFFFE8" bordercolor="#000000" width="280" align="left" height="28" class="celltext">
+<p align="center">
+ <!--webbot bot="Validation" s-data-type="Number" s-number-separators=",." -->
+ <INPUT size=35 name=txtAboutCubit style="text-align: center; background-color: #FFFFE8; border-style: solid; border-color: #FFFFE8">
+    </td>
+  </tr>
+  <tr>
+    <td bgcolor="#FFFFE8" bordercolor="#000000" width="209" align="right" style="background-color: #FFE9CA" height="1" class="celltext">
+Ark Dimensions&nbsp; 
+    </td>
+    <td bgcolor="#FFFFE8" bordercolor="#000000" width="290" align="left" height="1">
+<p align="left"><!--webbot bot="Validation" s-data-type="Number"
+s-number-separators=",." --><INPUT size=43 name=txtArk style="text-align: Center; background-color: #FFFFE8; border-style: solid; border-color: #FFFFE8"></p>
+    </td>
+    <td bgcolor="#FFFFE8" bordercolor="#000000" width="280" align="left" height="1">
+<!--webbot bot="Validation" s-data-type="Number" s-number-separators=",." --><INPUT size=37 name=txtArkft style="text-align: Center; background-color: #FFFFE8; border-style: solid; border-color: #FFFFE8">
+    </td>
+  </tr>
+  <tr>
+    <td bgcolor="#FFFFE8" bordercolor="#000000" width="209" align="right" style="background-color: #FFE9CA" height="27" class="celltext">
+Select Block Coeff&nbsp; 
+    </td>
+    <td bgcolor="#FFFFE8" bordercolor="#000000" width="290" align="left" height="27">
+<p align="left" style="margin-top: 0; margin-bottom: 0">&nbsp;<SELECT onchange=getData(this.form) name=blockCoeff size="1" style="font-weight: bold"> 
+  <OPTION value="0.392">Double ended Ferry
+  <option value="0.449">Naval Frigate</option>
+  <OPTION value="0.532">Passenger Liner
+  <option value="0.582">Barge Carrier</option>
+  <option value="0.620">Cargo/Container Ship</option>
+  <OPTION value="0.842">Crude Oil Carrier
+  <option value="0.900">James King Ark</option>
+  <OPTION value="0.924" selected>Gt Lakes
+  Ore Carrier</OPTION>
+  <option value="0.980">Rod Walsh Ark</option>
+  <option value="1.000">Pure Block</option>
+</SELECT></p>
+    </td>
+    <td bgcolor="#FFFFE8" bordercolor="#000000" width="280" align="left" height="27" class="celltext">
+<!--webbot bot="Validation" s-data-type="Number" s-number-separators=",." --><INPUT size=18 name=txtSelectedCb style="text-align: center; background-color: #FFFFE8; border-style: solid; border-color: #FFFFE8">
+    </td>
+  </tr>
+  <tr>
+    <td bgcolor="#FFFFE8" bordercolor="#000000" width="209" align="right" style="background-color: #FFE9CA" height="27" class="celltext">
+ABS&nbsp;(Hogging) <font color="#FF0000"> Mw</font>&nbsp; 
+    </td>
+    <td bgcolor="#FFFFE8" bordercolor="#000000" width="290" align="left" height="27">
+<p align="left" style="margin-top: 0; margin-bottom: 0"><!--webbot
+bot="Validation" s-data-type="Number" s-number-separators=",." --><INPUT size=36 name=txtMomentABShogtfm style="text-align: center; background-color: #FFFFE8; color: #FF0000; border-style: solid; border-color: #FFFFE8"></p>
+    </td>
+    <td bgcolor="#FFFFE8" bordercolor="#000000" width="280" align="left" height="27">
+<p class="celltext">&nbsp;</p>
+    </td>
+  </tr>
+  <tr>
+    <td bgcolor="#FFFFE8" bordercolor="#000000" width="209" align="right" style="background-color: #FFE9CA" height="27" class="celltext">
+ABS&nbsp;(Sagging) <font color="#FF0000"> Mw</font>&nbsp; 
+    </td>
+    <td bgcolor="#FFFFE8" bordercolor="#000000" width="290" align="left" height="27">
+<p align="left"><!--webbot bot="Validation" s-data-type="Number"
+s-number-separators=",." --><INPUT size=36 name=txtMomentABSsagtfm style="text-align: center; background-color: #FFFFE8; color: #FF0000; border-style: solid; border-color: #FFFFE8"></p>
+    </td>
+    <td bgcolor="#FFFFE8" bordercolor="#000000" width="280" align="left" height="27">
+&nbsp;
+    </td>
+  </tr>
+  <tr>
+    <td bgcolor="#FFFFE8" bordercolor="#000000" width="209" align="right" style="background-color: #FFE9CA" height="27" class="celltext">
+Lloyd's&nbsp;Mw&nbsp; 
+    </td>
+    <td bgcolor="#FFFFE8" bordercolor="#000000" width="290" align="left" height="27">
+<p align="left"><!--webbot bot="Validation" s-data-type="Number"
+s-number-separators=",." --><INPUT size=36 name=txtMomentLloydstfm style="text-align: center; background-color: #FFFFE8; border-style: solid; border-color: #FFFFE8"></p>
+    </td>
+    <td bgcolor="#FFFFE8" bordercolor="#000000" width="280" align="left" height="27">
+&nbsp;
+    </td>
+  </tr>
+  <tr>
+    <td bgcolor="#FFFFE8" bordercolor="#000000" width="209" align="right" style="background-color: #FFE9CA" height="27" class="celltext">
+B.Veritas Mw&nbsp; 
+    </td>
+    <td bgcolor="#FFFFE8" bordercolor="#000000" width="290" align="left" height="27">
+<p align="left"><!--webbot bot="Validation" s-data-type="Number"
+s-number-separators=",." --><INPUT size=36 name=txtMomentBVtfm style="text-align: center; background-color: #FFFFE8; border-style: solid; border-color: #FFFFE8">
+</p>
+    </td>
+    <td bgcolor="#FFFFE8" bordercolor="#000000" width="280" align="left" height="27">
+&nbsp;
+    </td>
+  </tr>
+  <tr>
+    <td bgcolor="#FFFFE8" bordercolor="#000000" width="209" align="right" style="background-color: #FFE9CA" height="27" class="celltext">
+ABS Wave Shear <font color="#0000FF"> Fw</font> 
+    </td>
+    <td bgcolor="#FFFFE8" bordercolor="#000000" width="290" align="left" height="27">
+<p align="left"><!--webbot bot="Validation" s-data-type="Number"
+s-number-separators=",." --><INPUT size=36 name=txtShearABS style="text-align: center; background-color: #FFFFE8; color: #0000FF; border-style: solid; border-color: #FFFFE8"></p>
+    </td>
+    <td bgcolor="#FFFFE8" bordercolor="#000000" width="280" align="left" height="27">
+&nbsp;
+    </td>
+  </tr>
+</table>
+<p>&nbsp;
+</p>
+<div style="left: 144; top: 2183; width: 700; height: 461; position: absolute">
+&nbsp;
+</div>
+<div style="position: absolute; left: 650; top: 320; width: 700; height: 452">
+</div>
+<div style="left: 609; top: 821; width: 754; height: 18; position: absolute">
+</div>
+		
+    </FORM>
+</table>
+<p>Note:</p>
+<ul>
+  <li>Block Coeff is a measure of the how closely the hull approximates a
+    rectangular block.&nbsp;</li>
+  <li>The American Bureau of Shipping (ABS) has the highest&nbsp;Mw values, which
+    means they are the most conservative.</li>
+  <li>If Noah's Ark was built to handle the ABS bending loads then it should be
+    strong enough for most sea conditions.&nbsp; &nbsp;&nbsp;</li>
+  <li>Shear force is related to the tendency for planks to slide against each
+    other.</li>
+</ul>
+<hr>
+<h3>Calculation of Wave Bending Moment</h3>
+<p><b>How strong did the Ark have to be?</b></p>
+<p>To endure several months in the open sea, the wooden hull of Noah's ark must have a
+certain minimum strength. Factors such as uneven cargo distribution, increased length 
+or a more &quot;block shaped&quot; hull (block coefficient) accentuate the need for a 
+strong hull. Another factor is the severity of the sea state. For a discussion on the flood waves,
+refer to <a href="/flood/waves/waves.htm">Waves</a>.&nbsp;</p>
+<p><embed width="550" height="350" src="hog_sag.swf"></p>
+<p> 
+For a first approximation, we will consider the worst seas of today. In ship design,
+one of the first things to check is the bending strength of the hull. A ship
+riding over large waves experiences bending forces (causing a moment or torque)
+that flex the hull up and down along its length (hogging and sagging). Without
+adequate strength and rigidity, the ark could leak or break when it meets high
+seas. The following calculations are based on standard procedures for ships
+operating in the open sea.</p>
+<b>Preamble</b>
+<p>Applicability: The following calculations apply to ships longer than 90m. Cargo ships with
+homogenous loading or less than 250m long only require a still water bending
+moment to be calculated amidships.</p>
+<p>Wood in place of steel: The applied wave loads are related to hull geometry and are
+independent of hull material. The data will be suitable for the timber ark up to
+the point where material properties such as stress and stiffness are
+investigated. In other words, the wave bending moment is externally applied, so
+is independent of hull material (assuming adequate stiffness as dictated by
+waterproofing requirements).</p>
+<p>These approximations are based on the vessel's length, width and shape, using a worst
+case sea state. Several standards are compared, with the most conservative
+estimate recommended (ABS Rules).</p>
+<h4>Estimation of Longitudinal Wave Bending Moment</h4>
+<p>Bending moment is the amount of 'bending' the hull experiences. It is highest in the
+middle (amidships), and occurs when the hull is bridging 2 waves (sagging or
+positive bending). Another situation is when a wave is supporting the hull
+amidships as if the ship was riding a wave (hogging or negative bending). Both
+need investigation since either case might be the failure mode at sea, and they
+represent the maximum amplitudes of fatigue loading.&nbsp;</p>
+<p>Firstly, we must define the hull size - by choosing the most suitable cubit.</p>
+<p>Next, the hull shape: The hull of a ship has certain coefficients of form. One of the
+most fundamental is the Block Coefficient Cb, which describes how well the hull
+approximates a rectangular prism. It is calculated by comparing the design
+displaced volume with the enclosed volume of its maximum wetted dimensions.</p>
+<p>Cb = (Displaced Volume) / ( L * B * T )</p>
+<p><i>Where L is length, B is beam or breadth, and T is the draft. The density of sea water
+(1.025) may need to be accounted for in determining the draft.</i></p>
+<p>The sculptured hulls of a small ship such as a harbor ferry might have a Cb of only
+0.4, whereas the rectangular cross-section of large crude oil carriers can have
+a Cb of almost 0.9. Ark depictions shown as almost a pure rectangular prism
+could have a Cb as high as 0.98.</p>
+<p>Using the popular choice of 18&quot; for the cubit, the ABS wave bending
+moment rules to calculate the hogging and sagging moments, with a block
+coefficient of 0.9, gives the following values; Hogging (tf-m): 65071.4912,&nbsp;
+Sagging (tf-m): -67008.743. Use the calculator above to test the effect of hull
+changes.</p>
+
+
+<hr>
+
+
+<h3>APPENDIX 1: Wave BM Calculated According to Shipping Rules </h3>
+<p>Definition of symbols;<br>
+L =length (m)<br>
+B =beam or breadth (m)<br>
+Cb =Block Coefficient as defined above.&nbsp;<br></p>
+<h4><b>Method 1: ABS RULES</h4>
+<p>American Bureau of Shipping<br>
+ABS Plaza<br>
+16855 Northchase Drive<br>
+Houston Texas 77060 USA<br>
+Steel Vessel Rules 2004, Part 3, Hull Construction and Equipment</b><br>
+
+<p><a href="http://www.eagle.org/rules/downloads/svr2004/Part%203_e%20-%20Feb04.pdf">http://www.eagle.org/rules/downloads/svr2004/Part%203_e%20-%20Feb04.pdf</a></p>
+<p>Free downloads
+here; <a href="http://www.eagle.org/rules/downloads.html#legal">http://www.eagle.org/rules/downloads.html#legal</a></p>
+<p><b>Bending Moment</b></p>
+<p>ABS Rules for Building and Classing Steel Vessels
+2004. Part 3 , Chapter 2, Section 1, Subsection 3.5.1 &quot;Wave Bending Moment
+Amidships&quot; </p>
+<p>(Note that the ABS Rules make a distinction
+between maximum Hogging and Sagging conditions. Also note that the ABS Rules are
+the most conservative of these classification societies) </p>
+<p>Mw = - k1 * C1 * L<sup>2</sup> * B * (Cb + 0.7) / 1000&nbsp;&nbsp;&nbsp; (sagging)<br>
+Mw&nbsp; =&nbsp; k2 * C1 * L<sup>2</sup> * B * Cb / 1000&nbsp;&nbsp;&nbsp;&nbsp;(hogging) <br>
+Where:</p>
+<p>C1 = 10.75 - ((300-L) / 100) ^ 3/2 &nbsp;(for 90&lt;= Length &lt;= 300m) <br>
+Sagging k1 = 11.22&nbsp; (for units in tf.m)<br>
+Hogging k2 = 19.37&nbsp; (for units in tf.m)</p>
+<br><br>
+<h4>Method 2: LLOYD'S REGISTER</h4>
+<p><b>Rules for Steel Ships.</b></p>
+<p>Bending Moment<br>
+<p>Lloyd's Chapter D, part 315 gives a formula for estimating the bending moment midway
+along the hull (amidships) that could be applied by typical sea waves. The
+factor C1 is tabulated and based on shipping data.</p>
+<p><img height="71" src="LloydsChD315.gif" width="400" border="0"></p>
+<p style="MARGIN-TOP: 6px; MARGIN-BOTTOM: 6px" align="left">Linear
+interpolation of tabulated values near the ark length gives C1 = 6.2527 +
+0.0178*L</p>
+<p>Lloyd's specifies a material stress of 98.1Mpa (assumes a steel hull). All other
+variables are as previously defined.</p>
+<br>
+<br>
+<h4>Method 3: BUREAU VERITAS</h4>
+<p><b>Rules and Regulations for the Construction and Classification of Steel Vessels. 1977<br>
+International Register for the classification of ships and aircraft.<br>
+31,rue Henri-Rochefort 75821 PARIS CEDEX 17<br>
+ISBN 2-900344-50 (English Edition)</b></p>
+<p><b>Bending Moment</b></p>
+<p>BV 5-23-31 The maximum rule value of wave bending moment in kN.m, is given by the
+formula;<br>
+M<sub>H</sub> = H L<sup>2 </sup>B ( Cb + 0.7 ) 10 <sup>-3</sup><br>
+Where<br>
+H = 703 - 65 ( (300 - L) / 100) ^ 3/2&nbsp;&nbsp; if L &lt; 300</p>
+
+
+
+<p>&nbsp;</p>
+
+
+
+<h3>APPENDIX 2: Wave Shear Force (ABS) </h3>
+<p>ABS Rules for Building and Classing Steel Vessels
+2004. Part 3 , Chapter 2, Section 1, Subsection 3.5.3 &quot;Wave Shear Force&quot; </p>
+<p>The maximum shearing force induced by wave, in kN (tf, Ltf)</p>
+<p>Fwp = + k1 * F1 * C1 * L * B * (Cb + 0.7) / 100&nbsp;&nbsp;&nbsp; (pos shear)<br>
+Fwn = - k1 * F2 * C1 * L * B * (Cb + 0.7) / 100&nbsp;&nbsp;&nbsp; (neg shear)<br>
+Where;<br>
+k1 = 30 (3.059, 0.2797)&nbsp;kN (tf,Ltf)<br>
+F1 = distribution factor, as shown in 3-2-1/Figure 3<br>
+F2 = distribution factor, as shown in 3-2-1/Figure 4<br>
+This factor is 0.7 amidships rising to 1.0 at approx 25% from bow/stern. We
+assume the highest value 1.0.<br>
+C1 = C1 = 10.75 - ((300-L) / 100) ^ 3/2 &nbsp;(for 90&lt;= Length &lt;= 300m)
+Same as for bending moment<br>
+L = length of vessel in m (ft)<br>
+B = breadth of vessel in m (ft)<br>
+Cb = block coefficient, but not to be taken less than 0.6<br>
+</p>
+<hr>
+<h3>Comments</h3>
+<p> The calculations follow the same general form,
+where the wave bending moment is proportional to L<sup>3.5</sup>&nbsp; and also
+to B<sup>1</sup>.&nbsp; For ships up to 300m long, the intensity of bending
+in the hull is very sensitive to the ship's length (L). So a long, wider hull is more likely
+to break in half (or leak badly) due to the wave induced bending moment.</p>
+<p>Supporting these relatively simple calculations
+is an extensive record of monitoring ship stresses during service. These
+formulae have been determined on the basis of sea states throughout the world,
+and take account of storms and worst case uncertainties (just the wrong
+combination of wave height, length, etc). While direct stress analysis using
+Finite Element Methods are possible today (barely!), these simple formulae are
+the trusted solution. Highly detailed analysis is required if the designer
+intends to use a number lower than these.</p>
+<br>
+<hr>
+<h3>References</h3>
+<p><a name="ref01">1.</a>&nbsp; Ships are not supposed to break in half. When the Prestige went down it leaked more than
+      50,000 tonnes of oil, expected to foul 1000 beaches for the next ten years. Estimates for cleanup and fishing industry
+      losses are as high as 10 billion euros, making it the most expensive
+      maritime accident in history. The ABS report released in Feb 2003 could not pinpoint the cause of the hull wall
+      failure, but was critical of Spain's refusal to allow the ship to take
+      shelter when it began to list 20km off the coast. Spanish authorities had the
+      ship towed out to sea to face high winds and heavy seas. It took six days to
+      break in half completely. In May 2003 Spain lashed out at the ABS, filing
+      a $700 million claim against the non-profit organization. In the last 25
+      years, only one ABS certified ship has gone down - in a typhoon.&nbsp; See <a href="http://www.eagle.org/news/press/prestige/">ABS
+      reports</a>.&nbsp;&nbsp; <a href="#01">Return to text</a></p>
+<hr>
+<p class="tiny"><a href="/default.htm">www.worldwideflood.com</a></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</BODY></HTML>

@@ -1,0 +1,339 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>WWF: Ark Scale Calculator</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=windows-1252">
+<SCRIPT language=JavaScript>
+	// Ark Scale Calculator Copyright Tim Lovett Nov 2003
+	// www.worldwideflood.com
+	// Text array for units...
+	var unitName = new Array("mm", "inches") 
+	// Christianity is not a religion, it's a relationship. 	
+function getData(form) { 
+   var i = form.cubitName.selectedIndex 	//ith Cubit 
+   var j = form.ModUnits.selectedIndex  	//jth model unit 
+   var ci = form.cubitName.value 			//Cubit in inches
+   var cmm = ci* 25.4 						//Cubit in mm
+   var cubm = cmm/1000						//cubit in m
+   var cir = Math.round(ci*100)/100 		//round off ci
+   var cmmr = Math.round(cmm*10)/10 		//round off cmm     
+   var wood = form.txtWood.value*cubm		//Wood thickness in m
+   var angle = form.txtAngle.value			//Roof in degrees
+   angle = angle*3.1416/180					//Roof angle in rads
+   var eave = form.txtEave.value*cubm		//Eave in m         
+      
+   //Calculate ark dimensions in m
+   var A1 = 300*cubm											//Hull Length
+   var D1 = A1 + 2*eave										//Roof Length 
+   var A2 = 50*cubm											//Hull Width (beam)
+   var B1 = 30*cubm-2*wood-Math.tan(angle)*(A2/2) 		//Wall height   
+   var C1 = A2 - 2*wood										//Bulkhead width
+   var C3 = 30*cubm - 2*wood								//Bulkhead height
+   var D2 = (A2/2)/Math.cos(angle)+eave					//Roof run
+   var E1 = D1-2*D2/3										//Skylight length
+   var E2 = D2/3												//Skylight run
+   var F1 = C1 - 0.25*wood									//Roof beam length 
+  	var F2 = 3*wood											//Roof beam min depth 
+   var F3 = F2 + Math.tan(angle)*(F1/2)    				//Roof beam max depth 
+   
+   //Calculate full-scale ark properties in m,kg
+   var area = A1*(A2+2*B1)+(D1*D2*2)+(E1*E2*2)+(C1*C3*4)		//Area sq m
+   	var SG = form.txtDraft.value									//Spec gravity of ark
+   	var displace = 300*50*30*SG*cubm*cubm*cubm					//Displacement in cu m 
+   	var woodvol = area*wood											//volume in cu m
+   	var woodSG = form.txtWoodSG.value								//Wood spec gravity
+   	var woodmass = woodvol*woodSG									//Mass in tonnes
+  	var cargo = displace-woodmass									//Net cargo in tonnes
+ 
+   //Get scale factor, if custom then get it...
+ 	var s=form.DScale.value
+	if (s == -1) {
+		s=form.txtScale.value
+	} else {
+		form.txtScale.value=""						
+	}
+
+   var u = form.ModUnits.value   				//Model unit (as mm)
+   var k = 1000/(s*u)							//Conversion factor      
+   
+   if (u == 1) {									//If unit is mm...
+   		ply = wood*k
+   		dp = 10									//One dec place for mm
+   		var units = " mm"   		
+   	} else {			
+  		ply = wood*k
+   		dp = 100									//2 dec places for inches
+   		var units = " inch"
+   	}
+ 	  	
+ 	form.txtAboutPly.value = "so plywood is " + Math.round(ply*dp)/dp + units + " thick"   	
+   	form.txtAboutCubit.value = "Around " + cir + " inches or " + cmmr + "mm" 
+   form.dim_title.value = "Dimensions in " + unitName[j] + " at 1:" + s + " ( " + Math.round(k*cubm*dp)/dp + units + " per cubit )" 
+
+   //Write dimensions...
+   form.dimA1.value = Math.round(A1*k*dp)/dp
+   form.dimA1b.value = Math.round(A1*k*dp)/dp 
+   form.dimD1.value = Math.round(D1*k*dp)/dp					
+   form.dimA2.value = Math.round(A2*k*dp)/dp     
+   form.dimB1.value = Math.round(B1*k*dp)/dp
+   form.dimC2.value = Math.round(B1*k*dp)/dp
+   form.dimC1.value = Math.round(C1*k*dp)/dp	
+   form.dimC3.value = Math.round(C3*k*dp)/dp				
+   form.dimD2.value = Math.round(D2*k*dp)/dp	
+   form.dimE1.value = Math.round(E1*k*dp)/dp   
+   form.dimE2.value = Math.round(E2*k*dp)/dp   			
+   form.dimF1.value = Math.round(F1*k*dp)/dp				
+   form.dimF2.value = Math.round(F2*k*dp)/dp				
+   form.dimF3.value = Math.round(F3*k*dp)/dp  				
+   
+   //Model data
+	dp=100
+   var modeldisp = displace	*1000/(s*s*s)					//Model displacement
+   form.displacekg.value = Math.round(modeldisp*dp)/dp + " kg"
+   form.displacelb.value = Math.round(modeldisp*2.20462*dp)/dp + " lb"   
+   var modelarea = area/(s*s)
+   form.areasqm.value = Math.round(modelarea*dp)/dp + " sq m"
+   form.areasqft.value = Math.round(modelarea*dp*10.76391)/dp + " sq ft"
+	var modelwoodmass = woodmass*1000/(s*s*s)
+   form.plymasskg.value = Math.round(modelwoodmass*dp)/dp + " kg"
+   form.plymasslb.value = Math.round(modelwoodmass*2.20462*dp)/dp + " lb"
+	var modelcargo = cargo*1000/(s*s*s)
+	form.cargokg.value = Math.round(modelcargo*dp)/dp + " kg"
+	form.cargolb.value = Math.round(modelcargo*dp*2.20462)/dp + " lb"  
+	var modeldraft = 30*cubm*SG*k
+	form.draft.value = "of depth, so draft is " + Math.round(modeldraft*dp)/dp + units		                                
+} 
+
+</SCRIPT>
+
+<META content="Microsoft FrontPage 4.0" name=GENERATOR></HEAD>
+<BODY onload=getData(document.scaleData) bgcolor="#FFFFFF">
+<table border="0" cellspacing="0" width="100%">
+  <tr>
+    <td style="background-color: #FFFFFF; border-style: solid; border-color: #FFFFFF" bordercolor="#FFFFFF">
+<p style="left: 17; top: 21; width: 907; height: 29; position: absolute; margin-top: 0; margin-bottom: 0"><font color="#800000"><font face="Arial" size="5"><b>Ark
+Scaler 1.3</b>&nbsp; </font><font face="Arial" size="1">COPYRIGHT Tim Lovett
+2003&nbsp;&nbsp;&nbsp; </font><font face="Arial" size="2"><a href="../../default.htm"><b>Home</b></a>&nbsp;&nbsp;
+<a href="../../jsmenu/full_menu.htm"><b>Menu</b></a></font></font></p>
+    </td>
+  </tr>
+</table>
+
+<FORM name=scaleData style="margin-top: 0; margin-bottom: 0">
+<table border="1" cellpadding="0" cellspacing="0" style="border-collapse: collapse; left: 13; top: 56; position: absolute" bordercolor="#000000" id="AutoNumber2" align="left" height="174">
+  <tr>
+    <td bgcolor="#FFFFE8" bordercolor="#000000" width="21" align="right" rowspan="3">
+<p style="line-height: 100%; margin-right: 0" align="right">
+<font face="Arial" size="2"><img border="0" src="scale_%20model_files/define_ark.jpg" width="21" height="81">&nbsp;</font>
+</p>
+    </td>
+    <td bgcolor="#FFFFE8" bordercolor="#000000" width="105" align="right">
+<font face="Arial" size="2">&nbsp;Cubit size&nbsp;</font>
+    </td>
+    <td bgcolor="#FFFFE8" bordercolor="#000000" width="390" align="left">
+<p align="left">
+<font face="Arial" size="2"> &nbsp; <SELECT onchange=getData(this.form) name=cubitName size="1" style="font-weight: bold"> 
+  <OPTION value="17.5">Short Hebrew
+  <option value="17.6">Short Egyptian</option>
+  <OPTION selected value="18">Common
+  <option value="19.8">Babylonian Royal</option>
+  <option value="20.4">Long Hebrew</option>
+  <OPTION value="20.6">Royal Egyptian<OPTION value="24">Long Babylonian</OPTION></SELECT><!--webbot
+bot="Validation" s-data-type="Number" s-number-separators=",." --><INPUT size=30 name=txtAboutCubit style="text-align: Left; background-color: #FFFFE8; border-style: solid; border-color: #FFFFE8"></font>
+</p>
+    </td>
+  </tr>
+  <tr>
+    <td bgcolor="#FFFFE8" bordercolor="#000000" width="105" align="right">
+<p style="line-height: 100%; margin-right: 0" align="right"><font face="Arial" size="2">Wood
+thickness&nbsp;</font> 
+</p>
+    </td>
+    <td bgcolor="#FFFFE8" bordercolor="#000000" width="390" align="left">
+<font face="Arial" size="2">&nbsp;<!--webbot bot="Validation"
+S-Data-Type="Number" S-Number-Separators=",."
+S-Validation-Constraint="Greater than" S-Validation-Value="0"
+S-Validation-Constraint="Less than or equal to" S-Validation-Value="5" --><INPUT size=5 name=txtWood style="text-align: Left" value="0.75"><input type="button" value="Set" onclick=getData(this.form) name="B2" style="font-size: 10pt; font-family: Arial">
+cubits, at SG = <!--webbot bot="Validation" S-Data-Type="Number"
+S-Number-Separators=",." S-Validation-Constraint="Greater than"
+S-Validation-Value=".2" S-Validation-Constraint="Less than or equal to"
+S-Validation-Value="10" --><INPUT size=5 name=txtWoodSG style="text-align: Left" value="0.6"><input type="button" value="Set" onclick=getData(this.form) name="B5" style="font-size: 10pt; font-family: Arial"></font>
+    </td>
+  </tr>
+  <tr>
+    <td bgcolor="#FFFFE8" bordercolor="#000000" width="105" align="right">
+&nbsp;<font face="Arial" size="2">Roof angle</font>&nbsp;
+    </td>
+    <td bgcolor="#FFFFE8" bordercolor="#000000" width="390" align="left">
+<font face="Arial" size="2">&nbsp;<!--webbot bot="Validation"
+S-Data-Type="Number" S-Number-Separators=",."
+S-Validation-Constraint="Greater than" S-Validation-Value="0"
+S-Validation-Constraint="Less than or equal to" S-Validation-Value="15" --><INPUT size=5 name=txtAngle style="text-align: Left" value="3"><input type="button" value="Set" onclick=getData(this.form) name="B3" style="font-size: 10pt; font-family: Arial">
+degrees, Overhang&nbsp;<!--webbot bot="Validation" s-data-type="Number"
+s-number-separators=",." s-validation-constraint="Greater than"
+s-validation-value="0" --><INPUT size=5 name=txtEave style="text-align: Left" value="0.5"><input type="button" value="Set" onclick=getData(this.form) name="B4" style="font-size: 10pt; font-family: Arial">
+cubits</font>
+    </td>
+  </tr>
+  <tr>
+    <td bgcolor="#F5DEB3" bordercolor="#000000" width="21" align="right" rowspan="3" valign="middle">
+<p style="line-height: 100%; margin-right: 0" align="right">
+<font face="Arial" size="2"><img border="0" src="scale_%20model_files/the_model.jpg" width="21" height="81">&nbsp;</font> 
+</p>
+    </td>
+    <td bgcolor="#F5DEB3" bordercolor="#000000" width="105" align="right">
+<p style="line-height: 100%; margin-right: 0" align="right">
+<font face="Arial" size="2">Model Scale&nbsp;</font>
+</p>
+    </td>
+    <td bgcolor="#F5DEB3" bordercolor="#000000" width="390" align="left">
+<p style="margin-top: 0; margin-bottom: 0"><font face="Arial" size="2">&nbsp;<SELECT onchange=getData(this.form) name=DScale size="1" style="font-weight: bold">
+  <option value="24">1:24 (G)</option>
+  <OPTION value="48">1:48 (O)</OPTION>
+  <option value="50">1:50</option>
+  <option value="72">1:72</option>
+  <option value="87">1:87 (HO)</option>
+  <option value="100">1:100</option>
+  <option value="125">1:125</option>
+  <option value="160">1:160 (N)</option>
+  <option value="-1" selected>Custom</option>
+</SELECT>   or&nbsp;custom scale&nbsp;<b>1:
+</b><!--webbot bot="Validation" s-data-type="Number" s-number-separators=",."
+s-validation-constraint="Greater than" s-validation-value="0" --><INPUT size=5 name=txtScale style="text-align: Left; font-weight: bold" value="75"><input type="button" value="Set" onclick=getData(this.form) name="B1" style="font-size: 10pt; font-family: Arial">&nbsp;&nbsp;</font>
+</p>
+    </td>
+  </tr>
+  <tr>
+    <td bgcolor="#F5DEB3" bordercolor="#000000" width="105" align="right">
+<font face="Arial" size="2">Model Units&nbsp;</font>
+    </td>
+    <td bgcolor="#F5DEB3" bordercolor="#000000" width="390" align="left">
+<font face="Arial" size="2">&nbsp;<SELECT onchange=getData(this.form) name=ModUnits size="1" style="font-weight: bold"> 
+  <OPTION value="1" selected>mm<OPTION value="25.4">inches</SELECT><!--webbot
+bot="Validation" s-data-type="Number" s-number-separators=",." --><INPUT size=30 name=txtAboutPly style="text-align: Left; background-color: #F5DEB3; border-style: solid; border-color: #F5DEB3"></font>
+    </td>
+  </tr>
+  <tr>
+    <td bgcolor="#F5DEB3" bordercolor="#000000" width="105" align="right">
+<font face="Arial" size="2">Draft</font>&nbsp; 
+    </td>
+    <td bgcolor="#F5DEB3" bordercolor="#000000" width="390" align="left">
+<font face="Arial" size="2">&nbsp;<!--webbot bot="Validation"
+S-Data-Type="Number" S-Number-Separators=",."
+S-Validation-Constraint="Greater than" S-Validation-Value="0"
+S-Validation-Constraint="Less than or equal to" S-Validation-Value="1" --><INPUT size=5 name=txtDraft style="text-align: Left" value="0.5"><input type="button" value="Set" onclick=getData(this.form) name="B6" style="font-size: 10pt; font-family: Arial">
+<INPUT 
+size=30 name=draft style="background-color: #F5DEB3; text-align: Left; border-style: solid; border-color: #F5DEB3"></font>
+    </td>
+  </tr>
+</table>
+<p>&nbsp;
+</p>
+<p>&nbsp;
+</p>
+<p><br>
+</p>
+<p>&nbsp;</p>
+<p style="left: 13; top: 341; width: 917; height: 362; position: absolute">&nbsp;</p>
+<p><font face="Arial" size="2"><INPUT 
+size=40 name=dim_title style="font-family: Arial; font-size: 10pt; font-weight: bold; left: 11; top: 369; width: 488; height: 23; position: absolute; color: #800000; border-style: solid; border-color: #FFFFFF"> </font> </p>
+<p style="margin-top: 0; margin-bottom: 0"><img border="0" src="scale_%20model_files/draft_all_panels.jpg" style="left: 30; top: 393; position: absolute; z-index: 0" width="600" height="464"> </p>
+      <p style="margin-top: 0; margin-bottom: 0">&nbsp;</p>
+      <p style="margin-top: 0; margin-bottom: 0">&nbsp;</p>
+      <p style="margin-top: 0; margin-bottom: 0">&nbsp;</p>
+      <p style="margin-top: 0; margin-bottom: 0"><font face="Arial" size="2"> <INPUT 
+size=8 name=dimC1 style="background-color: #FFFFFF; left: 119; top: 834; width: 64; height: 23; position: absolute; z-index: 1; color: #800000; text-align: Center; border-style: solid; border-color: #FFFFFF"></font></p>
+      <p style="margin-top: 0; margin-bottom: 0">&nbsp;</p>
+      <p style="margin-top: 0; margin-bottom: 0"><font face="Arial" size="2"><INPUT 
+size=8 name=dimA1 style="background-color: #FFFFFF; left: 257; top: 474; width: 64; height: 23; position: absolute; z-index: 1; text-align: Center; color: #800000; border-style: solid; border-color: #FFFFFF"></font></p>
+      <p style="margin-top: 0; margin-bottom: 0">&nbsp;</p>
+      <p style="margin-top: 0; margin-bottom: 0"><font face="Arial" size="2"> <INPUT 
+size=8 name=dimA1b style="background-color: #FFFFFF; left: 257; top: 550; width: 64; height: 23; position: absolute; z-index: 1; text-align: Center; color: #800000; border-style: solid; border-color: #FFFFFF"></font></p>
+      <p style="margin-top: 0; margin-bottom: 0">&nbsp;</p>
+      <p style="margin-top: 0; margin-bottom: 0"><font face="Arial" size="2"> <INPUT 
+size=8 name=dimC3 style="background-color: #FFFFFF; left: 16; top: 769; width: 64; height: 23; position: absolute; z-index: 1; text-align: Center; color: #800000; border-style: solid; border-color: #FFFFFF"></font></p>
+      <p style="margin-top: 0; margin-bottom: 0">&nbsp;</p>
+      <p style="margin-top: 0; margin-bottom: 0"><font face="Arial" size="2"> <INPUT 
+size=8 name=dimA2 style="background-color: #FFFFFF; left: 14; top: 424; width: 64; height: 23; position: absolute; z-index: 1; text-align: Center; color: #800000; border-style: solid; border-color: #FFFFFF"></font></p>
+      <p style="margin-top: 0; margin-bottom: 0">&nbsp;</p>
+      <p style="margin-top: 0; margin-bottom: 0"><font face="Arial" size="2"> <INPUT 
+size=8 name=dimE1 style="background-color: #FFFFFF; left: 242; top: 707; width: 64; height: 23; position: absolute; z-index: 1; text-align: Center; color: #800000; border-style: solid; border-color: #FFFFFF"></font></p>
+      <p style="margin-top: 0; margin-bottom: 0">&nbsp;</p>
+      <p style="margin-top: 0; margin-bottom: 0"><font face="Arial" size="2"><INPUT 
+size=8 name=dimB1 style="background-color: #FFFFFF; left: 14; top: 518; width: 64; height: 23; position: absolute; z-index: 1; text-align: Center; color: #800000; border-style: solid; border-color: #FFFFFF"></font></p>
+      <p style="margin-top: 0; margin-bottom: 0">&nbsp;</p>
+      <p style="margin-top: 0; margin-bottom: 0"><font face="Arial" size="2"> <INPUT 
+size=8 name=dimC2 style="background-color: #FFFFFF; left: 219; top: 761; width: 64; height: 23; position: absolute; z-index: 1; text-align: Left; color: #800000; border-style: solid; border-color: #FFFFFF"></font></p>
+      <p style="margin-top: 0; margin-bottom: 0">&nbsp;</p>
+      <p style="margin-top: 0; margin-bottom: 0"><font face="Arial" size="2"> <INPUT 
+size=8 name=dimE2 style="background-color: #FFFFFF; left: 70; top: 664; width: 64; height: 23; position: absolute; z-index: 1; color: #800000; border-style: solid; border-color: #FFFFFF"></font></p>
+      <p style="margin-top: 0; margin-bottom: 0">&nbsp;</p>
+      <p style="margin-top: 0; margin-bottom: 0"><font face="Arial" size="2"> <INPUT 
+size=8 name=dimD1 style="background-color: #FFFFFF; left: 258; top: 631; width: 64; height: 23; position: absolute; z-index: 1; text-align: Center; color: #800000; border-style: solid; border-color: #FFFFFF"></font></p>
+      <p style="margin-top: 0; margin-bottom: 0">&nbsp;</p>
+      <p style="margin-top: 0; margin-bottom: 0"><font face="Arial" size="2"><INPUT 
+size=8 name=dimF1 style="background-color: #FFFFFF; left: 329; top: 825; width: 64; height: 23; position: absolute; z-index: 1; text-align: Center; color: #800000; border-style: solid; border-color: #FFFFFF"></font></p>
+      <p style="margin-top: 0; margin-bottom: 0">&nbsp;</p>
+      <p style="margin-top: 0; margin-bottom: 0"><font face="Arial" size="2"> <INPUT 
+size=8 name=dimF3 style="background-color: #FFFFFF; left: 453; top: 741; width: 64; height: 23; position: absolute; z-index: 1; text-align: Left; color: #800000; border-style: solid; border-color: #FFFFFF"></font></p>
+      <p style="margin-top: 0; margin-bottom: 0">&nbsp;</p>
+      <p style="margin-top: 0; margin-bottom: 0"><font face="Arial" size="2"> <INPUT 
+size=8 name=dimD2 style="background-color: #FFFFFF; left: 14; top: 598; width: 64; height: 23; position: absolute; z-index: 1; text-align: Center; color: #800000; border-style: solid; border-color: #FFFFFF"></font></p>
+      <p style="margin-top: 0; margin-bottom: 0">&nbsp;</p>
+      <p style="margin-top: 0; margin-bottom: 0"><font face="Arial" size="2"> <INPUT 
+size=8 name=dimF2 style="background-color: #FFFFFF; left: 467; top: 817; width: 64; height: 23; position: absolute; z-index: 1; text-align: Left; color: #800000; border-style: solid; border-color: #FFFFFF"></font></p>
+      <p style="margin-top: 0; margin-bottom: 0">&nbsp;</p>
+		<P style="margin-top: 0; margin-bottom: 0">&nbsp; </P> 
+		
+<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse; left: 12; top: 241; position: absolute; z-index: 1" bordercolor="#111111" id="AutoNumber3" width="315" align="left">
+  <tr>
+    <td width="125" align="center">
+      <p align="center"><font face="Arial" size="2"><b><font color="#800000">Model Properties</font></b></font></td>
+    <td width="90" align="center"></td>
+    <td width="90" align="center">
+    </td>
+  </tr>
+  <tr>
+    <td width="125" align="right"><font face="Arial" size="2">&nbsp;Displacement:</font></td>
+    <td width="90"><font face="Arial" size="2"> <INPUT 
+size=12 name=displacekg style="background-color: #FFFFCC; border-style: solid; border-color: #FFFFFF"></font></td>
+    <td width="90" align="right">
+      <p align="left"><font face="Arial" size="2"> <INPUT 
+size=12 name=displacelb style="background-color: #FFFFCC; border-style: solid; border-color: #FFFFFF"></font></p>
+    </td>
+  </tr>
+  <tr>
+    <td width="125" align="right"><font face="Arial" size="2">Ply Area:</font></td>
+    <td width="90"><font face="Arial" size="2"> <INPUT 
+size=12 name=areasqm style="background-color: #FFFFCC; border-style: solid; border-color: #FFFFFF"></font></td>
+    <td width="90" align="right">
+      <p align="left"><font face="Arial" size="2"> <INPUT 
+size=12 name=areasqft style="background-color: #FFFFCC; border-style: solid; border-color: #FFFFFF"></font></p>
+    </td>
+  </tr>
+  <tr>
+    <td width="125" align="right"><font face="Arial" size="2">Ply Mass:</font></td>
+    <td width="90"><font face="Arial" size="2"> <INPUT 
+size=12 name=plymasskg style="background-color: #FFFFCC; border-style: solid; border-color: #FFFFFF"></font></td>
+    <td width="90" align="right">
+      <p align="left"><font face="Arial" size="2"> <INPUT 
+size=12 name=plymasslb style="background-color: #FFFFCC; border-style: solid; border-color: #FFFFFF"></font></p>
+    </td>
+  </tr>
+  <tr>
+    <td width="125" align="right"><font face="Arial" size="2">Cargo Deadweight:</font></td>
+    <td width="90"><font face="Arial" size="2"> <INPUT 
+size=12 name=cargokg style="background-color: #FFFFCC; border-style: solid; border-color: #FFFFFF"></font></td>
+    <td width="90" align="right">
+      <p align="left"><font face="Arial" size="2"> <INPUT 
+size=12 name=cargolb style="background-color: #FFFFCC; border-style: solid; border-color: #FFFFFF"></font></p>
+    </td>
+  </tr>
+</table>
+<P> &nbsp; </P>
+<P> &nbsp; </P>
+<P> <img border="0" src="scale_%20model_files/arkmodel_open.jpg" style="left: 358; top: 256; position: absolute; z-index: 0" width="150" height="84"> </P>
+<P> &nbsp; </P>
+<P> &nbsp; </P>
+<P> &nbsp; </P>
+<P> &nbsp; </P>
+<P> &nbsp; </P>
+<P> &nbsp; </P></FORM></BODY></HTML>

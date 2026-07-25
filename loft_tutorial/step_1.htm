@@ -1,0 +1,183 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+
+<head>
+<title>Hull Loft Tute 1</title>
+<meta name="description" content="add your site description here">
+<meta name="keywords" content="add your search engine keywords here separated by commas">
+<meta http-equiv="Content-Language" content="en-us">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<link rel="stylesheet" type="text/css" href="tute.css">
+</head>
+
+<body>
+  <table style="border-collapse: collapse" bordercolor="#111111" cellpadding="0" cellspacing="0" width="1052">
+    <tr>
+      <td width="211" class="leftside" valign="top" bgcolor="#FFFFFF">
+      <p align="center"><img border="0" src="loft_pic.jpg" width="200" height="267"><p>&nbsp;</p>
+      <div align="left">
+        <table width="100%">
+          <tr>
+            <td width="100%" class="hottopic1">Lofting Tutorial:</td>
+          </tr>
+          <tr>
+            <td width="100%" class="hottopic2"><a href="start.htm">Start: 0</a><br>
+              <a href="step_1.htm"> Set the first dxf in 3d: 1</a><br>
+              <a href="step_2.htm"> Paste the other dxf's: 2</a><br>
+              <a href="step_3.htm">Set up loft profiles: 3</a><br>
+              <a href="step_4.htm">Loft test: 4</a><br>
+              <a href="step_5.htm">Loft halfway: 5</a><br>
+              <a href="step_3.htm">: 6</a>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <p>&nbsp;</p>
+      <table width="100%">
+        <tr>
+          <td width="100%" class="hottopic1">Ship Lines Credit:</td>
+        </tr>
+        <tr>
+          <td width="100%" class="hottopic3">The ship lines were created by Dr
+            Allen Magnuson in Feb 2005 using Vacanti Prolines.&nbsp;&nbsp;</td>
+        </tr>
+      </table>
+      <p align="center">&nbsp;</p>
+      </td>
+      <td width="772" valign="top" class="rightside">
+      <h1 style="text-align: center">STEP 1: Set the first dxf in 3d</h1>
+      <hr>
+      <h2>1. Import the Body lines</h2>
+      <p>Turbocad will open the 2d dxf file directly into 3d space. Simply File
+      &gt; Open &gt; {body.dxf}&nbsp;</p>
+      <p>Design Director (on RHS) shows that Vacanti's dxf generator placed every line
+      on a different level. This will be handy later on.&nbsp;</p>
+      <p><img border="0" src="step1_files/body1.jpg" width="321" height="257">&nbsp;</p>
+      <hr>
+      <h2>2. XYZ orientation&nbsp;</h2>
+      <p>It's logical to make the X axis longitudinal, Z axis vertical, and
+      Y axis defined by right hand coord system. Like this;</p>
+      <p><img border="0" src="step1_files/degrees_of_freedom.jpg" width="400" height="244"></p>
+      <p>Since Turbocad starts in the XY plane, it is best to begin with {Plan.dxf}.
+      (You could force something else, but why bother?)</p>
+      <p>The dxf happens to land on my page with the X axis pointing towards the
+      stern. That's probably a good thing because as we increase in X coordinate
+      we are working towards higher station numbers. This should work OK.&nbsp;</p>
+      <p><img border="0" src="step1_files/plan_XYZ.gif" width="259" height="58"></p>
+      <p>Now spin the thing in 3D (drag with middle button of your 3 button
+      scroll mouse). If you don't have a 3 button scroll mouse then... go
+      away!&nbsp;</p>
+      <p>Now that you have come back with a new mouse, you'll be happy to know
+      Turbocad's zoom works nicely with scroll - it always centers the zoom at
+      the cursor position which turns out to be the quickest way to dynamically
+      pan, zoom &amp; spin than I know of - and all with just 1
+      finger.&nbsp;&nbsp;</p>
+      <p><img border="0" src="step1_files/plan_XYZ_spun.gif" width="169" height="148"></p>
+      <hr>
+      <h2>3. Group and Mirror</h2>
+      <p>To mirror the thing, you must use SNAP.&nbsp; TurboCad has a funny
+      button called &quot;No Snap&quot;, which means you press it to turn snap
+      OFF. Don't press it. You can't anyway - at least not until you specify
+      what sort of snapping you want...</p>
+      <p>Better make sure you have the Snap Modes toolbar on first.&nbsp; View
+      &gt; Toolbars... &gt; Check &quot;Snap Modes&quot; &gt; OK</p>
+      <p><img border="0" src="step1_files/snap_toolbar_on.jpg" width="198" height="184"></p>
+      <p>We want to snap to the nearest point, so on the Snap Toolbar, press the
+      &quot;Nearest on Graphic&quot; icon. (Or whatever you feel is appropriate)</p>
+      <p><img border="0" src="step1_files/snap_toolbar.jpg" width="404" height="58">&nbsp;</p>
+      <p>OK, it's mirror time...</p>
+      <ul>
+        <li>Make sure you are in top (default view); View &gt; Camera &gt; Top</li>
+        <li>Select all the geometry with a select window. (Select button is the
+          mouse arrow icon). It should all turn purple.</li>
+        <li>Group the whole thing so it is easy to work with. Format
+          &gt; Create Group&nbsp;&nbsp;</li>
+        <li>Press &quot;Mirror Copy&quot; button; (Or Edit &gt; Copy Entities
+          &gt; Mirror)</li>
+        <li>Pick two points that represent the mirror line - this can be
+          anywhere on
+          the hull center-line (zoom up !).&nbsp;You should have the whole hull
+          now</li>
+      </ul>
+      <p><img border="0" src="step1_files/mirrored.gif" width="269" height="58"></p>
+      <hr>
+      <h2>4. Check Scale</h2>
+      <p>We had better check the size of the ship before going too far. We will
+      dimension the overall length or some other known dimension.</p>
+      <ul>
+        <li>Start in top view (alt+up). Zoom up on the front.&nbsp;</li>
+        <li>Change snap mode to Intersection - it's safer.&nbsp;</li>
+        <li>Press Orthogonal dimension button. (on Drawing Tools toolbar)</li>
+        <li>Click 2 points and read the dimension. The scroll button zoom/pan
+          comes in handy here.</li>
+      </ul>
+      <p>Well we get 5542.4695 for the length. What are the units?&nbsp;</p>
+      <p>Options &gt; Drawing Setup &gt; Space Units.&nbsp;</p>
+      <p>It is in inches - so that's 461.8 ft, or 140.8m.&nbsp; Yes, we have the
+      right scale.&nbsp;&nbsp;&nbsp;</p>
+      <p>Station measurement. Measuring from station 1 to station 60, we get 5360.799&quot;
+      (136.164m or 298 cubits at 18&quot; length). There are actually 59
+      spacings, so each space is 1/59th, or 90.861&quot; (about 7.6 feet). The
+      spacing is important, we will need that 90.861&quot; number.</p>
+      <hr>
+      <h2>5. Check position along X axis</h2>
+      <p>I want to position the hull so that Station 1 is at X=0. To check this,
+      first zoom up on the bow - where the first station 1 is. When you try to
+      click the station line, the WHOLE side is lit up.&nbsp;&nbsp;</p>
+      <p><img border="0" src="step2_files/station_1.gif"></p>
+      <p>Ungroup this side. Format &gt; Explode. Now you can select Station 1
+      line. Oh dear, look at Pos X - we are out by 11.6174&quot;. The plan lines
+      need to come back to the left by this amount.&nbsp;</p>
+      <p><img border="0" src="step2_files/station_1_exploded.gif"></p>
+      <p>Undo to get back to grouped geometry, then select everything. Now we
+      have Pos X = 2692.0201&quot; (which is the middle). Subtracting the
+      11.6174 error, leaves 2680.4027&quot;. Just type this into the Pos X
+      textbox.</p>
+      <p>(If you like, you could Explode again and click the Station 1 line to
+      show Pos X = 0)&nbsp;&nbsp;</p>
+      <hr>
+      <h2>5. Save it as new drawing</h2>
+      <ul>
+        <li>Save it with a new name. File &gt; Save As... &gt; &quot;Ship.tcw&quot;
+          or something</li>
+        <li>Spin it to check (Middle button drag)</li>
+      </ul>
+      <p><img border="0" src="step1_files/plan_paste.gif"></p>
+      <p>The nice thing is that Vacanti has given all the lines in appropriate
+      layers and layer names. There are 94 layers listed here, the current layer
+      is called &quot;0&quot; and all layers are visible. Click the visible icon
+      to see which line is which layer.</p>
+      <p><img border="0" src="step1_files/layers.gif"></p>
+      <hr>
+      <h2>6. Workplanes&nbsp;</h2>
+      <p>NAME IT. It would be a good idea to label the current (default) XY
+      workplane in Design Director (DD). Click on WorkPlanes(0) in DD, then
+      Right Button (RB) in the first table cell &gt; Create New &gt; type &quot;plan_lines&quot;. No need to change any position and orientation data.&nbsp; Give
+      it a tick (check) to make it active.&nbsp;</p>
+      <p><img border="0" src="step1_files/design_director.jpg"></p>
+      <p>WORKPLANE SIZE: To display the workplane, use the menu; Workspace &gt;
+      Display WorkPlane. You should see the (red) workplane like the image
+      below. If your workplane is a silly size you can zoom to extents first
+      (View &gt; Zoom &gt; Extents) and then fit the workplane to this
+      (Workspace &gt; Workplane &gt; Fit To Window).&nbsp;</p>
+      <p><img border="0" src="step1_files/plan_workplane.gif"></p>
+      <p>&nbsp;</p>
+          <hr>
+          <div align="left">
+            <table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%">
+              <tr>
+                <td width="100%" class="tiny">
+          <p style="tiny; text-align:center">Tim Lovett © 2005 | All Rights 
+          Reserved| <a href="http://www.worldwideflood.com">http://www.worldwideflood.com</a>
+                </td>
+              </tr>
+            </table>
+      </div>
+      </td>
+    </tr>
+  </table>
+
+</body>
+
+</html>

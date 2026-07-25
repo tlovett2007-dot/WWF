@@ -1,0 +1,247 @@
+<HTML><HEAD>
+<TITLE>JavaScript Quiz</TITLE>
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Hide from JavaScript-Impaired Browsers
+/*Modified from original code based on "http://www.mcli.dist.maricopa.edu/eye/code/jsquiz.zip" */
+
+testitle="Test 1 - EASY ARK QUESTIONS";		// Title of test.
+scoretext="Not bad, your score is ";						// Score line text.
+percent=" %";										// .. more text.
+psco=100; scos=0					//Perfect score 100 (integer<999).
+nq=10;								//Number of questions.
+nop=4;								//Number of options per question.
+noans=psco/nq;					//Deduction for each skipped question. 
+wrans=noans+(noans/(nop-1));	//Deduction for each wrong answer based on no. of options to get 50% pass mark.
+numwrg=0;							//Number of wrong answers
+numskip=0;							//Number of skipped questions
+numcorrect=0;						//Number of correct answers
+cor="acbadabcdb";					//The correct answers
+fcol=17								//Font color 
+
+
+/* The Questions (Stem)... */
+ques=new Array();
+ques[0]="1. How many people on the ark?";
+ques[1]="2. How long were they in the ark?";
+ques[2]="3. Where did the water come from?";
+ques[3]="4. How long did it take to build the ark?";
+ques[4]="5. How was the door closed?";
+ques[5]="6. How old was Noah when the flood began?";
+ques[6]="7. How many animals?";
+ques[7]="8. What was the ark made of?";
+ques[8]="9. How long was the ark?";
+ques[9]="10. Where did Noah live before the flood?";
+
+
+/* Answers & Distractors... */
+ans=new Array();
+ans[0]="8";
+ans[1]="7";
+ans[2]="12";
+ans[3]="2";
+
+ans[4]="40 days";
+ans[5]="150 days";
+ans[6]="About a year";
+ans[7]="The Bible doesn't say";
+
+ans[8]="Rain";
+ans[9]="From underground and rain";
+ans[10]="A flood of the Tigris or Euphrates river";
+ans[11]="The Bible doesn't say";
+
+ans[12]="Around 100 years";
+ans[13]="Around 500 years";
+ans[14]="Probably several years";
+ans[15]="Noah purchased the boat";
+
+ans[16]="They entered through an opening in the roof";
+ans[17]="The Bible doesn't say";
+ans[18]="They sealed it with pitch";
+ans[19]="God shut the door";
+
+ans[20]="600";
+ans[21]="500";
+ans[22]="100";
+ans[23]="The Bible doesn't say";
+
+ans[24]="2 of each kind or animal";
+ans[25]="2 of each kind, but 7 of clean animals";
+ans[26]="7 of each kind";
+ans[27]="As many as Noah could collect";
+
+ans[28]="Reeds - probably tied together with strong ropes with a wooden platform on top";
+ans[29]="Cyprus - common in the region of Mesopotamia";
+ans[30]="Gopher wood - which could mean coated, laminated, treated or some unknown species";
+ans[31]="Probably a light timber";
+
+ans[32]="The bible doesn't say ";
+ans[33]="About 40 metres or 130 feet";
+ans[34]="About 300 metres or 1000 feet";
+ans[35]="About 140 metres or 450 feet";
+
+ans[36]="Near the Garden of Eden ";
+ans[37]="We don't know, the flood changed the landscape completely";
+ans[38]="Probably in Persia near Mt Ararat";
+ans[39]="Somewhere in the Middle East";
+
+
+
+
+
+// The rest of the code which wasn't supposed to be edited...
+now= new Date					//Tim. Get starting time in Millsecs
+startat=now.getTime() 		//Tim. 
+ns="0123456789"
+ls="abcde";
+astr="";
+ack=new Array();
+
+for (var i=0;i<nq;i++){
+ ack[i]=(nq*nop)+1;
+ }
+
+function lightIt(){			//MouseOver the button.
+ document.images[flg+ad].src="rbl.gif";
+ }
+function dimIt(){				//MouseOut from the button.
+ if (ack[Math.floor(flg/nop)]!=flg){
+  document.images[flg+ad].src="rbd.gif";
+  }
+ }
+function dumpIt(){			//Deselect it....
+ if (ack[Math.floor(flg/nop)]==flg){
+  document.images[ack[Math.floor(flg/nop)]+ad].src="rbd.gif";
+  ack[Math.floor(flg/nop)]=(nq*nop)+1;
+  }
+ else{							//else Select it...
+  if (ack[Math.floor(flg/nop)]!=flg&&ack[Math.floor(flg/nop)]!=(nq*nop)+1){
+   document.images[ack[Math.floor(flg/nop)]+ad].src="rbd.gif";
+   }
+  document.images[flg+ad].src="rbl.gif";
+  ack[Math.floor(flg/nop)]=flg;
+  }
+ }
+ 
+
+
+
+
+//When you click the score button................................................................... 
+function ckSco(){  
+ numskip=0; numwrg=0; numcorrect=0
+ document.images[ad+(nq*nop)].src="button_down.jpg";  
+
+ for (var i=0;i<nq;i++){   //Stick the green arrows in...
+  u=cor.charAt(i);
+  v=ls.indexOf(u)+(i*nop);
+  document.images[ad+v].src="gbl.gif";
+  }
+ sco=psco;     //Add up score...
+ for (var i=0;i<nq;i++){
+  if (ack[i]==(nq*nop)+1){
+   sco-=noans;    	//take off skipped questions
+   numskip++			//Tim. Count skipped questions
+   }
+  else{
+   u=cor.charAt(i);
+   v=ls.indexOf(u)+(i*nop);
+   sco=(v==ack[i]?sco:sco-wrans);   		//Take off wrong answers
+   numwrg=(v==ack[i]?numwrg:numwrg+1);	//TL. Count wrong answers
+   }       
+  }
+ sco=(sco<0?0:sco); 							// prevent minus score
+ scos=""+sco; 
+ while (scos.length<3){
+   scos="0"+scos; 
+   }  
+  
+  numcorrect = nq-numskip-numwrg
+  now = new Date								//TL. Get finish date
+  finishat = now.getTime() 					//TL. Convert to milliseconds
+  timetaken = (finishat-startat)/1000		//TL. Convert to seconds 
+ 
+  if (sco==100) {								//TL. Score based comments...
+     scoretext = "Well done, you scored "
+  }
+  if (sco<50){
+     scoretext = "Whoops, you scored " 
+  }  
+ SCORE.innerHTML = "<font size=5>" + scoretext + Math.round(sco) + percent + "</font>"   //Print the score
+ STATISTICS.innerHTML = "<font size=3>" + "In " + Math.round(timetaken*10)/10 + " seconds, you got " + numcorrect +
+   " correct, but skipped " + numskip + " and got " + numwrg + " wrong." + "</font>"   
+ }
+
+
+
+  
+function litbut(){
+ document.images[ad+(nq*nop)].src="button_up.jpg";
+ }
+function dimbut(){
+ document.images[ad+(nq*nop)].src="button_up_unlit.jpg";
+ }
+ 
+/* Allow up to 10 images before the question buttons begin. */
+function getImgAdd(){
+ for (var i=0;i<10;i++){
+  if (document.images[i].src.indexOf("rbd.gif")>-1){
+   ad=i;
+   i=10;
+   }
+  }
+ } 
+// End Hiding -->
+</SCRIPT>
+<style fprolloverstyle>A:hover {color: #FF0000; font-family: Arial}
+</style>
+</HEAD>
+
+
+<BODY BGCOLOR="#C0C0C0">
+<TABLE BORDER=0 WIDTH=600>
+<TR><TD><FONT FACE="helvetica,arial,geneva" SIZE=2><FONT COLOR=BLACK><B>Instructions:</B></FONT>
+	<BR>1. Click on blue button to select. To unselect, click the red button <img border="0" src="rbl.gif" width="12" height="12"> again.
+	<BR>2. Don't guess. Wrong answers are penalized.
+	<BR>3. Score at the end. Correct answers are shown by the <img border="0" src="gbl.gif" width="16" height="14"> symbol.
+	</FONT><HR NOSHADE>
+	</TD></TR>	
+</TABLE>
+
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Hide from JavaScript-Impaired Browsers
+document.write('<TABLE BORDER=0 CELLPADDING=2 CELLSPACING=0 WIDTH=600><TR><TD COLSPAN=2 ALIGN=CENTER><FONT SIZE=5 FACE="arial" COLOR=blue>'+testitle+'</FONT></TD></TR><TR>');
+for (var i=0;i<nq;i++){
+  document.write('<TD COLSPAN=2 VALIGN=TOP><HR NOSHADE><FONT SIZE=3 FACE="arial" ><B>'+ques[i]+'</B></FONT>'
+  +'<FONT SIZE=2 color=blue><a href="help1.htm"target="_blank"> help </FONT></TD></TR>')
+  for (var j=0;j<nop;j++){
+    document.write('<TR><TD><A '
+    +'" onMouseOver=" flg='+((i*nop)+j)+';lightIt();return true'
+    +'" onMouseOut="flg='+((i*nop)+j)+';dimIt();return true;' 
+    +'" onClick="flg='+((i*nop)+j)+';dumpIt();return false;">'
+    +'<IMG SRC="rbd.gif" WIDTH=15 HEIGHT=15 BORDER=0></TD><TD ALIGN=LEFT><FONT SIZE=3 FACE="arial" >'+ans[(i*nop)+j]+'</FONT></TD></TR>');
+  }
+}
+//The SCORE button... 
+document.write('<TR><TD COLSPAN=2 ><A onMouseDown="ckSco();return false;" onMouseOver="litbut();return true;"' 
++'onMouseOut="dimbut();return true;" onMouseUp="litbut();return true;">'
++'<HR NOSHADE><IMG SRC="button_up_unlit.jpg" WIDTH=146 HEIGHT=28 BORDER=0 NAME="but">'
++'</TABLE>');
+
+
+getImgAdd();
+
+// End Hiding -->
+
+</SCRIPT><!-- And so on... -->
+<DIV style = "color: red" id="SCORE"></DIV> 
+<DIV style = "color: red" id="STATISTICS"></DIV> 
+<DIV style = "color: red" id="STUFF"></DIV> 
+<font face="Arial"><a href="../../default.htm">Home</a></font> &nbsp; <font face="Arial"><a href="quiz1.htm">Repeat this Test</a></font> &nbsp;
+
+   
+<p>&nbsp;</p>
+
+   
+</BODY>

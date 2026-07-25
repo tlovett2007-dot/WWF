@@ -1,0 +1,357 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD>
+<TITLE>WWF: Hull Form</TITLE>
+<META content="Microsoft FrontPage 4.0" name=GENERATOR>
+<META content=FrontPage.Editor.Document name=ProgId>
+<meta name="Proposed Hull Form for Noahs Ark" content="Ancient, familiar and functional">
+<meta name="keywords" content="Noah's Ark,cubit,Noah,cubit,hull shape,hull form,ship,broaching ">
+<META http-equiv=Content-Language content=en-us>
+<META http-equiv=Content-Type content="text/html; charset=windows-1252">
+<link rel="stylesheet" type="text/css" href="../../css/standard.css">
+
+<script type="text/javascript" language="javascript" src="/jsmenu/sniffer.js">
+//Top Navigational Bar III v3.4.1.1b (By BrotherCake @ cake@brothercake.net)
+//Permission granted to include script by http://www.dynamicdrive.com/
+//This notice MUST stay intact for legal use
+</script>
+<script type="text/javascript" language="javascript1.2" src="/jsmenu/custom2.js"></script>
+<script type="text/javascript" language="javascript1.2" src="/jsmenu/style.js"></script>
+
+
+<style type="text/css">
+
+#showimage{
+position:absolute;
+visibility:hidden;
+border: 1px solid gray;
+}
+
+#dragbar{
+cursor: hand;
+cursor: pointer;
+background-color: #EFEFEF;
+min-width: 100px; /*NS6 style to overcome bug*/
+}
+
+#dragbar #closetext{
+font-weight: bold;
+margin-right: 1px;
+}
+</style>
+
+<script type="text/javascript">
+
+/***********************************************
+* Image Thumbnail viewer- © Dynamic Drive (www.dynamicdrive.com)
+* Last updated Sept 26th, 03'. This notice must stay intact for use
+* Visit http://www.dynamicdrive.com/ for full source code
+***********************************************/
+
+var ie=document.all
+var ns6=document.getElementById&&!document.all
+
+function ietruebody(){
+return (document.compatMode && document.compatMode!="BackCompat" && !window.opera)? document.documentElement : document.body
+}
+
+function enlarge(which, e, position, imgwidth, imgheight){
+if (ie||ns6){
+crossobj=document.getElementById? document.getElementById("showimage") : document.all.showimage
+if (position=="center"){
+pgyoffset=ns6? parseInt(pageYOffset) : parseInt(ietruebody().scrollTop)
+horzpos=ns6? pageXOffset+window.innerWidth/2-imgwidth/2 : ietruebody().scrollLeft+ietruebody().clientWidth/2-imgwidth/2
+vertpos=ns6? pgyoffset+window.innerHeight/2-imgheight/2 : pgyoffset+ietruebody().clientHeight/2-imgheight/2
+if (window.opera && window.innerHeight) //compensate for Opera toolbar
+vertpos=pgyoffset+window.innerHeight/2-imgheight/2
+vertpos=Math.max(pgyoffset, vertpos)
+}
+else{
+var horzpos=ns6? pageXOffset+e.clientX : ietruebody().scrollLeft+event.clientX
+var vertpos=ns6? pageYOffset+e.clientY : ietruebody().scrollTop+event.clientY
+}
+crossobj.style.left=horzpos+"px"
+crossobj.style.top=vertpos+"px"
+
+crossobj.innerHTML='<div align="right" id="dragbar"><span id="closetext" onClick="closepreview()">Close</span> </div><img src="'+which+'">'
+crossobj.style.visibility="visible"
+return false
+}
+else //if NOT IE 4+ or NS 6+, simply display image in full browser window
+return true
+}
+
+function closepreview(){
+crossobj.style.visibility="hidden"
+}
+
+function drag_drop(e){
+if (ie&&dragapproved){
+crossobj.style.left=tempx+event.clientX-offsetx+"px"
+crossobj.style.top=tempy+event.clientY-offsety+"px"
+}
+else if (ns6&&dragapproved){
+crossobj.style.left=tempx+e.clientX-offsetx+"px"
+crossobj.style.top=tempy+e.clientY-offsety+"px"
+}
+return false
+}
+
+function initializedrag(e){
+if (ie&&event.srcElement.id=="dragbar"||ns6&&e.target.id=="dragbar"){
+offsetx=ie? event.clientX : e.clientX
+offsety=ie? event.clientY : e.clientY
+
+tempx=parseInt(crossobj.style.left)
+tempy=parseInt(crossobj.style.top)
+
+dragapproved=true
+document.onmousemove=drag_drop
+}
+}
+
+document.onmousedown=initializedrag
+document.onmouseup=new Function("dragapproved=false")
+
+//preload images...
+image1 = new Image(); image1.src = "prop_hull_form_files/tn_NARK-009.jpg";
+image2 = new Image(); image2.src = "prop_hull_form_files/tn_NARK-003.jpg";
+image3 = new Image(); image3.src = "prop_hull_form_files/tn_NARK-008.jpg";
+image4 = new Image(); image4.src = "prop_hull_form_files/tn_NARK-006.jpg";
+image5 = new Image(); image5.src = "prop_hull_form_files/tn_NARK-004.jpg";
+image6 = new Image(); image6.src = "prop_hull_form_files/tn_NARK-007.jpg";
+image7 = new Image(); image7.src = "prop_hull_form_files/tn_NARK-005.jpg";
+image8 = new Image(); image8.src = "prop_hull_form_files/tn_oldNark-002.jpg";
+image9 = new Image(); image9.src = "prop_hull_form_files/tn_oldNark-001.jpg";
+image10 = new Image(); image10.src = "prop_hull_form_files/tn_oldNark-003.jpg";
+image11 = new Image(); image11.src = "prop_hull_form_files/NARK-009.jpg";
+image12 = new Image(); image12.src = "prop_hull_form_files/NARK-003.jpg";
+image13 = new Image(); image13.src = "prop_hull_form_files/NARK-008.jpg";
+image14 = new Image(); image14.src = "prop_hull_form_files/NARK-006.jpg";
+image15 = new Image(); image15.src = "prop_hull_form_files/NARK-004.jpg";
+image16 = new Image(); image16.src = "prop_hull_form_files/NARK-007.jpg";
+image17 = new Image(); image17.src = "prop_hull_form_files/NARK-005.jpg";
+image18 = new Image(); image18.src = "prop_hull_form_files/Nark-002.jpg";
+image19 = new Image(); image19.src = "prop_hull_form_files/Nark-001.jpg";
+image20 = new Image(); image20.src = "prop_hull_form_files/Nark-003.jpg";
+
+</script>
+</head>
+
+
+
+<body>
+<div id="showimage"></div>
+<script type="text/javascript" language="javascript1.2" src="/jsmenu/menu.js"></script>
+
+<h1>Ark Design</h1>
+
+<p class="author" >All Images and text © Tim Lovett July 06 | <a href="../../../default.htm">Home</a>
+| <a href="../../../jsmenu/full_menu.htm">Menu</a></p>
+<h2>A &quot;middle of the road&quot; design</h2>
+
+
+<blockquote>There could be many different solutions to the Ark design. This is
+  only one of them, a design derived from the balance of a number of 
+	constraints;<ol>
+		<li>Follow the Biblical description, interpreting obscure passages with
+          care, and ignoring JEPD influence.&nbsp;</li>
+	</ol>
+  <p>Functions:</p>
+  	<ol start="2">
+		<li>Optimize seakeeping and avoid broaching in a wind driven sea.&nbsp;</li>
+		<li>Ensure adequate hull strength and structural integrity.</li>
+		<li>Permit high roll stability using suitable transverse section.</li>
+		<li>Allow for abnormal ship launching and beaching loads</li>
+		<li>Maximize internal volume in line with its role as a cargo vessel.</li>
+		<li>Permit construction in wood using limited technology, and minimal 
+		use of metal.</li>
+		<li>Provide an acceptable environment; ventilation, lighting, access etc</li>
+	</ol>
+  <p>Appearance:</p>
+  	<ol start="9">
+		<li>Combine elements from various ship-building eras, especially ancient 
+		concepts.</li>
+		<li>Avoid an association to one particular identity or historical ship style. </li>
+		<li>Include features that help make it recognizable as Noah's Ark, where possible.</li>
+	</ol>
+</blockquote>
+<hr>
+
+
+<a href="prop_hull_form_files/NARK-009.jpg" onClick="return enlarge('prop_hull_form_files/NARK-009.jpg',event)"><img border="0" src="prop_hull_form_files/tn_NARK-009.jpg" width="400" height="94"></a>
+<p class="caption">Image instructions. Click image to enlarge. The larger image 
+can be dragged on its title bar, to allow viewing on screens less than 1280 
+pixels wide.</p>
+
+
+<h5>What have Ancient Ships got to do with Noah's Ark?</h5>
+<p class="boxed">Considering the short and uninterrupted history from Noah's Ark to the Tower
+of Babel, it would be logical to assume the most ancient things bear some
+resemblance to what went on immediately after the flood. Several things about
+ancient ships are striking. By far the most obvious is the prominent stem, often
+at both bow and stern, not always with any clear reason or explanation.&nbsp;
+Another surprise is the extensive (almost universal) method of plank-first
+construction, proving that planking was treated as a structural element much
+more so than it was in the carval hulls of (much) later European shipbuilding,
+where strength was in the frame.&nbsp; These two dominant themes might easily be
+derived from Noah, so we make use of them here: Structural planking and
+prominent stems. &nbsp;</p>
+<p><b>Broach avoidance using area center shift.</b> In the image below, the wind
+travels from right to left. The bow mounted wind obstruction (1) (reminiscent of
+many ancient ships) steers the bow away from the wind. The projecting stern (5)
+resists sway in the water. This might be a similar concept to the waterline
+projection from the stern of Aegean vessels that have puzzled many<sup><a name="01" href="#ref01">1</a></sup>, since this
+appendage predated the use of the battering ram by centuries, and it was not at
+the bow.&nbsp; The keel thickens towards the stern which helps to shift lateral
+the center of water pressure aft.</p>
+<p><img border="0" src="prop_hull_form_files/NARK-002.jpg" width="700" height="178"></p>
+<p class="caption">General Arrangement for broaching avoidance. Bow is on left, stern on the right.</p>
+<p>The rise of the stern post (6) or stern stem here is arbitrary - to give an ancient
+look without providing competing wind area with the bow. The shape of the stem post projection (1) can also be modified - this
+particular image looking a little &quot;Greek&quot;.</p>
+
+
+<a href="prop_hull_form_files/tn_NARK-003.jpg" onClick="return enlarge('prop_hull_form_files/NARK-003.jpg',event)"><img border="0" src="prop_hull_form_files/tn_NARK-003.jpg" width="400" height="78"></a>&nbsp;
+<p class="caption">Plan view. (Click image to enlarge).</p>
+
+<a href="prop_hull_form_files/tn_NARK-008.jpg" onClick="return enlarge('prop_hull_form_files/NARK-008.jpg',event)"><img border="0" src="prop_hull_form_files/tn_NARK-008.jpg" width="396" height="80"></a>&nbsp;
+<p class="caption">Side profile. (Click image to enlarge).</p>
+
+
+<a href="prop_hull_form_files/tn_NARK-006.jpg" onClick="return enlarge('prop_hull_form_files/NARK-006.jpg',event)"><img border="0" src="prop_hull_form_files/tn_NARK-006.jpg" width="263" height="226"></a>&nbsp;
+<p class="caption">Roof view. (Click image to enlarge). Bow projection blending 
+into roof of ventilation housing. The roof is cambered. The skylight hatch 
+extends across all bulkheads except the extreme ends.&nbsp;&nbsp;&nbsp; </p>
+
+<a href="prop_hull_form_files/tn_NARK-004.jpg" onClick="return enlarge('prop_hull_form_files/NARK-004.jpg',event)"><img border="0" src="prop_hull_form_files/tn_NARK-004.jpg" width="230" height="169"></a>&nbsp;
+<p class="caption">Bow view. (Click image to enlarge). Modified Bow projection 
+with integrated ventilation window facing astern.</p>
+
+<a href="prop_hull_form_files/tn_NARK-007.jpg" onClick="return enlarge('prop_hull_form_files/NARK-007.jpg',event)"><img border="0" src="prop_hull_form_files/tn_NARK-007.jpg" width="198" height="208"></a>&nbsp;
+<p class="caption">Stern view. (Click image to enlarge). Submerged stern projection exaggerated by perspective. </p>
+
+<a href="prop_hull_form_files/tn_NARK-005.jpg" onClick="return enlarge('prop_hull_form_files/NARK-005.jpg',event)"><img border="0" src="prop_hull_form_files/tn_NARK-005.jpg" width="161" height="187"></a>&nbsp;
+<p class="caption">End view of bow. (Click image to enlarge). Slight swell on sides (hydrostatically trivial) possibly finishing in a blended lip at roof junction. </p>
+
+
+	<hr>
+
+<p>Earlier concepts illustrating some variations.</p>
+
+<a href="prop_hull_form_files/tn_oldNark-002.jpg" onClick="return enlarge('prop_hull_form_files/oldNark-002.jpg',event)"><img border="0" src="prop_hull_form_files/tn_oldNark-002.jpg" width="197" height="98"></a>&nbsp;
+<p class="caption">(Click image to enlarge). Individual hatches. </p>
+
+<a href="prop_hull_form_files/tn_oldNark-001.jpg" onClick="return enlarge('prop_hull_form_files/oldNark-001.jpg',event)"><img border="0" src="prop_hull_form_files/tn_oldNark-001.jpg" width="110" height="112"></a>&nbsp;
+<p class="caption">(Click image to enlarge). Extended bow appendage clear of the roof. Buttress walls also act as "sails", supplying wind force to help maintain forward motion.</p>
+
+<a href="prop_hull_form_files/tn_oldNark-003.jpg" onClick="return enlarge('prop_hull_form_files/oldNark-003.jpg',event)"><img border="0" src="prop_hull_form_files/tn_oldNark-003.jpg" width="148" height="81"></a>&nbsp;
+<p class="caption">(Click image to enlarge). Looking up at the bow.</p>
+
+
+
+
+<hr>
+  <h3>Related Pages</h3>
+  <p>Links to background information sorted by design constraints:</p>
+1. Follow the Biblical description, interpreting obscure passages with care, and
+ignoring JEPD influence.&nbsp;
+  <p>&nbsp;&nbsp;&nbsp; <a href="../what_shape/ark_box.htm">Does Ark mean Box?</a>
+  , <a href="../design_notebook/the_window.htm">Window</a> , <a href="../design_notebook/the_door.htm">Door</a>
+  , <a href="../noahs_cubit/cubit.htm">Noah's cubit</a></p>
+  	<p>2. Optimize seakeeping and avoid broaching in a wind driven sea.&nbsp;</p>
+<p style="margin-top: 0; margin-bottom: 0">&nbsp;&nbsp;&nbsp; Broaching:
+<a href="../anti_broaching/anti-broaching.htm">Broach Avoidance</a> ,
+<a href="../anti_broaching/wave_yaw.htm">Wave Yaw and Broaching Action</a> ,
+<a href="../anti_broaching/bow_fin.htm">Bow &quot;sail' </a>&nbsp;</p>
+<p style="margin-top: 0; margin-bottom: 0">&nbsp;&nbsp;&nbsp; Model Testing:
+<a href="../model_testing/tmblog/tm03.htm">Sea trials part 3</a> and
+<a href="../model_testing/tmblog/tm04.htm">part 4</a> ,&nbsp; </p>
+<p style="margin-top: 0; margin-bottom: 0">&nbsp;&nbsp;&nbsp; 19th Cent wood 
+ship basis: <a href="../../CAD/start.htm">Allen Magnuson's design</a></p>
+<p style="margin-top: 0; margin-bottom: 0">&nbsp;&nbsp;&nbsp; Seakeeping of
+proportions: <a href="../safety_aig/safety_aig.htm">Hong paper</a>, <a href="../basic_hull_design/long_hull.htm">Long
+Hull?</a></p>
+<p>3. Ensure adequate hull strength and structural integrity.</p>
+<p style="margin-top: 0; margin-bottom: 0">&nbsp;&nbsp;&nbsp; Necessary 
+Strength: <a href="../hull_calcs/wave_bm1.htm">Wave Bending Moment</a></p>
+<p style="margin-top: 0; margin-bottom: 0">&nbsp;&nbsp;&nbsp; Structural issues:
+<a href="../wood/gopher_wood.htm">Gopher wood</a> ,
+<a href="../basic_hull_design/joining_big_logs.htm">Joining</a> ,
+<a href="../basic_hull_design2/monocoque_planking.htm">Monocoque hull</a> , <a href="../basic_hull_design/monocoque_vs_truss.htm">Truss
+vs Monocoque</a> </p>
+<p>4. Permit high roll stability using suitable transverse section.</p>
+<p>&nbsp;&nbsp;&nbsp; <a href="../stability/static_roll_stability.htm">Static 
+Roll stability</a> , <a href="../stability/roll_stability_calculator.htm">
+Calculator</a></p>
+<p>5. Allow for abnormal ship loads - launching and beaching, debris in water,
+large waves etc.</p>
+<p>&nbsp;&nbsp;&nbsp; <a href="../../flood/launch/launch.htm">Launch</a> , <a href="../../flood/launch/launch_options.htm">Launch
+Options</a> , <a href="../../flood/waves/waves.htm">Waves</a></p>
+<p>6. Maximize internal volume in line with its role as a cargo vessel.</p>
+<p>&nbsp;&nbsp;&nbsp; <a href="../cargo/cargo.htm">Cargo</a></p>
+<p>7. Permit construction in wood using limited technology, and minimal 
+		use of metal.</p>
+<p>&nbsp;&nbsp;&nbsp; <a href="../design_calculations/tree_nails.htm">Trunnels</a> 
+, <a href="../design_calculations/wood_strength.htm">Wood Strength</a></p>
+<p>8. Provide an acceptable environment; ventilation, lighting, access etc</p>
+<p>&nbsp;&nbsp;&nbsp; <a href="../design_notebook/ramps_and_stairs.htm">Ramps</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </p>
+<p>9. Combine elements from various ship-building eras, especially ancient
+concepts and flood stories.</p>
+<p>&nbsp;&nbsp;&nbsp; <a href="../../flood/legends/flood_legends.htm">Flood
+legends</a></p>
+<p>10. Avoid an association to one particular identity or historical ship style.
+</p>
+<p>&nbsp;&nbsp;&nbsp; <a href="../compare_ships/compare_ships.htm">Compare ships</a>
+</p>
+<p>11. Include features that help make it recognizable as Noah's Ark, where possible.</p>
+<p>&nbsp;&nbsp;&nbsp; <a href="../../general/ark_history.htm">Ark through 
+history</a></p>
+<hr>
+<h3>References</h3>
+<p><a name="ref01">1.</a> Casson, L., <i>Ships and Seamanship in the Ancient
+World</i>, Princeton Univ Press, NJ, 1971. Excerpt from p31: 
+<p class="quote">&quot;Needlelike 
+projection at water level&quot;, and p33 &quot;the stern was given an appendage (...). 
+This last feature is a puzzle, whose solution will have to wait until more 
+evidence turns up. With the passage of time (...), both ends came to be 
+rounded&quot;.</p>
+<p> This does not explain what the projecting stern was used for, but it 
+makes it very clear that it had nothing to do with a ramming bow. Unlike the 
+design of the Greek Trireme, the earlier Aegean vessels had a mysterious stern 
+mounted projection. Later ship designs 'came to be rounded&quot; at the ends, a step 
+away from the Trireme. Hence, there is an historical precedent for a submerged form 
+of projection independent  of the Greek-style ram. One possible answer to the 
+mystery could be in storm seakeeping.&nbsp; <a href="#01">Return to
+text</a></p>
+<hr>
+<h3>Addendum</h3>
+<p>(Large image links for old browsers, in same order as page images)</p>
+<p><a target="_blank" href="prop_hull_form_files/NARK-009.jpg">
+NARK-009.jpg</a><br>
+<a target="_blank" href="prop_hull_form_files/NARK-003.jpg">
+NARK-003.jpg</a><br>
+<a target="_blank" href="prop_hull_form_files/NARK-008.jpg">
+NARK-008.jpg</a><br>
+<a target="_blank" href="prop_hull_form_files/NARK-006.jpg">
+NARK-006.jpg</a><br>
+<a target="_blank" href="prop_hull_form_files/NARK-004.jpg">
+NARK-004.jpg</a><br>
+<a target="_blank" href="prop_hull_form_files/NARK-007.jpg">
+NARK-007.jpg</a><br>
+<a target="_blank" href="prop_hull_form_files/NARK-005.jpg">
+NARK-005.jpg</a><br>
+<a target="_blank" href="prop_hull_form_files/oldNark-002.jpg">
+tn_oldNark-002.jpg</a><br>
+<a target="_blank" href="prop_hull_form_files/oldNark-001.jpg">
+tn_oldNark-001.jpg</a><br>
+<a target="_blank" href="prop_hull_form_files/oldNark-003.jpg">
+tn_oldNark-003.jpg</a></p>
+<hr>
+<p class="tiny"><a href="/default.htm">www.worldwideflood.com</a></p>
+<p align="center"><img border="0" src="prop_hull_form_files/NARK_in_sea2.jpg" width="527" height="311"></p>
+<p class="caption">150 days are over, now the wind starts.&nbsp; In the distance&nbsp;
+the collapsing plume of a giant geyser a&nbsp; 100 miles (160km) away.
+(Chronology Barrick &amp; Sigler, 5th Int. Conf. on Creationism 2003). It's a
+rush job, but I like the idea of the picture. </p>
+</BODY>
+</HTML>

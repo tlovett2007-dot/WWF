@@ -1,0 +1,243 @@
+<HTML><HEAD>
+<TITLE>JavaScript Quiz</TITLE>
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Hide from JavaScript-Impaired Browsers
+/*Modified from original code based on "http://www.mcli.dist.maricopa.edu/eye/code/jsquiz.zip" */
+
+
+ctr=100;
+/* Title of test... */
+testitle="Test 2 - FAMOUS ARK PEOPLE";
+
+/* Score line text...*/
+scoretext="Your score is ";
+percent=" %";
+
+/* Perfect score 100 (integer<999)... */
+psco=100;
+scos=0
+
+
+/* Number of questions... */
+nq=10;
+
+/* Number of options per question... */
+nop=4;
+
+/* Deduction for each skipped question... */
+noans=psco/nq;
+
+/* Deduction for each wrong answer based on no. of options to get 50% pass mark...  */
+wrans=noans+(noans/(nop-1));
+
+/* The Questions... */
+ques=new Array();
+ques[0]="1. Who was Noah's father?";
+ques[1]="2. Which one is NOT Noah's son?";
+ques[2]="3. What was the name of Noah's wife?";
+ques[3]="4. How old was Noah when he had his first recorded son?";
+ques[4]="5. Who was Noah's grandfather?";
+ques[5]="6. Who died just before the flood?";
+ques[6]="7. Abraham was a descendent of which son?";
+ques[7]="8. If not written down, Adam's story would pass through ... people to get to Noah";
+ques[8]="9. If not written down, Noah's story would pass through ... people to get to Abraham";
+ques[9]="10. The account of Noah is found in...";
+
+
+
+
+/* The correct answers... */
+cor="adabcbadab";
+
+/* Answers... */
+ans=new Array();
+ans[0]="Lamech";
+ans[1]="Methuselah";
+ans[2]="Enoch";
+ans[3]="Seth";
+
+ans[4]="Ham";
+ans[5]="Shem";
+ans[6]="Japheth";
+ans[7]="Seth";
+
+ans[8]="The Bible doesn't say";
+ans[9]="Zillah";
+ans[10]="Rebekah";
+ans[11]="Deluvia";
+
+ans[12]="Around 100 years";
+ans[13]="500 years old";
+ans[14]="Around 600 years";
+ans[15]="263 years old";
+
+ans[16]="Lamech";
+ans[17]="Enoch";
+ans[18]="Methuselah";
+ans[19]="Seth";
+
+ans[20]="Lamech";
+ans[21]="Methuselah";
+ans[22]="Enoch";
+ans[23]="Adam";
+
+ans[24]="Shem";
+ans[25]="Ham";
+ans[26]="Japheth";
+ans[27]="Seth";
+
+ans[28]="About 40 generations";
+ans[29]="8";
+ans[30]="5";
+ans[31]="1";
+
+ans[32]="1";
+ans[33]="5";
+ans[34]="8";
+ans[35]="About 40 generations";
+
+ans[36]="Genesis Chapter 10 verse 3 to Genesis Chapter 11 verse 35";
+ans[37]="Genesis Chapters 6 to 9";
+ans[38]="All of Genesis";
+ans[39]="Exodus Chapter 1";
+
+
+
+
+
+// The rest of the code which wasn't supposed to be edited...
+ns="0123456789"
+ls="abcde";
+astr="";
+ack=new Array();
+for (var i=0;i<nq;i++){
+ ack[i]=(nq*nop)+1;
+ }
+
+function lightIt(){
+ document.images[flg+ad].src="rbl.gif";
+ }
+function dimIt(){
+ if (ack[Math.floor(flg/nop)]!=flg){
+  document.images[flg+ad].src="rbd.gif";
+  }
+ }
+function dumpIt(){
+ if (ack[Math.floor(flg/nop)]==flg){
+  document.images[ack[Math.floor(flg/nop)]+ad].src="rbd.gif";
+  ack[Math.floor(flg/nop)]=(nq*nop)+1;
+  }
+ else{
+  if (ack[Math.floor(flg/nop)]!=flg&&ack[Math.floor(flg/nop)]!=(nq*nop)+1){
+   document.images[ack[Math.floor(flg/nop)]+ad].src="rbd.gif";
+   }
+  document.images[flg+ad].src="rbl.gif";
+  ack[Math.floor(flg/nop)]=flg;
+  }
+ }
+ 
+//When you click the score button... 
+function ckSco(){  
+ document.images[ad+(nq*nop)].src="button_down.jpg";  
+
+ for (var i=0;i<nq;i++){   //Stick the green arrows in...
+  u=cor.charAt(i);
+  v=ls.indexOf(u)+(i*nop);
+  document.images[ad+v].src="gbl.gif";
+  }
+ sco=psco;     //Add up score...
+ for (var i=0;i<nq;i++){
+  if (ack[i]==(nq*nop)+1){
+   sco-=noans;
+   }
+  else{
+   u=cor.charAt(i);
+   v=ls.indexOf(u)+(i*nop);
+   sco=(v==ack[i]?sco:sco-wrans);
+   }       
+  }
+ sco=(sco<0?0:sco); // prevent minus score
+ scos=""+sco;
+ while (scos.length<3){
+  scos="0"+scos; 
+  }  
+ SCORE.innerHTML = "<font size=5>" + scoretext + sco + percent + "</font>"   //Print the score
+ }
+
+  
+function litbut(){
+ document.images[ad+(nq*nop)].src="button_up.jpg";
+ }
+function dimbut(){
+ document.images[ad+(nq*nop)].src="button_up_unlit.jpg";
+ }
+ ctr=0;
+
+function srand() {
+ today=new Date();
+ rand=today.getTime();
+ picker=""+rand
+ picker=picker.charAt((picker.length - nop));
+ rec=eval(picker);
+ }
+ 
+/* Lets you have up to 10 images before the question buttons begin. */
+function getImgAdd(){
+ for (var i=0;i<10;i++){
+  if (document.images[i].src.indexOf("rbd.gif")>-1){
+   ad=i;
+   i=10;
+   }
+  }
+ } 
+// End Hiding -->
+</SCRIPT>
+<style fprolloverstyle>A:hover {color: #FF0000; font-family: Arial}
+</style>
+</HEAD>
+
+
+<BODY BGCOLOR="#C0C0C0">
+<TABLE BORDER=0 WIDTH=600>
+<TR><TD><FONT FACE="helvetica,arial,geneva" SIZE=2><FONT COLOR=BLACK><B>Instructions:</B></FONT>
+	<BR>1. Click on blue button to select. To unselect, click the red button <img border="0" src="rbl.gif" width="12" height="12"> again.
+	<BR>2. No guessing. Wrong answers are penalized.
+	<BR>3. Score at the end. Correct answers are shown by the <img border="0" src="gbl.gif" width="16" height="14"> symbol.
+	</FONT><HR NOSHADE>
+	</TD></TR>	
+</TABLE>
+
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Hide from JavaScript-Impaired Browsers
+document.write('<TABLE BORDER=0 CELLPADDING=2 CELLSPACING=0 WIDTH=600><TR><TD COLSPAN=2 ALIGN=CENTER><FONT SIZE=5 FACE="arial" COLOR=blue>'+testitle+'</FONT></TD></TR><TR>');
+for (var i=0;i<nq;i++){
+ document.write('<TD COLSPAN=2 VALIGN=TOP><HR NOSHADE><FONT SIZE=3 FACE="arial"><B>'+ques[i]+'</B></FONT></TD></TR>')
+ for (var j=0;j<nop;j++){
+  document.write('<TR><TD><A '
+  +'" onMouseOver=" flg='+((i*nop)+j)+';lightIt();return true'
+  +'" onMouseOut="flg='+((i*nop)+j)+';dimIt();return true;' 
+  +'" onClick="flg='+((i*nop)+j)+';dumpIt();return false;">'
+  +'<IMG SRC="rbd.gif" WIDTH=15 HEIGHT=15 BORDER=0></TD><TD ALIGN=LEFT><FONT SIZE=3 FACE="arial">'+ans[(i*nop)+j]+'</FONT></TD></TR>');
+  }
+ }
+//The SCORE button...... 
+document.write('<TR><TD COLSPAN=2 ><A onMouseDown="ckSco();return false;" onMouseOver="litbut();return true;"' 
++'onMouseOut="dimbut();return true;" onMouseUp="litbut();return true;">'
++'<HR NOSHADE><IMG SRC="button_up_unlit.jpg" WIDTH=146 HEIGHT=28 BORDER=0 NAME="but">'
++'</TABLE>');
+
+
+getImgAdd();
+
+// End Hiding -->
+
+</SCRIPT><!-- And so on... -->
+<DIV style = "color: red" id="SCORE"></DIV> 
+<font face="Arial"><a href="../../default.htm">Home</a></font> &nbsp; <font face="Arial"><a href="quiz2.htm">Repeat this Test</a></font> &nbsp;
+
+   
+<p>&nbsp;</p>
+
+   
+</BODY>

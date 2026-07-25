@@ -1,0 +1,166 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD>
+<TITLE>WWF: Section Modulus Estimate</TITLE>
+<META content="Microsoft FrontPage 4.0" name=GENERATOR>
+<META content=FrontPage.Editor.Document name=ProgId>
+<meta name="Noahs Ark Hull Section Modulus" content="Comparison with known wooden ships and extrapolation based on ABS wave bending moment rules.">
+<meta name="keywords" content="Hull,Section modulus,Genesis,design,Genesis,wave bending moment,">
+<META http-equiv=Content-Language content=en-us>
+<META http-equiv=Content-Type content="text/html; charset=windows-1252">
+<link rel="stylesheet" type="text/css" href="/css/standard.css">
+
+<script type="text/javascript" language="javascript" src="/jsmenu/sniffer.js">
+//Top Navigational Bar III v3.4.1.1b (By BrotherCake @ cake@brothercake.net)
+//Permission granted to include script by http://www.dynamicdrive.com/
+//This notice MUST stay intact for legal use
+</script>
+<script type="text/javascript" language="javascript1.2" src="/jsmenu/custom2.js"></script>
+<script type="text/javascript" language="javascript1.2" src="/jsmenu/style.js"></script>
+
+</head>
+<body>
+<script type="text/javascript" language="javascript1.2" src="/jsmenu/menu.js"></script>
+
+<h1>Section Modulus Estimate</h1>
+<p class="author">Tim Lovett Aug 2005 | <a href="/default.htm">Home</a> | <a href="/jsmenu/full_menu.htm">Menu</a></p>
+<h2>Determination of representative hull strength&nbsp;</h2>
+<table border="0" cellpadding="0" cellspacing="0" width="714" height="192">
+  <tr>
+    <td width="322" bgcolor="#DDEEFF">
+      <p class="celltext"><b>Big but not impossible</b><br>
+      <br>
+      Noah's Ark is a serious engineering project, and may take the title of the
+      largest wooden ship ever built, with the possible exception of Chinese
+      vessels of Cheng He in the 1400's.&nbsp;</p>
+    </td>
+    <td width="392">
+    <p align="center">
+    <img border="0" src="SModulus_files/compare_republic.gif" width="344" height="151">
+    <p class="caption" align="center">&nbsp; The Great Republic (1853) alongside Noah's Ark (2500BC)</p>
+    </td>
+  </tr>
+</table>
+
+
+<p style="margin-top: 50; margin-bottom: 24">To begin an assessment of hull
+strength for Noah's Ark, we will look at the reliable records of large wooden
+vessels, and use similar design strengths. The following simple analysis ignores
+still water bending moment, which is expected to be trivial compared to wave
+bending moment <a name="02" href="#ref02">[2]</a> anyway.&nbsp; See <a href="still_water_bm.htm">Still Water
+Bending Moment </a>and <a href="wave_bm1.htm">Wave Bending Moment</a></p>
+
+
+<p"><img border="0" src="SModulus_files/ship_broken.jpg" width="350" height="215"><p class="caption">A
+ship can break in half. Bulk carriers are not designed to have all the weight in the middle...</p>
+
+
+<h3 style="margin-top: 50; margin-bottom: 24">The Great Republic</h3>
+<p>The largest clipper on record is the 335ft Great Republic, built by the Donald McKay shipyard in 1853 <a name="01" href="#ref01">[1]</a>. Before it's maiden
+voyage, the ship was accidentally burned and written off, then rebuilt with
+reduced decking and rigging. Framing was oak (from New Hampshire and Virginia),
+and up to 22 inches deep by 15 inches thick. Inboard the frames on each side
+were 90 iron straps spaced 4 feet apart, that were typically 1&quot;x4&quot; and
+36 ft long. Bracing will be
+assessed later under shear and torsion.&nbsp;&nbsp;</p>
+<p><img border="0" src="SModulus_files/republic_Ixx_decks.gif"></p>
+<p>Including all longitudinal elements
+in the midship section shown above, a representative stress can be determined on
+the basis of ABS rules for wave bending moment. Here, L=335ft, B=53ft, D=39ft</p>
+<p class=quote>Graphical determination by CAD: Ixx = 2.16E14 mm^4<br>
+By ABS rules,<br>
+Mws = -21075tfm (-2.065E+11Nmm)Sagging<br>
+Mwh = 18192tfm (-1.783E+11Nmm)Hogging<br>
+Stress at extreme bottom of keel;(Hogging compressive) = 4MPa (Sagging, tensile) = 4.7MPa<br>
+Stress at extreme top rail (Hogging,tensile) = 5Mpa&nbsp; (Sagging, compressive) = 5.9MPa.<br><br>
+Max fiber stresses<b> 4 to 6 MPa, (580 to 870psi)</b></p>
+
+<h3 style="margin-top: 50; margin-bottom: 24">WW1 Wooden Steamer</h3>
+<p style="margin-top: 50; margin-bottom: 24"><img border="0" src="SModulus_files/ww1b.GIF"></p>
+<p>Steel shortages during the First
+World War forced shipbuilders in the US to return to wood for the construction of
+supply ships. With the extensive forest reserves of North America, the ships
+were faster and cheaper to build than equivalent steel ships. The midship
+section above shows an interesting detail where the keelson is reinforced with
+structurally significant longitudinal bulkhead reaching to the weatherdeck. The
+trend towards thicker and deeper keelson assemblies to counter water pressure
+uplift and hogging and sagging stresses, leads logically to a solution like the
+one shown here. Diagonal bracing (wood) was fixed to each side of the
+longitudinal elements on the bulkhead to counter shear. Comparing this ship to
+the Great Republic built 60 years earlier, it is clear that the substantial strakes in the top
+deck improve the position of the centroid (the center of area is higher). Early ships were too
+frail near the weatherdeck for the hull to function as an effective
+girder.</p>
+
+<p><img border="0" src="../../talks/mega_talk05_files/WW1.jpg"></p>
+<p class="caption">Typical WW1 wooden steamship. Image public domain (US gov. archives)&nbsp;</p>
+<p>Using modern ABS rules to determine wave loads (wave bending moment), and including all longitudinal elements
+in the midship section to determine the geometric section properties (section
+modulus, second moment of area), a representative stress can be determined as
+follows;</p>
+<p class="quote">Typical vessel dimensions L/B/D = 290/49/35 ft = 88/14.9/10.7m<br>
+Then by ABS rules,&nbsp;assuming a block coefficient of 0.8;<br>
+Mw sag = -15065tfm (-2.065E+11Nmm)Sagging<br>
+Mw hog = 13871tfm (1.783E+11Nmm)Hogging<br>
+Using a scaled CAD drawing, second area moment Ixx = 1.79E14 mm^4<br>
+Stress at extreme bottom of keel;(Hogging, compressive) = 4.9MPa (Sagging, tensile) = 6.6MPa<br>
+Stress at extreme top rail (Hogging, tensile) = 5.7Mpa&nbsp; (Sagging, compressive) = 5.6MPa.<br><br>
+Max fiber stresses<b> 5 to 7 MPa, (725 to 1015psi)</b></p>
+
+<p class=boxed>Note: These stress values are quite similar, and very conservative
+as expected. Considering the high quality of marine timbers, these stresses are
+easily within the limits of standard building codes, which are also very
+conservative. Actual failure stresses of such wood in a tensile loading would
+reach 10 to 15 times this value, a massive safety factor compared with the
+design of steel ships. However, the lack of evidence of extreme fiber tensile failure indicates
+these carvel hulls were not limited by axial stresses induced by primary bending
+loads, but acted to some extent as a &quot;bundle of reeds&quot;. In other
+words, they were more likely shear limited before they approached the tensile
+limits of the extreme upper or lower elements in the midship section. In spite of this,
+by following similar design principles, we will match the stresses of Noah's Ark
+with these sailing ships by scaling the wave loads according to ABS wave bending
+moment rules. (i.e. proportional to L^3.5 and B^1). The next step will be to
+ensure shear resistance is attained which is at least equivalent to the iron
+bracing of a clipper. Noah's Ark has the advantage of not carrying sails, but on
+the other hand, the proportions indicate it was designed for heavy seas at some
+point.</p>
+
+<h3>Noah's Ark. Proposed midship section No 3.</h3>
+<p><img border="0" src="SModulus_files/ark_modulus2.gif"></p>
+<p>In the above section, longitudinal elements are shown in black, structural
+framing in yellow, knees and non-structural woodwork shown in orange.</p>
+<p class="quote">According to CAD drawing, second area moment Ixx = 7.94E14 mm^4<br>
+Ark dimensions according to the common (18&quot;) cubit;&nbsp; L/B/D = 450/75/45 ft = 137/23/14m<br>
+Then by ABS rules,&nbsp;assuming a worst case block coefficient of 0.9, wave bending moment is;<br>
+Mw sag = -656608kNm (-6.566E+11Nmm)Sagging<br>
+Mw hog = 637625kNm (6.376+11Nmm)Hogging<br>
+Stress at extreme bottom of keel;(Hogging, compressive) = 5.1MPa (Sagging, tensile) = 5.3MPa<br>
+Stress at extreme top rail (Hogging,tensile) = 7.0Mpa&nbsp; (Sagging, compressive) = 7.2MPa.<br><br>
+Max fiber stresses<b> 5 to 7 MPa, (725 to 1015psi)</b></p>
+
+
+<h3>Conclusion</h3>
+<p>The proposed midship section for Noah's Ark indicates a level of stress
+similar to large wooden ships, at least in terms of simple primary bending
+loads. A heavy roof plays a significant role in raising the neutral plane (X-X),
+and provides some chance of countering stress concentrations at the junction between roof (weatherdeck) and
+hull wall.&nbsp;A &quot;strong roof&quot; is described in one of the earliest
+(extra-Biblical) flood records, a small fragment discovered at Nippur. <a name="03" href="#ref03">[3]</a>&nbsp;</p>
+<hr>
+<h3>References</h3>
+<p><a name="ref01">1</a>. Crothers, William L., <i>The American-Built Clipper
+Ship 1850-1856. Characteristics, Construction, Details,</i> International Marine
+- McGraw Hill, 1997. Great Republic midship section according to <i>Description
+of the Largest Ship in the World, the New Clipper Great Republic, of Boston,
+built and owned by Donald McKay, </i>written by a sailor. Boston: Eastburn's
+Press, 1853.&nbsp; <a href="#01">Return to text</a></p>
+<p><a name="ref02">2.</a>  ABS Rules. American Bureau of Shipping.&nbsp; See Wave Bending Moment <a href="wave_bm1.htm">http://www.worldwideflood.com/ark/hull_calcs/wave_bm1.htm</a>&nbsp;&nbsp;
+<a href="#02">Return to text</a></p>
+<p><a name="ref03">3.</a> There are other Babylonian flood stories, such as a
+small fragment discovered at Nippur and undoubtedly of very early date speaks of
+a flood 'sweeping away all mankind at once' and of someone building a 'great
+ship . . . with a strong roof in which vessel 'beasts of the field, the birds of
+heaven and . . . the family' were saved. See <a href="../../flood/legends/flood_legends.htm">Flood
+Legends</a>. <a href="#03">Return to text</a></p>
+<hr>
+<p class="tiny">www.worldwideflood.com</p>
+</BODY></HTML>

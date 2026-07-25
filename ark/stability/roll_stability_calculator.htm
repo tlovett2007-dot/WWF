@@ -1,0 +1,349 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>WWF: Roll Calculator</TITLE>
+<META http-equiv=Content-Language content=en-us>
+<META http-equiv=Content-Type content="text/html; charset=windows-1252">
+<META content="Microsoft FrontPage 4.0" name=GENERATOR>
+<META content=FrontPage.Editor.Document name=ProgId>
+<STYLE>BODY {
+	FONT-SIZE: 10pt; FONT-FAMILY: Arial
+}
+.contents {
+	MARGIN-TOP: 0px; FONT-SIZE: 10pt; MARGIN-BOTTOM: 0px; FONT-FAMILY: Arial
+}
+</STYLE>
+<script type="text/javascript" language="javascript" src="/jsmenu/sniffer.js">
+//Top Navigational Bar III v3.4.1.1b (By BrotherCake @ cake@brothercake.net)
+//Permission granted/modified by Dynamicdrive.com to include script in archive
+//For this and 100's more DHTML scripts, visit http://www.dynamicdrive.com/
+//This notice MUST stay intact for legal use
+</script>
+<script type="text/javascript" language="javascript1.2" src="/jsmenu/custom.js"></script>
+<script type="text/javascript" language="javascript1.2" src="/jsmenu/style.js"></script>
+
+</head>
+
+<body bgcolor="#FFFFFF">
+
+<script type="text/javascript" language="javascript1.2" src="/jsmenu/menu.js"></script>
+
+<H3 style="margin-top: 0; margin-bottom: 0"><B><FONT 
+face="Arial, Helvetica, sans-serif" size=5>ROLL STABILITY CALCULATOR</FONT><FONT face="Arial, Helvetica, sans-serif" size=+1>&nbsp;&nbsp; 
+</FONT></B><FONT size=2><a href="../../default.htm">Home</a>&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="../../diluvia/hydrostatic_roll.exe">Free Download</a>&nbsp;&nbsp; <font face="Arial" size="5">&nbsp;</font><font face="Arial" size="2"><b><a href="../../jsmenu/full_menu.htm">Menu</a></b></font>&nbsp;</FONT></H3>
+<P style="margin-top: 0; margin-bottom: 0"><font size="1">COPYRIGHT Tim Lovett 
+© June 2004&nbsp;</font>
+<P style="margin-top: 6; margin-bottom: 6"><font size="1" color="#FFFFFF">..</font>
+<h3 style="margin-top: 50; margin-bottom: 12"><a href="#how_smart"><font size="2">Kids:
+How Smart are you?</font></a></h3>
+<h3 style="margin-top: 50; margin-bottom: 12">The Program</h3>
+<p style="margin-top: 0; margin-bottom: 12">(<a href="../../diluvia/hydrostatic_roll.exe">Download
+here</a>)</p>
+<p style="margin-top: 6; margin-bottom: 6">The Roll Stability Calculator can be
+used to study the stability of various hull cross-sections in static
+equilibrium. (Tilting slowly in flat water). This is one of the first things to
+be checked in a new design. Static roll stability can also be easily verified by
+building a scale model and tilting it over in the water.</p>
+<p style="margin-top: 6; margin-bottom: 6">&nbsp;</p>
+<p style="margin-top: 6; margin-bottom: 6"><b>Getting Started</b></p>
+<p style="margin-top: 6; margin-bottom: 6">The quickest way to see something is
+to press Integral, and then move the Roll slider. You are now doing what a naval
+architect would do on a new hull design - checking the roll stability. The most
+stable vessels will have the highest curves (relatively speaking). The next
+thing to is to adjust the other two sliders in the buoyancy panel, KG/B (the
+height of the vessel's mass center) and Density. Keep exploring until you begin
+to get a feel for these design parameters.&nbsp; If it crashes it simply means I
+couldn't be bothered making the program robust on peripheral parameter sets, but
+I might get round to it if its really annoying you.</p>
+<p style="margin-top: 6; margin-bottom: 6">&nbsp;</p>
+<p style="margin-top: 6; margin-bottom: 6"><img border="0" src="program_explain.jpg" width="470" height="430"></p>
+<p style="margin-top: 6; margin-bottom: 6">&nbsp;</p>
+<p style="margin-top: 20; margin-bottom: 6"><b>So what are all these buttons?</b></p>
+<p style="margin-top: 6; margin-bottom: 6"><img border="0" src="program_gitt_buttons.jpg" width="340" height="36"></p>
+<p style="margin-top: 20; margin-bottom: 6">They are predefined arks.&nbsp;</p>
+<p style="margin-top: 20; margin-bottom: 6"> 'Gitt 38'
+stands for page 38 of the Werner Gitt booklet (currently in German, see <a href="#references">Ref
+1</a>). The program is duplicating his results using a different calculation
+approach (see <a href="#how_it_works">How it Works</a> below).</p>
+<p style="margin-top: 6; margin-bottom: 6">The 'Gitt Custom' button goes to the
+next step allowing the user to define their own cross-section and then plot the
+same set of buoyancy curves. The numerical approach used in this program does
+not limit the analysis to a pure rectangle, as was the case in papers by Morris,
+Collins, Hong and Gitt.&nbsp;</p>
+<p style="margin-top: 6; margin-bottom: 6">The second row of buttons labeled 0
+to 12 relate to the Korean study <a href="../safety_aig/safety_aig.htm">Safety
+of Noah's Ark in a Seaway</a>. In this study 12 hull variations were compared to
+the Biblical Ark (No 0) and tested by a team of naval architects and structural
+engineers from the world class Kriso facility. This program reproduces the first
+(and simplest) of the three major parameters - stability, strength and
+seakeeping, but can also work with a general hull shape rather than a purely
+rectangular transverse cross section.&nbsp;</p>
+<p style="margin-top: 6; margin-bottom: 6"><b>Note:</b> If you are attempting to
+duplicate the Korean data you need to use a high number of intervals (1000-5000)
+to improve the accuracy.&nbsp; <a href="../safety_aig/safety_aig.htm#overturning_stability_index" target="_blank">Safety
+of Noah's Ark in a Seaway, Section 6.2, Table 3, column A<sub>R</sub>  (m<sup>.</sup>rad).</a>
+This column represents the amount of energy it takes to tip the ship over to its
+top corner. (Well, if you multiply by buoyancy force or weight you get Joules,
+and all these 'arks' are the same weight). You should be able to do better than
+0.1% of the Korean researcher's 1994 TJ results.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+<table border="1" width="100%" bgcolor="#FFFFDF" cellspacing="0" cellpadding="4">
+  <tr>
+    <td>
+<p style="margin-top: 6; margin-bottom: 6"><b><font size="2"><a name="how_smart">How
+Smart are You?</a></font></b></p>
+      <p style="margin-top: 6; margin-bottom: 6"><font size="2">The most famous
+      paper in the world about the safety of Noah's Ark is <a href="../safety_aig/safety_aig.htm">this
+      one</a>. A team of ship scientists (naval architects) wrote it. What they
+      found out was that if you change the ark to a different shape (longer or
+      fatter or taller etc) it is not as good as the Ark from the Bible. For
+      example, by making it taller it will be stronger but might start to
+      capsize. See <a href="../safety_aig_explain/safety_aig_explain.htm">Ark
+      Safety Paper for dummies</a> (Not that you are a dummy of course...)</font></p>
+      <p style="margin-top: 6; margin-bottom: 6"><font size="2">Now, let's see
+      if <b>you</b> can check those Korean scientists.</font></p>
+      <p style="margin-top: 6; margin-bottom: 6"><font size="2">Look at <a href="../safety_aig/safety_aig.htm#overturning_stability_index">Table
+      3</a>. There are 4 columns.&nbsp;</font></p>
+      <p style="margin-top: 0; margin-bottom: 0"><font size="2">Column 1 is the
+      different ark shapes</font></p>
+      <p style="margin-top: 0; margin-bottom: 0"><font size="2">Column 2 (<font face="Symbol">f</font><sub>lim</sub>)
+      is how far you can tilt (roll) each ark before the roof dips into the
+      water</font></p>
+      <p style="margin-top: 0; margin-bottom: 0"><font size="2">Column 3 (A<sub>R</sub>)
+      is how much work it takes to do this tilt</font></p>
+      <p style="margin-top: 0; margin-bottom: 0"><font size="2">Column 4 is
+      boring.</font></p>
+      <p style="margin-top: 0; margin-bottom: 0">&nbsp;</p>
+      <p style="margin-top: 0; margin-bottom: 0"><font size="2">All you have to
+      do is run the <a href="../../diluvia/hydrostatic_roll.exe">Roll
+      Stability Program</a>, then press the button for the ark shape from Table
+      3. Number &quot;0&quot; is the Biblical ark. Now look carefully at the
+      writing underneath the graph and you should see something like this;&nbsp;
+      Hong_Limit_GZ_integral_trapezoidal= .804847648645595m.RAD. This is
+      supposed to be the same as the Column 3 number </font><font size="2">A<sub>R</sub></font><font size="2">.&nbsp;&nbsp;&nbsp;</font></p>
+      <p style="margin-top: 0; margin-bottom: 0"><font size="2">Talk about a lot
+      of decimal places!&nbsp; Bit silly really, it is not this accurate because
+      the number of intervals is only 100. You
+      will notice the computer gets slower when you increase the intervals, and
+      if you put too many it might refuse to do it !&nbsp; That's because I was
+      too lazy to make the program properly.&nbsp;</font></p>
+      <p style="margin-top: 0; margin-bottom: 0">&nbsp;</p>
+      <p style="margin-top: 0; margin-bottom: 0"><font size="2" color="#CC3300"><b>Questions</b></font></p>
+      <p style="margin-top: 0; margin-bottom: 0"><font size="2" color="#CC3300">1. The ark with
+      the biggest number in Column 3 (Ar) is the most stable design. Which one is
+      this? Why do you think it is hard to tip over?</font></p>
+      <p style="margin-top: 0; margin-bottom: 0"><font size="2" color="#CC3300">2. The Biblical
+      Ark is number &quot;0&quot;. Where did it come in the stability
+      contest?&nbsp;</font></p>
+      <p style="margin-top: 0; margin-bottom: 0"><font size="2" color="#CC3300">3. Why do you
+      think the Ark &quot;0&quot; is still the best design, despite not having
+      the highest stability?</font></p>
+      <p style="margin-top: 0; margin-bottom: 0">&nbsp;</p>
+      <p style="margin-top: 0; margin-bottom: 0"><font size="2" color="#CC3300"><b>Exercise</b></font></p>
+      <p style="margin-top: 0; margin-bottom: 0"><font size="2" color="#CC3300">Assuming you
+      have a fast enough computer, try 10 000 intervals. You should get pretty
+      close to the research paper.&nbsp;</font></p>
+      <p style="margin-top: 0; margin-bottom: 0"><font size="2" color="#CC3300">Work out&nbsp;
+      how close you can get for each hull shape (as a percentage of the reading)</font></p>
+      <p style="margin-top: 6; margin-bottom: 6">&nbsp;</p>
+      <p style="margin-top: 6; margin-bottom: 6"><font size="2"><a href="#Answers">Answers</a></font></p>
+    </td>
+  </tr>
+</table>
+<p style="margin-top: 6; margin-bottom: 6">&nbsp;</p>
+<h3 style="margin-top: 50; margin-bottom: 12"><a name="how_it_works">How it
+Works</a></h3>
+<p style="margin-top: 6; margin-bottom: 6">The following principles are employed in the Roll Stability
+Calculator. (These were all developed by Archimedes before 200BC)</p>
+<ul>
+  <li>
+    <p style="margin-top: 6; margin-bottom: 6">Archimedes Principle
+    (Hydrostatics)</li>
+  <li>
+    <p style="margin-top: 6; margin-bottom: 6">Area and center of gravity of
+    a trapezium</li>
+  <li>
+    <p style="margin-top: 6; margin-bottom: 6">Integration by geometric sum
+    of areas (trapezoidal method)</li>
+</ul>
+<table style="background-color: #ffffe8" borderColor="#FFFFFF" cellSpacing="0" cellPadding="3" width="629" borderColorLight="#000000" border="0" bgcolor="#FFFFFF">
+  <tbody>
+    <tr>
+      <td style="background-color: #EAEAEA; margin-left: 6px; margin-right: 2px" width="621">
+        <p style="margin-top: 6; margin-bottom: 6"><b><font size="2">How it
+        works</font></b></p>
+        <p style="margin-top: 6; margin-bottom: 6"><font size="2">The program
+        represents a slice of the hull. The output is GZ - the horizontal
+        distance between hull mass centroid G and buoyancy centroid B.</font></p>
+        <p style="margin-top: 6; margin-bottom: 6">&nbsp;</p>
+        <p style="margin-top: 6; margin-bottom: 6"><font size="2">INPUT:&nbsp;</font></p>
+        <p style="margin-top: 6; margin-bottom: 6"><font size="2">Define the
+        hull shape, density and gravity center. Apply a roll angle</font></p>
+        <p style="margin-top: 6; margin-bottom: 6"><font size="2">CALCULATION:&nbsp;</font></p>
+        <p style="margin-top: 6; margin-bottom: 6"><font size="2">Calculate area
+        of hull to determine mass (using density)</font></p>
+        <p style="margin-top: 6; margin-bottom: 6"><font size="2">Calculate
+        current buoyancy area based on new roll angle</font></p>
+        <p style="margin-top: 6; margin-bottom: 6"><font size="2">Check vertical
+        force equilibrium. If unbalanced adjust vertical position and
+        re-calculate buoyancy force</font></p>
+        <p style="margin-top: 6; margin-bottom: 6"><font size="2">Find centroid
+        of submerged area and measure GZ&nbsp;</font></p>
+        <p style="margin-top: 6; margin-bottom: 6"><font size="2">Repeat for
+        successive roll angles and sum the values to give the integral curve.</font></p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+    <p style="margin-top: 6; margin-bottom: 6">&nbsp;<p style="margin-top: 6; margin-bottom: 6">Looks
+impressive? Not really. Let's take a closer look.</p>
+<p style="margin-top: 6; margin-bottom: 6">The transverse section is formed by
+straight lines (polygonal). Provided the points are in consecutive order around
+the polygon, the area can be calculated the same way regardless of the position or
+angle of the cross-section. The waterline is at Y=0. The area of the submerged (displaced) water is then calculated by adding
+up trapezoids using the simple expression; (In semi math/code form)</p>
+<p style="margin-top: 6; margin-bottom: 6">&nbsp;</p>
+<p style="margin-top: 6; margin-bottom: 6"><font face="Courier New"><b>&nbsp;&nbsp;&nbsp;
+For i = 1 To (pt - 1)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; subarea = subarea + (X<sub>i </sub>- X <sub>i + 1</sub>) * (Y<sub>i
++ 1</sub> + Y<sub>i</sub>) / 2<br>
+&nbsp;&nbsp;&nbsp; Next i</b></font></p>
+<p style="margin-top: 6; margin-bottom: 6">&nbsp;</p>
+<p style="margin-top: 6; margin-bottom: 6">Sweet eh?</p>
+<p style="margin-top: 6; margin-bottom: 6">&nbsp;</p>
+<p style="margin-top: 6; margin-bottom: 6"><font color="#0000FF"><b>Example.&nbsp;&nbsp;</b></font></p>
+<p style="margin-top: 6; margin-bottom: 6"><font color="#0000FF">Default hull,
+Cubit = 500mm, KG/D=0.4, Relative Density=0.58. Angle or Roll=40 degrees. Output
+data includes the following trapezoidal areas;</font></p>
+<p style="margin-top: 6; margin-bottom: 6"><font color="#0000FF">Point 1 x= 4.821 y=-6.945 A= 26.159&nbsp;</font></p>
+<p style="margin-top: 6; margin-bottom: 6"><font color="#0000FF">     Point 2 x= 11.354 y=-1.063 A= .276&nbsp;</font></p>
+<p style="margin-top: 6; margin-bottom: 6"><font color="#0000FF">     Point 3 x= 11.872 y= 0 A= 0&nbsp;</font></p>
+<p style="margin-top: 6; margin-bottom: 6"><font color="#0000FF">     Point 4 x=-10.654 y= 0 A=-6.529&nbsp;</font></p>
+<p style="margin-top: 6; margin-bottom: 6"><font color="#0000FF">     Point 5 x=-14.396 y=-3.49 A= 53.294&nbsp;</font></p>
+<p style="margin-top: 6; margin-bottom: 6"><font color="#0000FF">     Point 6 x=-7.424 y=-11.798 A= 31.764&nbsp;</font></p>
+<p style="margin-top: 6; margin-bottom: 6"><font color="#0000FF">     Point 7 x=-4.878 y=-13.152 A= 35.357&nbsp;</font></p>
+<p style="margin-top: 6; margin-bottom: 6"><font color="#0000FF">     Point 8 x=-2.106 y=-12.357 A= 66.857</font></p>
+<p style="margin-top: 6; margin-bottom: 6"><font color="#0000FF">CSA=
+382.7895sqm, SubArea= 222.017sqm. Checking this submerged (displaced) area ratio
+222 / 383 = 0.58 which gives the correct desired.</font></p>
+<p style="margin-top: 6; margin-bottom: 6">&nbsp;</p>
+<p style="margin-top: 6; margin-bottom: 20"><img border="0" src="trapezoid_area.jpg" width="571" height="468"></p>
+<p style="margin-top: 6; margin-bottom: 20">&nbsp;</p>
+<p style="margin-top: 6; margin-bottom: 20">&nbsp;</p>
+<p style="margin-top: 12; margin-bottom: 6">Once the displaced area has been
+calculated, the hull is shifted up or down until the buoyancy force matches the
+gravity force. The adjustments are done using the Newton-Raphson method which
+works reliably on these rather gradual curves. (The NR method takes next
+estimate as the tangential zero. The idea is not strictly an Archimedes thing,
+Newton was somewhat later, however the ancient Greek did touch on some of the
+basic concepts of calculus). Very effective, only three or four iterations
+will give sufficient accuracy.&nbsp;</p>
+<p style="margin-top: 12; margin-bottom: 6">&nbsp;&nbsp;<font face="Courier New"><b>&nbsp;&nbsp;
+accuracy = 0.000000001&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp; While Abs(F) > accuracy&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; dFdy = (F - lastF) / (Ys - LastYs)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; LastYs = Ys<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Ys = LastYs - F / dFdy&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Call yTransform: Call BuoyancyForce&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp; Wend<br>
+</b></font></p>
+<p style="margin-top: 12; margin-bottom: 6">The next step in the process is to
+determine the centroid (center of area) in a fashion similar to the trapezoidal
+area calculation.&nbsp;I found this&nbsp;on the net in some other language. This
+is the sweetest bit of code, especially for anyone who has ever had to calculate
+centroids by hand (students obviously).&nbsp; &nbsp;</p>
+<blockquote>
+<p style="margin-top: 6; margin-bottom: 6"><br>
+<font face="Courier New"><b>        For i = 1 To (pt - 1)<br>
+&nbsp;&nbsp;&nbsp; k = (XB(i) * YB(i + 1)) - (XB(i + 1) * YB(i))<br>
+&nbsp;&nbsp;&nbsp; Xbc = Xbc + ((XB(i) + XB(i + 1)) * k)<br>
+&nbsp;&nbsp;&nbsp; Ybc = Ybc + ((YB(i) + YB(i + 1)) * k)<br>
+        Next i<br>
+Xbc = Xbc / (6 * subarea)<br>
+Ybc = Ybc / (6 * subarea)<br>
+</b></font></p>
+</blockquote>
+<p style="margin-top: 6; margin-bottom: 6">Finally, the GZ values are integrated
+from 0 to 90 degrees using a simple trapeziodal approximation as described
+earlier. The result is compared with the Simpson rule (Parabolic segments) for
+any number of intervals up to 10000.&nbsp;Interestingly the Simpson rule can be
+less accurate on the more linear curves, but it serves as a nice check.&nbsp;</p>
+<p style="margin-top: 6; margin-bottom: 6">&nbsp;</p>
+<p style="margin-top: 6; margin-bottom: 6">No special geometric cases need to be
+considered; the method works for any roll angle and any polygonal shape.</p>
+<p style="margin-top: 6; margin-bottom: 6">&nbsp;</p>
+<p style="margin-top: 6; margin-bottom: 6">A set of curves can be generated by
+repeating the calculation for hulls of different relative density. </p>
+<p style="margin-top: 6; margin-bottom: 6">Here is an example generated using
+the data from Prof Werner Gitt &quot;Das sonderbarste Schiff der Weltgeschichte&quot;
+2001.</p>
+<p style="margin-top: 6; margin-bottom: 6">&nbsp;</p>
+<p style="margin-top: 6; margin-bottom: 20"><img border="0" src="Gitt43.gif" width="577" height="535"></p>
+<p style="margin-top: 6; margin-bottom: 20">&nbsp;</p>
+<p style="margin-top: 6; margin-bottom: 6">&nbsp;</p>
+<p style="margin-top: 20; margin-bottom: 6">Since the hull section can be defined
+as a polygon, any shape (single loop) can be analyzed. For example, the default
+hull includes a 0.2B bilge radius and a 2 degree deadrise (V-keel). The effect
+is shown below - very little. Ignoring the absurdly lightweight hulls (less than
+0.2), the general shape of the curves and location of maximum are hardly altered
+by the bilge radius. </p>
+<p style="margin-top: 20; margin-bottom: 6"><img border="0" src="Gitt_default.gif" width="577" height="471"></p>
+<p style="margin-top: 20; margin-bottom: 6">&nbsp;</p>
+<hr>
+<h3 style="margin-top: 50; margin-bottom: 12"><a name="references">References</a></h3>
+<p style="margin-top: 6; margin-bottom: 6">1. Prof Werner Gitt &quot;Das sonderbarste Schiff der Weltgeschichte&quot;
+2001. (The most amazing ship in the history of the World).</p>
+<p style="margin-top: 6; margin-bottom: 6">2. Buoyancy and Stability of Ships
+Vol 1 R.F. Scheltema De Heere &amp; A.R. Bakker Harrap London 1970</p>
+<hr>
+<h3 style="margin-top: 50; margin-bottom: 12"><a name="Answers">Answers</a></h3>
+<table border="1" width="700" bordercolor="#000000" cellspacing="0" cellpadding="0" bordercolorlight="#000000" bordercolordark="#FFFFFF">
+  <tr>
+    <td bgcolor="#EEEEEE">
+      <p style="margin-left: 6; margin-right: 3; margin-top: 0; margin-bottom: 0"><font size="2" color="#CC3300"><b>Answers
+      to Questions</b></font></p>
+      <p style="margin-left: 6; margin-right: 3; margin-top: 0; margin-bottom: 0">&nbsp;</p>
+      <p style="margin-left: 6; margin-right: 3; margin-top: 0; margin-bottom: 0"><font size="2" color="#CC3300">1.
+      The ark with the biggest number in <a href="../safety_aig/safety_aig.htm#overturning_stability_index">Column
+      3</a> (Ar) is the most stable design. Which one is this? </font></p>
+      <p style="margin-left: 6; margin-right: 3; margin-top: 0; margin-bottom: 0"><font size="2" color="#000000">Ark
+      number 9 = 0.964 is the most stable.&nbsp;&nbsp; </font></p>
+      <p style="margin-left: 6; margin-right: 3; margin-top: 0; margin-bottom: 0"><font size="2" color="#CC3300">Why
+      do you think it is hard to tip over?</font></p>
+      <p style="margin-left: 6; margin-right: 3; margin-top: 0; margin-bottom: 0"><font size="2" color="#000000">Because
+      it is wide. Ark 4 is the same width but not as tall so it dips into the
+      water more easily. So Ark 9 is safest in roll. Ark 1 is obviously the
+      worst because it is so tall and narrow.</font></p>
+      <p style="margin-left: 6; margin-right: 3; margin-top: 0; margin-bottom: 0">&nbsp;</p>
+      <p style="margin-left: 6; margin-right: 3; margin-top: 0; margin-bottom: 0"><font size="2" color="#CC3300">2.
+      The Biblical Ark is number &quot;0&quot;. Where did it come in the
+      stability contest?&nbsp;</font></p>
+      <p style="margin-left: 6; margin-right: 3; margin-top: 0; margin-bottom: 0"><font size="2" color="#000000">Fifth.
+      The order is 9,10,6,5,0,3,7,11,4,2,8,12,1 where 0 is the Biblical ark.</font></p>
+      <p style="margin-left: 6; margin-right: 3; margin-top: 0; margin-bottom: 0">&nbsp;</p>
+      <p style="margin-left: 6; margin-right: 3; margin-top: 0; margin-bottom: 0"><font size="2" color="#CC3300">3.
+      Why do you think the Ark &quot;0&quot; is still the best design, despite
+      not having the highest stability?</font></p>
+      <p style="margin-left: 6; margin-right: 3; margin-top: 0; margin-bottom: 0"><font size="2" color="#000000">Good
+      question!&nbsp; The Hong paper compares 3 parameters - safety (roll),
+      strength (hull bending) and seakeeping (accelerations). The Biblical ark
+      is not too bad in any of these. </font></p>
+      <p style="margin-left: 6; margin-right: 3; margin-top: 0; margin-bottom: 0">&nbsp;</p>
+      <p style="margin-left: 6; margin-right: 3; margin-top: 0; margin-bottom: 0"><font size="2" color="#000000">Want
+      more info? <a href="../safety_aig/safety_aig_comments.htm">Hong study
+      comments</a></font></p>
+    </td>
+    <td width="314"><img border="0" src="../safety_aig_explain/safety_aig_explain/hongs_hulls.jpg" width="314" height="435"></td>
+  </tr>
+</table>
+      <p style="margin-top: 0; margin-bottom: 0">&nbsp;</p>
+      <p style="margin-top: 0; margin-bottom: 0">&nbsp;</p>
+      <p style="margin-top: 0; margin-bottom: 0"><font size="2" color="#CC3300"><b>Exercise</b></font></p>
+      <p style="margin-top: 0; margin-bottom: 0"><font size="2" color="#CC3300">Assuming you
+      have a fast enough computer, try 10 000 intervals. You should get pretty
+      close to the research paper.&nbsp;</font></p>
+      <p style="margin-top: 0; margin-bottom: 0"><font size="2" color="#CC3300">Work
+      out&nbsp; how close you can get for each hull shape (as a percentage of
+      the readi</font><font color="#CC3300"><font size="2">ng)</font>. </font><font color="#000000">Should
+      be less than 1%. See results <a href="../safety_aig/safety_aig_comments.htm">here</a>.
+      </font></p>
+<p style="margin-top: 6; margin-bottom: 6">&nbsp;</p>
+</BODY></HTML>

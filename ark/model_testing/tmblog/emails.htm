@@ -1,0 +1,579 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>New Page 3</title>
+</head>
+
+<body>
+
+<p style="margin-top: 0; margin-bottom: 0"><font color="#800000">(AHM) Tim,
+&nbsp;I haven’t heard from you in some time. I hope all is well with you and
+yours. How are the wave tests coming? I am very interested in whether (or not)
+the models will tend to swing around so they are broadside-to the waves. This
+may take some time. &nbsp;I have been working with the Vacanti hull lines
+program – cleaning up the lines and looking more carefully at data transfer
+issues. I am preparing to do detail work on the structure at the ends – bow
+and stern. I need the section offsets for this and must transfer them into TC8.
+Now I am writing the Vacanti offset output to Word or Notepad, and then
+hand-typing the x-y coordinates into TC8 using the Bezier curve. This is
+incredibly tedious. I would like to get a TC/VB program that reads ASCII text
+coordinates and writes them into TC’s Bezier draw function. I suspect I may be
+able to get something on the TC web site on this if I ask, but I haven’t had
+time to do this yet. &nbsp;I also want to draft cant frames at the ends. I think
+I can do this using the DXF plan view output in TC8 by drawing the cant frame
+lines and then picking off the offsets from the intersections with the
+waterlines, using the TC dimensions features. &nbsp;That’s all for
+now.&nbsp;Best&nbsp;Allen M.</font></p>
+<p style="margin-top: 0; margin-bottom: 0">&nbsp;</p>
+<p style="margin-top: 0; margin-bottom: 0"><b>April 21, 2005</b></p>
+<p style="margin-top: 0; margin-bottom: 0">&nbsp;<a href="http://www.worldwideflood.com/ark/model_testing/tm3/Test_Model_3.htm">http://www.worldwideflood.com/ark/model_testing/tm3/Test_Model_3.htm</a></p>
+<p style="margin-top: 0; margin-bottom: 0">(TAL) Admittedly I did only half a
+dozen trials, but... Couldn't get it to turn away from beam sea. Those hulls
+absolutely love to sit broadside - I guess it must be something to do with
+minimum potential energy - try to sit in the trough. Also the roll resistance is
+so much lower than pitch so it&nbsp;want to roll rather than pitch. So it ends
+up happiest in beam sea (from the hull's dynamics point of view that is).
+&nbsp;Hmmm - so since God said 300 x 50 = 6:1 L/B ratio, then it must mean the
+boat stayed perp to waves - because it there no&nbsp;directional methods it
+would have been better to have a cube. And I might make one just to prove
+it.&nbsp;I think this is a bit eye opening - it seems the waves&nbsp;are more
+powerful in maintaining broadside than the wind is at swinging away. I'll be
+trying for a full-on sea anchor at stern and a sail at the bow next time.&nbsp;I
+bet wind velocity profile doesn't scale too - &nbsp;so a model probably needs
+higher wind-catching features than the 1:1. Hmmm - if this is true, how do they
+run those model basins with wind - and get sensible results?
+&nbsp;Interesting&nbsp;Tim P.S. The next email is a 4MB video</p>
+<p style="margin-top: 0; margin-bottom: 0">&nbsp;</p>
+<p style="margin-top: 0; margin-bottom: 0"><b>April 22, 2005</b></p>
+<p style="margin-top: 0; margin-bottom: 0">(TAL)&nbsp;Did you get the video? I
+sent it from another email addresstlovett@bigpond.net.au It was 4MB. I could
+send a CD (or a DVD) once I get my DVD software in a week or so. &nbsp;.</p>
+<p style="margin-top: 0; margin-bottom: 0"><font color="#800000">(AHM) The
+broadside-to tendency is demonstrated in potential flow theory in Lamb’s “Hydrodynamics”.
+It is available in paperback, and should be available through interlibrary loan.
+On p.170, he says “the only stable direction of translation of an ellipsoid
+(moving through a fluid) is that of its least axis”. </font></p>
+<p style="margin-left: 20; margin-top: 0; margin-bottom: 0">(TAL) I'm getting
+the picture that this means if you got an ellipsoid (or maybe an egg) and
+dropped it in the water it would sink while moving in the direction of
+it's&nbsp;least axis. I'll try this.&nbsp;</p>
+<p style="margin-left: 40; margin-top: 0; margin-bottom: 0"><font color="#800000">(AHM)
+Use something more elongated than an egg. What’s the matter – don’t you
+believe H. Lamb?&nbsp;</font></p>
+<p style="margin-left: 60; margin-top: 0; margin-bottom: 0">(TAL) Must be
+kinesthetic learner. The number of times I've thought to double check an expert
+with some sort of simple test and find... Hmmm, hang on a sec...(Oh, present
+company excluded of course) &nbsp;</p>
+<p style="margin-top: 0; margin-bottom: 0"><font color="#800000">(AHM) I think
+the effect of the waves also forces it broadside-to as
+well.&nbsp;&nbsp;&nbsp;This could be checked by looking at the sense of the
+yawing moment for different heading angles for a ship in regular waves. I can do
+this using ShipmoPC.&nbsp; </font></p>
+<p style="margin-left: 20; margin-top: 0; margin-bottom: 0">(TAL) I can imagine
+the instantaneous condition of a block hull at 45 deg to the waves - obviously
+the bow buoyancy is yawing towards broadside, and if sitting in a trough, the
+stern is adding the same moment too! So I guess a higher Cb would be worse, and
+a banana shape would be less prone to broadsidedness. How jolly interesting!
+Hey, this is serious! Basically, we have to ensure that the wind steering moment
+over-rides the wave broadsiding moment. How very very interesting, I could get
+into this.&nbsp;</p>
+<p style="margin-left: 40; margin-top: 0; margin-bottom: 0"><font color="#800000">(AHM)
+The orbital velocities of the waves have something to do with it as well - more
+complex. </font></p>
+<p style="margin-left: 60; margin-top: 0; margin-bottom: 0">(TAL) Oh yeah, I
+forgot about that - that's even more logical.</p>
+<p style="margin-top: 0; margin-bottom: 0">(TAL)Yeah run Shipmo - I think this
+issue is going to need some serious addressing. BTW - Surely anyone who is into
+sailing etc would know this already - it is so OBVIOUS when you watch it. </p>
+<p style="margin-left: 20; margin-top: 0; margin-bottom: 0"><font color="#800000">(AHM)
+If I remember correctly, driftwood logs always are parallel to the wave crests
+in surf. </font></p>
+<p style="margin-left: 40; margin-top: 0; margin-bottom: 0">(TAL)Yeah, that's my
+impression too. This would make a good photo because it is familIar and easy for
+people to understand. I'm convinced this is qualifiable. There's no way people
+would be building ships in any era without knowing that waves make long things
+go sideways. &nbsp;</p>
+<p style="margin-top: 0; margin-bottom: 0"><font color="#800000">(AHM) The OTRC
+(offshore technology research center) wave tank at Texas A&amp;M has fans that
+can be placed close to the model and are mounted on a carriage.&nbsp;</font></p>
+<p style="margin-left: 20; margin-top: 0; margin-bottom: 0">(TAL) I've seen a
+big model basin on the internet. Close to the model - yeah - I bet you would
+have the wrong wind velocity profile if you are too far away - laminar flow,
+boundary layer and all that stuff...&nbsp;(plus require enormous power of
+course) </p>
+<p style="margin-left: 40; margin-top: 0; margin-bottom: 0">(AHM) Try the Texas
+A&amp;M web site – search for OTRC to get tank specs. &nbsp;</p>
+<p style="margin-top: 0; margin-bottom: 0"><font color="#800000">(AHM) Did the
+down by stern with skeg and raised forecastle model respond differently? </font></p>
+<p style="margin-left: 20; margin-top: 0; margin-bottom: 0">(TAL) The limited
+number ot tests&nbsp;and lack of buoyancy matching&nbsp;clouded the comparison a
+little, but ALL hulls were very clearly favoring a beam sea. I could not get the
+Magnuson (Mag) to get out of broadside except when it had a drogue (submerged
+plastic drink bottle tied to stern). Even then it&nbsp;went back to broadside
+and stayed there - drogue and all. I also ran it without forecastle and it
+didn't seem to make much difference - although the tests were insufficient for
+reliable discrimination. More an indication. It felt like the higher Cb was more
+strictly broadside but I'm treading on thin ice with the one set of casual
+tests.&nbsp;</p>
+<p style="margin-left: 20; margin-top: 0; margin-bottom: 0">&nbsp;</p>
+<p style="margin-left: 20; margin-top: 0; margin-bottom: 0">&nbsp;</p>
+<p style="margin-left: 20; margin-top: 0; margin-bottom: 0">&nbsp;</p>
+<p style="margin-top: 0; margin-bottom: 0"><b>24 Apr 2005</b></p>
+<p style="margin-top: 0; margin-bottom: 0"><font color="#008000">(JHK) No need
+to panic! It looks like your model has the blunt ends. This same behavior for
+blunt-ended forms was observed during our smaller-scale model tests. Our
+pointy-ended forms tended to point into the waves. When they came broadside to
+the waves, they continued on until they pointed again.</font></p>
+<p style="margin-top: 0; margin-bottom: 0"><font color="#008000">These forms
+showed especially good performance in confused seas, as well.</font></p>
+<p style="margin-top: 0; margin-bottom: 0"><font color="#008000">Nice to hear
+from you, Jim</font></p>
+<p style="margin-left: 20; margin-top: 0; margin-bottom: 0">&nbsp;</p>
+<p style="margin-left: 20; margin-top: 0; margin-bottom: 0">&nbsp;</p>
+<p style="margin-top: 0; margin-bottom: 0"><b>April 26, 2005</b></p>
+<p style="margin-top: 0; margin-bottom: 0"><font color="#800000">(AHM) I looked
+at your blog-3 photos – comments: the Magnuson model didn’t appear to have
+drag to the keel i.e. trim down by the stern (I am using 6ft full scale in the
+dwgs) </font></p>
+<p style="margin-left: 20; margin-top: 0; margin-bottom: 0">(TAL) The water was
+exactly on the sloping black&nbsp;line, but you can't tell in the waves. </p>
+<p style="margin-top: 0; margin-bottom: 0"><font color="#800000">(AHM)&nbsp; The
+drag to the keel is very important. Also the appearance of waves indicated that
+you didn’t have much if any wind. Get out there in a stiff breeze. Also you
+could use an oversize (higher) forecastle to compensate for the wind boundary
+layer effect. </font></p>
+<p style="margin-left: 20; margin-top: 0; margin-bottom: 0">(TAL) So&nbsp;scale
+model boundary layer issues would really&nbsp;muck up these wind tests wouldn't
+they?&nbsp;&nbsp; </p>
+<p style="margin-top: 0; margin-bottom: 0"><font color="#800000">(AHM) The other
+models look bizarre – the end pieces appear to be wider and deeper than the
+midbody. Is this right? </font></p>
+<p style="margin-left: 20; margin-top: 0; margin-bottom: 0">(TAL) The bilge
+radius inserts are missing. I'll fix the photo because it is misleading. In the
+water I had a thin metal angle covering this area, giving zero bilge radius. </p>
+<p style="margin-left: 40; margin-top: 0; margin-bottom: 0"><font color="#800000">(AHM)
+It will be very difficult to get the right combination of wind and waves. You
+may need an offshore fresh breeze, but you would have to be about ¼ mile
+offshore to get a decent wave. </font></p>
+<p style="margin-top: 0; margin-bottom: 0"><font color="#800000">(AHM) Also, you
+need a reasonably strong wind for the raised forecastle, skeg and drag to keel
+to work. </font></p>
+<p style="margin-left: 20; margin-top: 0; margin-bottom: 0">(TAL) I thought so.
+But if the sea is fully developed, waves will scale according to wind speed
+anyway. So a stronger wind means a stronger wave driven broadside tendency. It
+would be interesting to get the power ratios on this, whether wind forces
+increase at a higher rate than wave yawing moment as wind velocity
+increases.&nbsp;I wasn't keen about a stronger wind for the model because the
+waves would need to be extremely undeveloped (close together, steep little
+things) in order to maintain a reasonable scale. (Hmm, let's see now, I expect
+the wind velocity would scale linearly (L/T)&nbsp;so 5 knots would be... 5 * 76
+??? Eeeek!&nbsp;) If I' m getting it to work in a gentle breeze, what would be
+interesting would be how it handles a strong wind. (what range it can handle).
+I'm guessing that a fin would actually give better RANGE because it is
+relatively harmless when aligned (running) to the wind.</p>
+<p style="margin-top: 0; margin-bottom: 0"><font color="#800000">(AHM) See
+inserts below in red bold. I have some info at work on wind profiles and wind
+forces I will send (ABS MODU Rules). </font></p>
+<p style="margin-left: 20; margin-top: 0; margin-bottom: 0">(TAL) This would be
+interesting - I wonder if we can't just get the wave yaw moment from Shipmo and
+the wind force from ABS and select a bow located area to suit.</p>
+<p style="margin-left: 20; margin-top: 0; margin-bottom: 0">&nbsp;</p>
+<p style="margin-top: 0; margin-bottom: 0"><b>April 26, 2005</b></p>
+<p style="margin-top: 0; margin-bottom: 0">(TAL) Video - I will be putting onto
+DVD in a week or 2. (God willing... )&nbsp;I'm uploading some web pages soon
+too. I'm still attracted to&nbsp;the &quot;ancient Greek&quot; theme because
+this is the most well known, most ancient serious shipbuilding we know. And when
+I imagine optimum location for wind and water yawing loads I end up with the
+same design!&nbsp;&nbsp;I've always noticed the ancient ships&nbsp;had a common
+theme - extreme upswept stems. What if they got the idea off the &quot;first
+ship&quot; in (our) history. &nbsp;Besides, I'm suspicious that a rigid sail fin
+outperforms a forecastle. Period. This is testable, and I'm gonna. So there!
+&nbsp;;-)&nbsp;</p>
+<p style="margin-left: 20; margin-top: 0; margin-bottom: 0"><font color="#800000">(AHM)
+Here is a wind profile from Rawson and Tupper, the best (in my opinion) Naval
+Arch textbook. By “ancient Greek” you aren’t referring to the biremes and
+triremes are you? These were not really seaworthy – summer in the Med., very
+narrow.</font></p>
+<p style="margin-top: 0; margin-bottom: 0">&nbsp;</p>
+<p style="margin-top: 0; margin-bottom: 0"><b>April 26, 2005</b></p>
+<p style="margin-left: 0; margin-top: 0; margin-bottom: 0">(TAL) Here are pages;
+(In menu &gt; Ark Related &gt; Sea Trial Blog &gt; 1,2,3,4...) <a href="http://www.worldwideflood.com/ark/model_testing/tmblog/tm01.htm">http://www.worldwideflood.com/ark/model_testing/tmblog/tm01.htm</a></p>
+<p style="margin-left: 0; margin-top: 0; margin-bottom: 0">&nbsp;<a href="http://www.worldwideflood.com/ark/model_testing/tmblog/tm02.htm">http://www.worldwideflood.com/ark/model_testing/tmblog/tm02.htm</a></p>
+<p style="margin-left: 0; margin-top: 0; margin-bottom: 0">&nbsp;<a href="http://www.worldwideflood.com/ark/model_testing/tmblog/tm03.htm">http://www.worldwideflood.com/ark/model_testing/tmblog/tm03.htm</a></p>
+<p style="margin-left: 0; margin-top: 0; margin-bottom: 0">&nbsp;<a href="http://www.worldwideflood.com/ark/model_testing/tmblog/tm04.htm">http://www.worldwideflood.com/ark/model_testing/tmblog/tm04.htm</a>
+</p>
+<p style="margin-left: 0; margin-top: 0; margin-bottom: 0">(Also, &nbsp;Menu
+&gt; Ark &gt; Stability &gt; Bow Fin Design)</p>
+<p style="margin-left: 0; margin-top: 0; margin-bottom: 0"><a href="http://www.worldwideflood.com/ark/anti_broaching/bow_fin.htm">http://www.worldwideflood.com/ark/anti_broaching/bow_fin.htm</a></p>
+<p style="margin-left: 0; margin-top: 0; margin-bottom: 0">&nbsp;</p>
+<p style="margin-left: 0; margin-top: 0; margin-bottom: 0"><b>April 27, 2005 </b></p>
+<p style="margin-left: 0; margin-top: 0; margin-bottom: 0"><font color="#800000">(AHM)
+&nbsp;Nice pictures. Interesting Russian article. One comment: for the Ark, the
+terms “stern” and “bow” are somewhat arbitrary, as the Ark was not
+self-propelled. From the pictures of the models in the waves, it is apparent
+that the wind speed was about nil at heights of a foot or two above the water
+surface. You can tell this by the size of the ripples – they are too big. This
+is why the focs’l and/or fin were ineffective.&nbsp;I suggest you test with
+the wind coming off the land – 20+ knots preferably. &nbsp;Wind surfers love
+this, as the waves are small and they can go very fast. Near the shore, the only
+waves will be swell. The waves (ripples) will increase in size as you go out
+into deeper water. The distance from shore is called “fetch”. The wave
+height increases with fetch.&nbsp;</font></p>
+<p style="margin-left: 20; margin-top: 0; margin-bottom: 0">&nbsp;</p>
+<hr>
+<p style="margin-top: 0; margin-bottom: 0"><b>April 27, 2005</b> <b>&quot;caught
+in the trough of heavy seas&quot;</b></p>
+<p style="margin-top: 0; margin-bottom: 0">(TAL) Browsing the NOAA image library
+I came across this term &quot;caught in the trough of heavy seas&quot;</p>
+<p style="margin-top: 0; margin-bottom: 0">Now that sounds to me like the vessel
+is stuck broadside and that the marine term &quot;caught in the trough&quot; is
+a another way to say that &quot;waves turn long floating things sideways&quot;.
+This ship sank - I presume by capsize. Surely the term can't mean the ship will
+not go over another wave crest - which would be the literal interpretation.</p>
+<p style="margin-top: 0; margin-bottom: 0">There must be a table or formula for
+&quot;typical&quot; wave yawing moment because this is such an obvious starting
+point in ship design. For example, if Ship A is in a sea that is applying a
+yawing moment of X due to the wave size/shape and hull form, but a full rudder
+and power can only provide a turning moment of &lt;&lt;X, you are in big trouble
+if you get far enough away from driect head sea to be unrecoverable. Everyone
+knows all this of course, but if I was designing a ship I would have thought you
+do it in this order - 1. Roll stability, 2. Hog/Sag hull strength, 3. Wave
+yawing moment recovery, since these are the essentials...then start into the
+rest of it.</p>
+<p style="margin-top: 0; margin-bottom: 0">Just talking to a colleague who was
+15 years as a marine engineer as spent time on relatively small (15,000 ton)
+commercial vessels in Atlantic (including some good storm stories) and had to
+convince him that the wind doesn't cause broadside - it's the waves. He kept
+trying to say it was both. It can't be. The waves are the sole broadside force,
+the wind is actually anti-broadside - esp when the superstructure is near the
+stern (aft transverse centre of wind load).</p>
+<p style="margin-top: 0; margin-bottom: 0">So maybe I could use the term
+&quot;caught in the trough&quot; to describe the broadside behavior.</p>
+<p style="margin-top: 0; margin-bottom: 0"><a href="http://www.photolib.noaa.gov/historic/nws/wea00808.htm">http://www.photolib.noaa.gov/historic/nws/wea00808.htm</a></p>
+<p style="margin-left: 20; margin-top: 0; margin-bottom: 0"><font color="#008000">(JHK)
+The proper term is broach. &quot;Caught in a trough&quot; probably reflects the
+propensity for oceanographers to use four words where one will do . Actually,
+wind can contribute to broaching. Remembering that most broaches occur in
+following seas, if the wind is coming from the same direction, it can contribute
+force, especially if the house is aft. The opposite is true for anchored ships.
+I used this extensively in an effort several years ago. But, the dominant force
+in broaching is the sea, due to the much higher density of water over air.</font></p>
+<p style="margin-left: 20; margin-top: 0; margin-bottom: 0"><font color="#008000">There
+are rules for rudder size and steering gear power. However, in broaching
+incidences, estimating the disturbing force is very difficult. First, most of
+these actions happen in following seas. Therefore, the encounter frequencies are
+very low. Conventional predictive codes, such as strip theory, do not work. It
+is also a dynamic event, and the forces on the hull are constantly changing.
+That's why broaching is best studied in the model basin. Actually, the rudder
+and steering gear are designed relatively late in the process because they have
+relatively little impact on ship size, arrangements, cost, etc. (James 3:4)</font></p>
+<p style="margin-left: 20; margin-top: 0; margin-bottom: 0"><font color="#008000">The
+photo is interesting because it appears that the ship is underway. Most
+broaching incidences on sizable ships occur when they have lost power. (There is
+a long history of fishing vessels broaching under power in very rough seas.)
+This ship should have been able to get out of the trough. Perhaps this ship lost
+its rudder.</font></p>
+<p style="margin-left: 40; margin-top: 0; margin-bottom: 0">(TAL) 28 Apr 2005. I
+thought the proper term was broadside or beam sea, and that broaching was the
+ACTION of yawing into broadside. At least that was my impression from the
+definitions I found. <a href="http://www.worldwideflood.com/ark/anti_broaching/anti-broaching.htm#ref04">http://www.worldwideflood.com/ark/anti_broaching/anti-broaching.htm#ref04</a></p>
+<p style="margin-left: 40; margin-top: 0; margin-bottom: 0">Very interesting
+stuff about model basin and broaching. Lost the rudder makes sense, which means
+they should have thrown out a sea anchor and reverse thrust I guess...</p>
+<p style="margin-left: 40; margin-top: 0; margin-bottom: 0">What is the REASON
+for the failure of strip theory in big sea / following sea?</p>
+<p style="margin-left: 60; margin-top: 0; margin-bottom: 0"><font color="#008000">(JHK)
+I get you now.</font></p>
+<p style="margin-left: 60; margin-top: 0; margin-bottom: 0"><font color="#008000">I'll
+get you a clear answer regarding strip theory. I've got a good paper at home on
+the subject. I could give you my explanation, but I think they've probably got a
+better explanation.</font></p>
+<p style="margin-left: 20; margin-top: 0; margin-bottom: 0">&nbsp;</p>
+<p style="margin-left: 20; margin-top: 0; margin-bottom: 0">&nbsp;</p>
+<p style="margin-top: 0; margin-bottom: 0"><b>29 April 2005 &quot;Some tests in
+light wind&quot;</b></p>
+<p style="margin-top: 0; margin-bottom: 0"><font color="#800000">(AHM) You must
+understand that ships are self-propelled and can assume any heading to the waves
+the captain wants. They can get into trouble if they lose power in a heavy
+seaway, but this is unusual.</font></p>
+<p style="margin-left: 20; margin-top: 0; margin-bottom: 0">(TAL) That's what I
+said with the Ship A &amp; X thing. Anyway, they are lucky because they just
+happen to have enough power for the typical wave yawing. Fortunately there are
+financial incentives to have some speed. I bet the big ships that go down are
+mostly for this very reason though. Too big for their propulsive force, so the
+waves win. I bet you 50 cents, well, maybe 10 cents...</p>
+<p style="margin-top: 0; margin-bottom: 0"><font color="#800000">(AHM) As a
+result of your test results, I am starting to do some calculations on the
+unpropelled ship (Ark) heading problem, and to look at scaling laws for model
+testing in wind and waves. I will send you results as soon as I get some.</font></p>
+<p style="margin-left: 20; margin-top: 0; margin-bottom: 0">(TAL) Cooool. Do you
+mean a Shipmo for wave yaw? Scaling - I guess we'll hit a Froude/Reynolds clash.
+Perhaps an oversized air feature is correct on the scale model. When you say the
+100 knot chart is scaleable - do you mean the scale in both vel &amp; height
+together? I just can't imagine how a 10 knot wind would have a boundary layer as
+deep as a 100 knot wind, so I'm guessing the height must scale somehow too - but
+is it linear? Oh, and since the foracastle might be considered as an equilateral
+triangle, it has less drag side-on than end-on. (Cd=1.4 vs Cd=2.2) So compared
+to a flat plat (Cd=2.0 vs Cd=zero) there is a compelling reason to go fin-like.
+I could draw a picture - or I could test it on my bicycle like the Wright
+brothers tested their aerofoils...</p>
+<p style="margin-top: 0; margin-bottom: 0"><font color="#800000">(AHM) The
+calculations are just simple Excel SS calcs. The scaling of the wind profile is
+only horizontal – for example, for a nominal 50 knot wind, just divide the
+wind speeds by two. You need stern-to area in the focsl for propulsion so you
+have some downwind speed. The fin doesn’t have hardly any.</font></p>
+<p style="margin-top: 0; margin-bottom: 0">&nbsp;</p>
+<p style="margin-top: 0; margin-bottom: 0">&nbsp;</p>
+<hr>
+<p style="margin-top: 0; margin-bottom: 0">&nbsp;</p>
+<p style="margin-top: 0; margin-bottom: 0"><b>28 Apr 2005 Some sea tests in
+light wind</b></p>
+<p style="margin-top: 0; margin-bottom: 0">(TAL) Hi Jim. I know you are focusing
+on a random sea rather than driven by a steady wind, but here is some tests done
+in light wind on a bay. It is very obvious that anything long and narrow will be
+turned to broadside by wave action.</p>
+<p style="margin-top: 0; margin-bottom: 0">Do you know where I can get data on
+wave yawing moment for given hull forms, wave size and slope? Even just an
+approximate formula like ABS hog/sag rule. Ignoring wind loads because these
+would be treated separately and should be acting in the opposite direction
+anyway (restoring a head sea if the superstructure is aft).</p>
+<p style="margin-top: 0; margin-bottom: 0">P.S. Is this hull a reasonable
+interpretation of your point-point form?</p>
+<p style="margin-left: 20; margin-top: 0; margin-bottom: 0"><font color="#008000">(JHK)
+We emphasized regular waves, and only looked at random waves at the end. In
+regular waves we saw that the ship would either generally point into the sea or
+if it went broadside, keep spinning around and point in the other direction into
+the sea.</font></p>
+<p style="margin-left: 20; margin-top: 0; margin-bottom: 0"><font color="#008000">It
+is hard to tell anything from the photos. In some cases, the waves do not appear
+to be regular, they appear random. See below, where, in the foreground, there
+appear to be two wavefronts at about 135 deg relative to one another. This may
+have happened because you tested in a bay. What were your wind conditions
+relative to the predominant sea?</font></p>
+<p style="margin-left: 20; margin-top: 0; margin-bottom: 0"><font color="#008000">We
+tested in a pool with no wind and artificially-generated waves.</font></p>
+<p style="margin-left: 20; margin-top: 0; margin-bottom: 0"><font color="#008000">We
+also saw a large, statistically-significant difference in propensity to broach.</font></p>
+<p style="margin-left: 40; margin-top: 0; margin-bottom: 0">(TAL) 28 Apr 2005.
+Yes, the video is much more instructive. Hopefully I'll be able to put on DVD
+soon - when software arrives, and send it over.</p>
+<p style="margin-left: 40; margin-top: 0; margin-bottom: 0">I'm surprised about
+the spinning - I would have expected it to hold itself broadside if waves were
+regular.</p>
+<p style="margin-left: 40; margin-top: 0; margin-bottom: 0">&quot;We also saw a
+large, statistically-significant difference in propensity to broach.&quot;</p>
+<p style="margin-left: 40; margin-top: 0; margin-bottom: 0">This is good - I
+presume the box was the worst?</p>
+<p style="margin-left: 60; margin-top: 0; margin-bottom: 0"><font color="#008000">(JHK)
+April 28, 2005 Yes, the box was worst, and the pointy was best.</font></p>
+<p style="margin-left: 60; margin-top: 0; margin-bottom: 0"><font color="#008000">Hypothesis:
+the vessel could continue around because, even with regular waves, the forces
+are not completely symmetrical. This is exacerbated because of the pointiness,
+perhaps partly due to difference in phasing. Also, the inertia of the turning
+shiphelps it to continue, along with the non-symmetry.</font></p>
+<p style="margin-left: 80; margin-top: 0; margin-bottom: 0">(TAL) April 28, 2005
+My test gave absolutely no indication of spinning around. They all locked into
+some position and pretty much stayed there. I found that all hulls wanted to go
+broadside (if they had no sail), but boxy was worst (I think). I can't
+understand how anything long would ever want to get out of a beam sea at all -
+unless deliberately navigated by wind or power - regardless of the hull shape. I
+think it is simply the physics of waves - buoyancy forces yawing a quartering
+hull, the fact that roll inertia is the lowest (and hence favored), perhaps some
+skin friction effects due to wave orbital motion... It all tends to broadside.</p>
+<p style="margin-left: 80; margin-top: 0; margin-bottom: 0">If I am right then a
+long ark (L/B=6) is the WORST shape. The only solution is to give the ark
+directional control which only makes sense in a relatively regular sea and wind.</p>
+<p style="margin-left: 100; margin-top: 0; margin-bottom: 0"><font color="#008000">(JHK)
+28 Apr 2005 We emphasized regular waves, and only looked at random waves at the
+end. In regular waves we saw that the ship would either generally point into the
+sea or if it went broadside, keep spinning around and point in the other
+direction into the sea.</font></p>
+<p style="margin-left: 100; margin-top: 0; margin-bottom: 0"><font color="#008000">It
+is hard to tell anything from the photos. In some cases, the waves do not appear
+to be regular, they appear random. See below, where, in the foreground, there
+appear to be two wavefronts at about 135 deg relative to one another. This may
+have happened because you tested in a bay. What were your wind conditions
+relative to the predominant sea?</font></p>
+<p style="margin-left: 100; margin-top: 0; margin-bottom: 0"><font color="#008000">We
+tested in a pool with no wind and artificially-generated waves.</font></p>
+<p style="margin-left: 100; margin-top: 0; margin-bottom: 0"><font color="#008000">We
+also saw a large, statistically-significant difference in propensity to broach.</font></p>
+<p style="margin-left: 20; margin-top: 0; margin-bottom: 0">&nbsp;</p>
+<hr>
+<p style="margin-top: 0; margin-bottom: 0">&nbsp;</p>
+<p style="margin-top: 0; margin-bottom: 0"><b>16 May 2005 &quot;Some tests in
+light wind&quot;</b></p>
+<p style="margin-top: 0; margin-bottom: 0"><font color="#800000">(AHM) What’s
+going on Arkwise and otherwise, I haven’t heard from you in some time?</font></p>
+<p style="margin-top: 0; margin-bottom: 0"><font color="#800000">I’ve been
+working on a website for my “Secular Humanism, Our First State Religion”
+slide show. This may be up and running this week. I will let you know as soon as
+I get my URL. I am giving the talk before the Humanists of Houston group this
+Saturday.</font></p>
+<p style="margin-left: 20; margin-top: 0; margin-bottom: 0"><b>(TAL) May 16,
+2005</b></p>
+<p style="margin-left: 20; margin-top: 0; margin-bottom: 0">A talk for the
+humanists? That's something! Website sound interesting!</p>
+<p style="margin-left: 20; margin-top: 0; margin-bottom: 0">CAD burn-out. Yes I
+tend to work in hits of about 3 weeks at a time.</p>
+<p style="margin-left: 20; margin-top: 0; margin-bottom: 0">I'm not posting your
+drawings until I've checked what your plans are - what you want to do with them.
+I am considering presenting a range of arks based on various technologies which
+I think is a fairly honest way to assess the thing. (I've never been keen on the
+idea of saying &quot;this it IT&quot;, unless one can be relatively confident
+somehow).</p>
+<p style="margin-left: 20; margin-top: 0; margin-bottom: 0">Arkwise I was
+assessing the next move - was tempted to start heading for 3D realtime (game)
+walkthrough, but I reckon God said to stick to the research stuff. Actually, I
+reckon God said &quot;stop trying to turn it into your product&quot; and just be
+honored that you are allowed to take part in the thing. I have to agree, He's
+got a good point there.</p>
+<p style="margin-left: 20; margin-top: 0; margin-bottom: 0">I want to directly
+compare ship hull vs block hull wave induced yawing moment (broadside tendency)
+because I need to convince some people. Otherwise the default position will be a
+half-hearted attempt to go slightly away from the cuboid hull to try to please
+everyone. But if it doesn't get out of broadside you're sunk, so may have to
+take it seriously or not at all (direction keeping that is).</p>
+<p style="margin-left: 20; margin-top: 0; margin-bottom: 0">It is really weird
+how I can't seem to find explicit details on this issue - I would have expected
+it to appear in the rules. A function of...</p>
+<p style="margin-left: 20; margin-top: 0; margin-bottom: 0">(Wave size and
+slope)^k1 * (ship form parameters)^k2 = k3*(propulsive turning power)</p>
+<p style="margin-left: 20; margin-top: 0; margin-bottom: 0">Then add wind
+direction, ship wind profile perhaps.</p>
+<p style="margin-left: 20; margin-top: 0; margin-bottom: 0">This doesn't seem
+too much more approximate than setting up explicit rules for wave bending
+moment.</p>
+<p style="margin-left: 20; margin-top: 0; margin-bottom: 0">Maybe it can be
+reverse engineered by looking at the turning power (full RPM hard rudder) of
+typical ships and guessing that they should be able to get out of a big beam
+sea. But then, I have some suspicions that not all of them can... I bet a some
+tankers can get &quot;caught in the trough&quot;... <a href="http://www.tv-antenna.com/heavy-seas/a.jpg">http://www.tv-antenna.com/heavy-seas/a.jpg</a></p>
+<p style="margin-left: 20; margin-top: 0; margin-bottom: 0">So if I can quantify
+or at least get a feel for the lessening of broaching yaw due to streamlining
+(non-block shape), and then somehow quantify or reasonably estimate the size of
+windcatching/water catching features then a design range for a directionally
+stable Ark might be possible.</p>
+<p style="margin-left: 20; margin-top: 0; margin-bottom: 0">I was also planning
+to make a claim that the proportions of the ark point to design waves with a
+steady wind. Even the Hong study shows this. <a href="http://www.worldwideflood.com/ark/safety_aig/safety_aig_comments.htm">http://www.worldwideflood.com/ark/safety_aig/safety_aig_comments.htm</a></p>
+<p style="margin-left: 20; margin-top: 0; margin-bottom: 0">They use a random
+sea (all directions equally) and the shorter hull (hull 9) beats Noah's Ark
+every time. In other words, if all directions equally, then you're be better of
+with a shorter Ark. (L/B &lt;6) - which also save some wood too (volume to
+surface area ratio closer to the ideal cube). So 300x50x30 can only make sense
+if the design sea state was relatively uniform and controllable - which can only
+be a steady wind as far as I can tell. It also indicates geological (tsunami)
+waves were not the design waves since I don't think there is any way to
+auto-pilot over these). Besides this, the worst geological waves and currents
+should have occurred early while the Ark was high and dry-ish.</p>
+<p style="margin-left: 20; margin-top: 0; margin-bottom: 0">So I want to do more
+model testing.</p>
+<p style="margin-left: 40; margin-top: 0; margin-bottom: 0"><b><font color="#800000">(AHM)
+18 May 2005 </font></b></p>
+<p style="margin-left: 40; margin-top: 0; margin-bottom: 0"><font color="#800000">It
+looks like you have been doing some soul-searching. One has to be careful in
+doing this sort of thing that your ego or pride doesn’t get in the way. After
+all, the purpose of this exercise is Biblical apologetics. In this case it means
+showing that the Biblical account of the Flood and the Ark is (literally) true,
+and not an allegory or Jewish folk tale.</font></p>
+<p style="margin-left: 40; margin-top: 0; margin-bottom: 0"><font color="#800000">Egos
+can clash. ICR has lots of literature, videos etc. showing the rectangular Ark,
+and it might be embarrassing for them to acknowledge a ship-shape Ark. I’m not
+sure how AIG stands on the hull shape, but they apparently like a huge well-lit
+mezzanine internally. Then Woodmorappe has all kinds of ideas. This can get
+contentious. There is always the risk that the technical feasibility may turn
+out to be negative. Also there is the issue of how many animals can be fed and
+watered for the duration of the voyage and the period on land with the Ark still
+sealed. There are some that would prefer that no one dig too deeply into these
+issues because of the possibility of a negative outcome. Also there are many
+secularists that would like to see a negative outcome!</font></p>
+<p style="margin-left: 40; margin-top: 0; margin-bottom: 0"><font color="#800000">Anyhow
+I plan to do some Excel spreadsheet calculations on the beam seas vs. aligning
+up with the wind issue as soon as I get the Secular Humanist web site up.</font></p>
+<p style="margin-top: 0; margin-bottom: 0">&nbsp;</p>
+<hr>
+<p style="margin-top: 0; margin-bottom: 0">&nbsp;</p>
+<p style="margin-top: 0; margin-bottom: 0"><b>20 May 2005</b></p>
+<p style="margin-top: 0; margin-bottom: 0">(TAL) BY the time I try to read,
+understand and explain this I thought I might as well make a page; (Not linked
+yet) <a href="http://www.worldwideflood.com/ark/anti_broaching/wave_yaw.htm">http://www.worldwideflood.com/ark/anti_broaching/wave_yaw.htm</a></p>
+<p style="margin-top: 0; margin-bottom: 0">I can't see how the orbital motion
+will give a NET yaw. Looks like an oscillatory moment to me, which would
+indicate that hydostatic yaw is dominant, which would point to a low Cb hull.</p>
+<p style="margin-top: 0; margin-bottom: 0">Anyway, that was the next thing I
+want to test. A functioning Mag hull against the others and compare the
+necessary &quot;sail&quot; size to make them work, hence get a feel for how much
+effect the hull form has, or how workable/unworkable the cuboid-isticalism.</p>
+<p style="margin-top: 0; margin-bottom: 0">And considering that a random sea
+would also favor a low Cb, the box really doesn't look good.</p>
+<p style="margin-left: 20; margin-top: 0; margin-bottom: 0"><font color="#008000">(JHK)
+Perhaps the answer is included in the quote from PNA:</font></p>
+<p style="margin-left: 20; margin-top: 0; margin-bottom: 0"><font color="#008000">&quot;Unless
+the ship is advancing exactly at right angles to the waves, the wave profile
+differs on the two sides of the ship, and in general the longitudinal position
+of the center of pressure on one side of the ship is not the same as that on the
+other. This results in a couple producing rotation of the ship about a vertical
+axis. &quot; (emphasis added)</font></p>
+<p style="margin-left: 40; margin-top: 0; margin-bottom: 0">(TAL) Yes, I didn't
+think this description was all that helpful because it is not so easy to sketch.
+I split the hull into fore and aft sections rather than the two sides. In the
+end it would give the same result, but I think my method makes it a little more
+obvious why the hydroststic yaw is unbalanced. I think the line of action of the
+PNA port &amp; starboard divisions is too difficult to imagine without computing
+it, so less &quot;natural&quot; to understand.</p>
+<p style="margin-left: 20; margin-top: 0; margin-bottom: 0"><font color="#008000">(JHK)
+Let's consider the opposite situation. The ship is broached. Assume the ship is
+in regular waves. Even if this is the case, the waves are never exactly parallel
+to the ship. There could be a net yaw moment. This is accentuated in the
+ship-like forms because the wave encounters one end before it encounters the
+other end.</font></p>
+<p style="margin-left: 40; margin-top: 0; margin-bottom: 0">(TAL) I'm not sure
+what you are saying here. It seems you are saying that when approximately in a
+beam sea, the ship will still experience some yaw. Yes, but that yaw is to
+broach! As soon as the ship goes past the parallel point the waves will be
+applying the opposite yaw to keep it in a beam sea. Or are you saying that a
+non-regular wave direction might restore the ship to perpendicular heading? But
+the broaching maxima is at 45 degrees, so you would need to get the ship to
+accidently turn an awful long way for a irregular (&quot;never exactly
+parallel&quot;) wave to help it get out of a beam sea. So the yaw is relatively
+soft at the 90 and 0 degrees positions, but strongest at 45 degrees. This means
+you should get a reasonable zone (maybe +/- 15 degrees) where the ship is most
+controllable.</p>
+<p style="margin-left: 20; margin-top: 0; margin-bottom: 0"><font color="#008000">(JHK)
+Also, in our case, the ship was not broached to start. It yawed abeam the sea
+(in those cases when it broached) and had inertia that also helped to carry it
+beyond the broach.</font></p>
+<p style="margin-left: 40; margin-top: 0; margin-bottom: 0">(TAL) This is the
+bit I don't understand. My models showed absolutely no tendency to yaw
+continuously. Is this something that can happen in real life? I imagine that
+this would only occur in a very short ship (low L/B), or an extremely flukey
+wavelength.</p>
+<p style="margin-left: 40; margin-top: 0; margin-bottom: 0">Admittedly, a
+hypothesis in an attempt to explain what was repeatedly observed. It's not
+caused by a limited wavefront length is it? I can't get my head around this.</p>
+<p style="margin-left: 20; margin-top: 0; margin-bottom: 0"><font color="#008000">(JHK)
+Yesterday, Nathaniel took his project to the Naval Sea Systems Command. I could
+not be there because I was in Mississippi. He got a lot of good comments. An
+admiral told him that they are working on a ship with a broaching problem right
+now. Of course, I knew that and was one that told them it would be a problem.
+The admiral showed Nathaniel a picture. Nathaniel's reaction was that even he
+could tell that it would not work. Somebody else recognized the proportions as
+coming from the Ark.</font></p>
+<p style="margin-left: 40; margin-top: 0; margin-bottom: 0">(TAL) WOW! Without
+devulging secrets, what particular aspects of the design led you to this
+conclusion? Was it hull fore/aft symmetry in the water, or L/B ratio, or
+inadeqate bow buoyancy, or ...?</p>
+<p style="margin-left: 40; margin-top: 0; margin-bottom: 0">Nathaniel is
+certainly making some waves. Amazing. Be good to see it published.</p>
+<p style="margin-left: 20; margin-top: 0; margin-bottom: 0">&nbsp;</p>
+<p style="margin-left: 20; margin-top: 0; margin-bottom: 0">&nbsp;</p>
+<p style="margin-left: 20; margin-top: 0; margin-bottom: 0">&nbsp;</p>
+<p style="margin-left: 20; margin-top: 0; margin-bottom: 0">&nbsp;</p>
+
+</body>
+
+</html>

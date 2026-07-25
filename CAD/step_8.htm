@@ -1,0 +1,171 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+
+<head>
+<title>Hull Loft Tute 4</title>
+<meta name="description" content="add your site description here">
+<meta name="keywords" content="add your search engine keywords here separated by commas">
+<meta http-equiv="Content-Language" content="en-us">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<link rel="stylesheet" type="text/css" href="tute.css">
+</head>
+
+<body>
+  <table style="border-collapse: collapse" bordercolor="#111111" cellpadding="0" cellspacing="0" width="100%">
+    <tr>
+      <td width="200" class="leftside" valign="top" bgcolor="#FFFFFF">
+      <p align="center"><img border="0" src="loft_pic.jpg" width="200" height="267"><p>&nbsp;</p>
+      <div align="left">
+        <table width="100%">
+          <tr>
+            <td width="100%" class="hottopic1"><a href="http://www.worldwideflood.com">HOME</a>
+              <p><a href="http://www.worldwideflood.com/jsmenu/full_menu.htm">WWF
+              Menu</a></p>
+              <p>&nbsp;</p>
+              <p>Hull Lofting Tutorial:</p>
+            </td>
+          </tr>
+          <tr>
+            <td width="100%" class="hottopic2"><a href="start.htm">Start: 0</a><br>
+              <a href="step_1.htm"> Set the first dxf: 1</a><br>
+              <a href="step_2.htm"> Paste other dxf's: 2</a><br>
+              <a href="step_3.htm">Loft profiles: 3</a><br>
+              <a href="step_4.htm">Loft test: 4</a><br>
+              <a href="step_5.htm">Loft Better: 5</a><br>
+              <a href="step_6.htm">Shelling: 6</a><br>
+              <a href="step_7.htm">Full Length: 7</a><br>
+              <a href="step_8.htm">Keel, Mirror &amp; Render: 8</a>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <p>&nbsp;</p>
+      <p>&nbsp;</p>
+      <table width="100%">
+        <tr>
+          <td width="100%" class="hottopic1">Background:</td>
+        </tr>
+        <tr>
+          <td width="100%" class="hottopic3">The ship lines were created by Dr
+            Allen Magnuson in Feb 2005 using Vacanti Prolines LE. The data was
+            exported in 2D&nbsp;dxf format, then traced&nbsp;in TurboCad Pro
+            8.2. Hull is based on the proportions of Noah's Ark according to
+            Genesis 6:15. Tutorial by Tim Lovett Feb 05.</td>
+        </tr>
+      </table>
+      <p align="center">&nbsp;</p>
+      </td>
+      <td valign="top" class="rightside" align="center">
+      <h1 style="text-align: center">STEP 8: Keel, Mirror &amp; Render</h1>
+      <hr>
+      <h2>1. Mirror test</h2>
+      <p>Mirror the half hull.</p>
+      <ul>
+        <li>Make layer on the profile workplane visible (the geometry will be
+          used as a mirror plane)</li>
+        <li>Set a horizontal workplane (waterplane_0). This should be seen as a
+          top view&nbsp;</li>
+        <li>Select the shelled loft</li>
+        <li>Mirror command (Edit / Copy Entities / Mirror)</li>
+        <li>&quot;Select the first point of the mirror line&quot;... Pick the
+          points on the profile workplane using the &quot;Nearest on
+          Graphic&quot; snap.</li>
+      </ul>
+      <p><img border="0" src="step7_files/shelled_top_view.gif" width="198" height="51"></p>
+      <p>Works OK.&nbsp;</p>
+      <p>Delete this mirrored half again. We will finish it off before doing the
+      final mirror.</p>
+      <hr>
+      <h2>2. Keel and Stem</h2>
+      <p>A simple bit of 3D this time - a plain old sketch followed by a Normal
+      Protrude.</p>
+      <ul>
+        <li>Set the center 'profile' workplane.&nbsp;</li>
+        <li>Draw an outline for the keel and stem as a continuous loop.&nbsp;</li>
+      </ul>
+      <p><img border="0" src="step8_files/keel_profile.gif" width="737" height="127"></p>
+      <ul>
+        <li>If the outline is made of several lines, join it into a polyline.
+          (Modify / Join Polyline)</li>
+        <li>Now protrude this by 20 inches INTO the existing shelled loft.</li>
+        <li>Check that the keel hides any boundary irregularities in the shell.
+          There is something at the stern that need's hiding...</li>
+      </ul>
+      <p><img border="0" src="step8_files/skeg_issue.gif" width="342" height="343"></p>
+      <hr>
+      <h2>3. Forecastle by boolean cut&nbsp;&nbsp;</h2>
+      <p>Again using the central profile workplane, sketch the shape of the
+      weather deck (roof), using the level 0 profile as a template. If using a
+      spline curve to create the geometry, remember to &quot;close&quot; the
+      curve, otherwise you get a fence instead of a solid.</p>
+      <ul>
+        <li>Draw the cut-away shape onto the profile workplane.</li>
+      </ul>
+      <p><img border="0" src="step8_files/boolean_spline.gif" width="249" height="72"></p>
+      <ul>
+        <li>Extrude this curve out 500 inches (so it extends beyond the side of
+          the hull). This image is wireframe rendered...</li>
+      </ul>
+      <p><img border="0" src="step8_files/boolean_solid.gif" width="244" height="114"></p>
+      <ul>
+        <li>Do a boolean subtraction. (First you pick the one to KEEP, then the
+          subtractor... So pick hull then cutout). Should get this...</li>
+      </ul>
+      <p><img border="0" src="step8_files/boolean_done.gif" width="274" height="78"></p>
+      <ul>
+        <li>Now do a mirror to see how it looks... (Group the stem and hull
+          together first, so the keel is mirrored)</li>
+      </ul>
+      <p><img border="0" src="step8_files/hull.gif" width="305" height="121"></p>
+      <hr>
+      <h2>3. Some Lights and Materials</h2>
+      <p>Add a quick material.</p>
+      <p>Select BOTH hull sides, then RB &gt; Properties &gt; 3D &gt; Edit
+      Material... &gt;&nbsp;</p>
+      <p>In Material Properties, select Pine Floorboard, Mapping by X plane &gt;
+      OK etc &gt; Quality Render</p>
+      <p><img border="0" src="step8_files/hull2.jpg" width="228" height="128"></p>
+      <p>Now add a different material to the stem. I used Birch.&nbsp;</p>
+      <p>Settings used in the following image;</p>
+      <ul>
+        <li>Camera Properties: Perspective = 50 degrees, rendering full</li>
+        <li>Material Properties: Hull = Pine floorboards, mapping auto, plank
+          length 100 width 8 etc</li>
+      </ul>
+      <p><img border="0" src="step8_files/material_pine.jpg" width="300" height="295"></p>
+      <ul>
+        <li>Lighting: Reduce the ambient from 1000W to 500W. Then add a
+          directional light, (dx=0, dy=1, dz=-1), colored light pink (wood is
+          getting a bit too yellow)&nbsp;</li>
+      </ul>
+      <p><img border="0" src="step8_files/hull3.jpg" width="323" height="264"></p>
+      <p>Well, there you go. Obviously the planks are oversize, but this allows
+      me to keep the images small. Could reduce the ambient a bit more, or
+      darken the wood perhaps. Plenty of graphical things to try...&nbsp;</p>
+      <p>It would be nice if TC could work out how to plank a ship hull, but
+      this is asking a bit much. To be quite honest, planking such a blunt stern
+      is not easy anyway.&nbsp;</p>
+      <p>If you think this planking looks like an eggshell, you are pretty
+      close.&nbsp; Eggshells are 0.36mm over 40mm diameter (<a href="http://www.isma_isaac.be/publications/PMA_MOD_publications/ISMA23/p1497p1502.pdf">Coucke
+      et al</a>) or diameter just over 100t, at 12 inches the Ark beam is 75t.
+      Pretty close to an eggshell.</p>
+      <p><img border="0" src="step8_files/hill_big.jpg" width="748" height="531"></p>
+          <hr>
+          <div align="left">
+            <table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%">
+              <tr>
+                <td width="100%" class="tiny">
+          <p style="tiny; text-align:center">Tim Lovett © 2005 | All Rights 
+          Reserved| <a href="http://www.worldwideflood.com">http://www.worldwideflood.com</a>
+                </td>
+              </tr>
+            </table>
+      </div>
+      </td>
+    </tr>
+  </table>
+
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>Ararat Page</title>
+
+<script src="http://maps.google.com/maps?file=api&amp;v=1&amp;key=ABQIAAAAYTYTeJ77zptdoOSrV1IBPRSrKUCAJJJhPdZpSSF0xWmgu5bVehQ8j585G_kYHF0Gv0YaooOtvlviCw" type="text/javascript"></script>
+</head>
+
+<body>
+
+<div id="map" style="width: 500px; height: 400px">
+</div>
+<script type="text/javascript">
+    //<![CDATA[
+    
+	var map = new GMap(document.getElementById("map"));
+	var ptGMA = new GPoint(44.295,39.705)
+	var ptDUR = new GPoint(44.235,39.44)
+
+	map.addControl(new GLargeMapControl());
+	map.addControl(new GMapTypeControl());
+	map.centerAndZoom(ptGMA, 8);
+	var marker1 = new GMarker(ptGMA);
+	map.addOverlay(marker1);
+	var marker2 = new GMarker(ptDUR);
+	map.addOverlay(marker2);
+	map.openInfoWindow(map.getCenterLatLng(), document.createTextNode("Mt Ararat (Agri Dagi)"));
+ 
+    //]]>
+</script>
+<p>&nbsp;</p>
+
+</body>
+
+</html>
